@@ -1,0 +1,523 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% File: thesis.tex, version 1.9, May 2016
+%%%
+%%% =============================================
+%%% This file contains a template that can be used with the package
+%%% cs.sty and LaTeX2e to produce a thesis that meets the requirements
+%%% of the Computer Science Department from the Technical University of Cluj-Napoca
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper,twoside]{report}         
+\usepackage{cs}              
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath,amsbsy}
+\usepackage{amssymb}
+\usepackage[matrix,arrow]{xy}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+%\usepackage{shortcut} %definitii pentru diacritice; 
+\usepackage{amstext}
+\usepackage{graphics}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{color}
+\usepackage{color}
+\usepackage[super]{nth}
+% \mastersthesis
+\diplomathesis
+% \leftchapter
+\centerchapter
+% \rightchapter
+\singlespace
+% \oneandhalfspace
+% \doublespace
+
+\renewcommand{\thesisauthor}{Mihai PÎȚU}    %% Your name.
+\renewcommand{\thesismonth}{September}     %% Your month of graduation.
+\renewcommand{\thesisyear}{2019}      %% Your year of graduation.
+\renewcommand{\thesistitle}{SueC - An Editor and Interpreter for Pseudocode} 
+\renewcommand{\thesissupervisor}{dr. eng. Emil Ștefan CHIFU}
+\newcommand{\department}{\bf FACULTY OF AUTOMATION AND COMPUTER SCIENCE\\
+COMPUTER SCIENCE DEPARTMENT}
+\newcommand{\thesis}{LUCRARE DE LICEN'T'A}
+\newcommand{\utcnlogo}{\includegraphics[width=15cm]{img/tucn.jpg}}
+
+\newcommand{\uline}[1]{\rule[0pt]{#1}{0.4pt}}
+%\renewcommand{\thesisdedication}{P\u{a}rin\c{t}ilor mei}
+
+\begin{document}
+%\frontmatter
+%\pagestyle{headings}
+
+\newenvironment{definition}[1][Defini\c{t}ie.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+
+%\thesistitle                    %% Generate the title page.
+%\authordeclarationpage                %% Generate the declaration page.
+
+\pagenumbering{arabic}
+\setcounter{page}{4}
+
+
+
+\begin{center}
+\utcnlogo
+
+\department
+
+\vspace{4cm}
+
+{\bf \thesistitle} %LICENSE THESIS TITLE}
+
+\vspace{1.5cm}
+
+LICENSE THESIS
+
+\vspace{6cm}
+
+Graduate: {\bf \thesisauthor} 
+
+Supervisor: {\bf \thesissupervisor}
+
+\vspace{3cm}
+{\bf \thesisyear}
+\end{center}
+
+\thispagestyle{empty}
+\newpage
+
+\begin{center}
+\utcnlogo
+
+\department
+
+\end{center}
+\vspace{0.5cm}
+
+%\begin{small}
+\begin{tabular}{p{7cm}p{8cm}}
+ %\hspace{-1cm}& APPROVED,\\
+ \hspace{-1cm}DEAN, & HEAD OF DEPARTMENT,\\
+ \hspace{-1cm}{\bf Prof. dr. eng. Liviu MICLEA} & {\bf Prof. dr. eng. Rodica POTOLEA}\\  
+\end{tabular}
+ 
+\vspace{2cm}
+
+\begin{center}
+Graduate: {\bf \thesisauthor}
+
+\vspace{1cm}
+
+{\bf \thesistitle}
+\end{center}
+
+\vspace{1cm}
+
+\begin{enumerate}
+ \item {\bf Project proposal:} {\it Short description of the license thesis and initial data}
+\item {\bf Project contents:} {\it (enumerate the main component parts) Presentation page, advisor's evaluation, title of chapter 1, title of chapter 2, ..., title of chapter n, bibliography, appendices.}
+\item {\bf Place of documentation:} {\it Example}: Technical University of Cluj-Napoca, Computer Science Department
+\item {\bf Consultants:}
+\item {\bf Date of issue of the proposal:} November 1, 2017
+\item {\bf Date of  delivery:} February 18, 2019 {\it (the date when the document is submitted)}
+  \end{enumerate}
+\vspace{1.2cm}
+
+\hspace{6cm} Graduate: \uline{6cm} 
+
+\vspace{0.5cm}
+\hspace{6cm} Supervisor: \uline{6cm} 
+%\end{small}
+
+\thispagestyle{empty}
+
+
+\newpage
+$ $
+%\begin{center}
+%\utcnlogo
+
+%\department
+%\end{center}
+
+\thispagestyle{empty}
+\newpage
+
+\begin{center}
+\utcnlogo
+
+\department
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+{\bf
+Declara\c{t}ie pe proprie r\u{a}spundere privind\\ 
+autenticitatea lucr\u{a}rii de licen\c{t}\u{a}}
+\end{center}
+\vspace{1cm}
+
+
+
+Subsemnatul(a) \\
+\uline{14.8cm}, 
+legitimat(\u{a}) cu \uline{4cm} seria \uline{3cm} nr. \uline{4cm}\\
+CNP \uline{9cm}, autorul lucr\u{a}rii \uline{2.8cm}\\
+\uline{16cm}\\
+\uline{16cm}\\
+elaborat\u{a} \^{\i}n vederea sus\c{t}inerii examenului de finalizare a studiilor de licen\c{t}\u{a} la Facultatea de Automatic\u{a} \c{s}i Calculatoare, Specializarea \uline{7cm} din cadrul Universit\u{a}\c{t}ii Tehnice din Cluj-Napoca, sesiunea \uline{4cm} a anului universitar \uline{3cm}, declar pe proprie r\u{a}spundere, c\u{a} aceast\u{a} lucrare este rezultatul propriei activit\u{a}\c{t}i intelectuale, pe baza cercet\u{a}rilor mele \c{s}i pe baza informa\c{t}iilor ob\c{t}inute din surse care au fost citate, \^{\i}n textul lucr\u{a}rii \c{s}i \^{\i}n bibliografie.
+
+Declar, c\u{a} aceast\u{a} lucrare nu con\c{t}ine por\c{t}iuni plagiate, iar sursele bibliografice au fost folosite cu 
+respectarea legisla\c{t}iei rom\^{a}ne \c{s}i a conven\c{t}iilor interna\c{t}ionale privind drepturile de autor.
+
+Declar, de asemenea, c\u{a} aceast\u{a} lucrare nu a mai fost prezentat\u{a} \^{\i}n fa\c{t}a unei alte comisii de examen de licen\c{t}\u{a}.
+
+\^{I}n cazul constat\u{a}rii ulterioare a unor declara\c{t}ii false, voi suporta sanc\c{t}iunile administrative, respectiv, \emph{anularea examenului de licen\c{t}\u{a}}.
+
+\vspace{1.5cm}
+
+Data \hspace{8cm} Nume, Prenume
+
+\vspace{0.5cm}
+
+\uline{3cm} \hspace{5cm} \uline{5cm}
+
+\vspace{0.5cm}
+\hspace{9.4cm}Semn\u{a}tura
+
+\thispagestyle{empty}
+
+\newpage
+
+
+%\listoftables
+%\listoffigures
+
+%\clearpage 
+%\newpage
+
+%\begin{comment}
+\include{guideline} 
+%\end{comment}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\chapter{Introduction - Project Context}
+\pagestyle{headings}
+\section{Project Context}
+
+	Computer science and programming is taught in schools around Romania for at least 30 years, especially in high schools, but also in secondary schools, starting with the \nth{5} grade. Before introducing directly to a programming language, many teachers use a pseudocode language which serves as a mean of understanding programming concepts in a more universal manner, bringing it closer to the natural spoken language. I have decided to make an implementation of this pseudocode by creating an editor and interpreter for it.
+	
+	The purpose of this project is to create an easier way of learning programming concepts for students who are new into this domain. This will serve as a fresh renewal of software used in schools today, as older tools such as Code::Blocks and/or Free Pascal are still used in schools and programming contests.
+ 
+	SueC is the name of the editor which creates, edits and compiles files which represent pseudocode files. This editor will work also like any other editors, providing some error-checking mechanisms and returning the result after compiling a pseudocode file.
+	
+\section{Motivation}
+	During high school, many of my colleagues have struggled learning programming and computer science as they had issues in understanding the simple paradigms because of C programming language. They have improved throughout the high school due to the teacher using pseudocode as a mean of explaining simple algorithms and paradigms, but there were some struggle shown for some when changing the pseudocode into implementations in C. 
+	
+	Nowadays, this issue is still persistent in schools in Romania as C and Pascal are used as main programming languages for teaching, exams and computer science contests. There are some more interactive programming languages such as Scratch which uses a graphical interface for implementing simple programs, but since the target audience is for primary school students, there is a need for an attractive way of making secondary and high school students for understanding programming at their age group. 
+	
+	At the moment, there are platforms for learning code such as CodeCademy and Udemy which contain basic courses for people at every age, but the main focus is for people who have a little background in programming and computer science.
+	
+	
+
+\chapter{Project Objectives and Specifications}
+
+
+As the title of the project suggests - "An Editor and Interpreter for Pseudocode" - this is an application which will serve as an educational tool for using the pseudocode as a programming language.
+
+For the users of this application(students and/or teachers), the main functionalities of this application are:
+\begin{itemize}
+	\item Creating/opened a file in which pseudocode can be implemented.
+	\item Writing pseudocode in the file created/opened.
+	\item Compiling the file and obtaining the desired result or error(s) if there are occured.
+	\item Running some step-by-step basic tutorials which are aimed for learning the language.
+\end{itemize}
+
+
+The main objectives of this project are:
+\begin{itemize}
+	\item Developing an user-friendly application which handles the main file handling operations and communicating with the compiler of the pseudocode source files.
+	\item Creating an understandable programming language that resembles the pseudocode used by teachers in schools and/or universities. For a technical point of view, the pseudocode will be created like any other programming languages, having similar elements to existing ones that are used nowadays, but also with specific structural elements bringing it closer to the natural language.
+	\item Developing a compiler for this programming language by defining a lexical and syntactic analyzer respectively. These analyzers contain the set of rules that apply to the programming language. 
+\end{itemize}
+
+
+
+
+
+\chapter{Bibliographic research}
+
+For this project, my research done was focused on the main components and technologies included in the project:
+\begin{enumerate}\bfseries
+	\item C Programming Language
+	\item Python Programming Language
+	\item Lex
+	\item Yacc
+\end{enumerate}
+ 
+\section{C Programming Language}
+ C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, while a static type system prevents unintended operations. This programming language was created between 1972 and 1973 as a way of making utilities work in Unix operating system, later being used for reimplementing the kernel of this OS. Since 1980s, C has gained enough popularity becoming one of the most widely used programming languages in the world. During this time, there were several C compilers created by several vendors for being available for the majority of existing computer architectures and operating systems. Since 1989, C has been standardized by ANSI (American National Standards Institute) and by the International Organization for Standardization (ISO). 
+  
+ Being an imperative procedural language, C was designed to be compiled using a relatively straightforward compiler to provide low-level access to memory and language constructs that map efficiently to machine code instructios all with minimal runtime support. This language supports cross-platform programming, making it available in numerous platforms, from embedded microcontrollers and supercomputers. It also stood as a big influence in the creation of other programming languages, such as:
+ \begin{itemize}
+ 	\item C++
+ 	\item C\#
+ 	\item Java
+ 	\item Python
+ 	\item Go
+ \end{itemize}
+
+ The C programming language syntax is defined by a formal grammar, having specific keywords and rules based on statements to specify different actions. The most common statement is an expression statement, consisting of an expression to be evaluated followed by a semicolon. The main structure of a C program consists of declarations and function definitions, which in turn contain declarations and statements. 
+ 
+ Besides exxpressions, the main sequence execution of statements can contain several control-flow statements defined by reserved keywords:
+  
+ \begin{itemize}
+ 	\item Conditional execution 
+ 	
+ 		This is defined by \textit{if} and \textit{else} statements. These statements contain an expression that the \textit{if} checks if it is true or not and execute statements based on a condition.
+ 		
+ 		Alongside those statements, there exists the \textit{switch} statement in which it displays a \textit{case} based on the expression given.
+ 		
+ 	\item Iterative execution (Looping)
+ 	
+ 		This is defined by \textit{while} , \textit{do-while} and \textit{for} statements which can loop through a certain set. The \textit{for} statement contains separate expressions for initialization, testing and reinitialization, any of which can be omitted. 
+ \end{itemize}
+
+
+\section{Python Programming Language}
+
+Python is an interpreted, high-level, general-purpose programming language with the aim to help programmers with clear, logical code for small and large-scale projects. It was conceived in the late 1980s as a successor to ABC language, but it was released in 1991. Python is dynamically typed and garbage-collected, supporting multiple programming paradigms, such as: procedural, object-oriented and functional. Due to this and its comprehensive standard library, Python is often described as a "batteries included" language. 
+
+Due to supporting multiple programming paradigms, Python is used in a lot of domains. Object-oriented programming and structured programming are fully supported, but it also includes features from functional programming and aspect-oriented programming. Other paradigms can be supported by Python via extensions, including even logic programming and design by contract. 
+
+Python is meant to be an easily readable language due to its syntax and semantics. The format is visually uncluttered, using English keywords more often than punctuation. Curly brackets are not used to delimit blocks and semicolons are optional. For block delimitation, whitespace indentation is used. A decrease in indentation shows that the current block of code is finished. With this method, it is shown that the program's visual structure accurately represents the program's semantic structure. 
+
+\section{Technologies used}
+
+\subsection{Lex}
+
+Lex/Flex is a computer program designed for generating lexical analyzers. It is the standard lexical analyzer generator on many Unix systems, having an equivalent tool as part of the POSIX standard. It is commonly used with \textit{yacc} parser generator.
+
+Lex reads an input stream specifying the lexical analyzer and outputs source code implementing a lexer in C. Older versions of Lex could also generate lexers in Ratfor. 
+
+\subsection{Yacc}
+
+Yacc\textit{(Yet Another Compiler-Compiler)} is a computer program for the Unix operating system. It is a LALR\textit{(Look Ahead Left-to-Right)} parser generator, which generates a parser, the part of a compiler that tries to make syntactic sense of the source code. 
+
+\subsection{.NET Framework}
+
+.NET Framework is a software development framework created by Microsoft and used for creating, compiling and distributing Windows and Web applications. It includes several technologies, such as ASP, LINQ, SQL, WPF, UWP that can be implemented in different programming languages, mainly: C\#, C++, F\#, Visual Basic, showing that there are implementations for objected oriented and functional programming. Besides the technologies, .NET framework holds a set of APIs and a runtime environment similar with Java Virtual Machine (JVM), called Common Language Runtime(CTR). 
+
+All the programming languages included in the framework respect the OOP rules via the introduction of a Common Type System (CTS) which defines all possible data types and programming constructs supported by CTR and how they may or may not interact according to Common Language Infrastructure (CLI) specification. These rules include: the creation of classes, interfaces, references, data types, SOLID principles, exception handling etc. 
+
+\subsection{Windows Forms}
+Windows Forms represents the graphical interface API included in .NET framework. A Form in .NET is represented in Windows applications as a window.
+
+A Form is an object which show properties that define the graphical interface and methods of responding to the events of user interface. By creating code for handling the events and setting the properties, objects are created based on the requirements needed for the application. One form contains a title bar, navigation bars, a menu, toolbars and a client zone for defining the event operations.
+
+\chapter{Analysis and Theoretical Foundation}
+\section{Editor Application}
+\subsection{Model-View-Controller(MVC) Architecture}
+
+Model-View-Controller (MVC) is a software design pattern commonly used for developing user interfaces which divides the related program logic into three interconnected elements. It is used mainly for designing the layout of a page (Desktop or Web). Although it has been traditionally used for desktop applications, this pattern has become popular in designing web applications. There are specified MVC frameworks for web and mobile application development in popular programming languages like: Java, C\#, Swift, Python, Ruby, JavaScript and PHP.
+
+
+The main components of this design pattern are:
+
+\begin{itemize}
+\item \textbf{Model}
+		
+It represents the central component of the pattern, being the application's dynamic data structure, independent of the user interface. It directly manages the data, logic and rules of the application.
+
+\item \textbf{View}
+
+It represents the visual element of the pattern, being any representation of information possible, like: charts, tables, diagrams, pages, forms etc. 
+
+\item \textbf{Controller}
+
+Accepts input from the view and converts the data obtained into commands that are directed to the model and/or view.
+\end{itemize}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.2]{img/MVCDiag.png}
+	\caption{Model-View-Controller Diagram}
+\end{figure}
+
+Besides the division of the application into these components, this pattern defines the interactions between the components:
+
+\begin{itemize}
+	\item The model of the application is responsible for managing the data of the application. The user input is received from the controller.
+	\item The view represents a presentation of the model having a particular format.
+	\item The controller responds to the user input given in the view(s) and performs interactions on the data model objects.
+\end{itemize}
+
+Model-View-Controller pattern offers different advantages in regards to developing applications, such as:
+\begin{itemize}
+	\item \textbf{Simultaneous development over the code} 
+	
+	Multiple developers can work simultaneously on the model, controller and views, having no change in the actual structure of the system.
+	\item \textbf{High cohesion}
+			
+	The cohesion is defined in computer programming as the degree to which the elements inside a module belong together. In other terms, it acts as a measure of the strength of relationship between the methods and data of one class and some unifying purpose or concept served by the class.
+	
+	In object-oriented programming, the term "cohesion" is used quite frequently together with coupling. The methods that serve in a class tend to be similar in many aspects, then that class is said to have high cohesion. A highly cohesive system has a manageable complexity, due to the increase of code readability and reusability. 
+	
+	This pattern presents this characteristic by having logical groupings of related actions in one controller altogether. Also, multiple views that are associated to a model can be grouped together. 
+	
+	\item \textbf{Loose coupling}
+	
+	Besides the cohesion, which serves the degree of "togetherness" of elements inside a module, the coupling is described as the degree of independence between software modules i.e. the strength of the relationships between modules between a system.
+	
+	A loosely coupled system is one which each of its components makes use of little or no knowledge of the definitions of other separated components. The main subareas include the coupling of classes, interfaces, data and services. Loose coupling goes hand-in-hand with high cohesion by having an manageable complexity and the ease of use of alternative implementations that provide the same services. 
+	
+	In the case of Model-View-Controller pattern, its nature and workflow shows the existence of a loose coupling between the Model, View and Controller of the application.	
+
+\end{itemize} 
+
+	
+\section{Interpreter}
+
+An interpreter is a computer program that directly executes instructions written in a programming or scripting language, without requiring them to have been compiled into a machine code language program. For program execution, an interpreter uses one of these strategies:
+
+\begin{itemize}
+	\item Parsing the source code and performing its behavior directly;
+	\item Translating the source code into efficient intermediate representation and immediately execute this;
+	\item Explicitly execute stored precompiled code made by a compiler which is part of the interpreter system.
+\end{itemize}
+
+Historically speaking, interpreters have been used since 1952 to ease programming within the limitations of computers existing at that time. Another usage of them was to translate between low-level machine languages, allowing code to be written for machines that were still under development and tested on computers that already existed. The first interpreted high-level language was Lisp. Nowadays, programs written in a high-level language are either directly executed by some kind of interpreter or converted into machine code by a compiler for the CPU to execute.
+
+There are some differences between a compiler and interpreter, mainly in the functionality. A compiler works most of the time with an assembler and linker. It produces machine code most of the time to be executed by the computer hardware, but it can often produce object code, an intermediate form. An object code is the same machine code created before, but with the addition of a symbol table containing names and tags to make executable blocks (or modules) identifiable and relocatable. The linker comes into working by combining these object file(s) with libraries that are included in the compiler in order to create a single executable file. On the other hand, a interpreter written in a low-level language may have similar machine code blocks implementing functions of the high level language stored and executed when a function's entry in a look up table points to that code. However, an interpreter written in a high level language uses another approach, such as: generating and walking a parse tree, generating and executing intermediate software-defined instructions or both approaches.
+
+Both compilers and interpreters generally turn source code into tokens, generate a parse tree. The basic difference is that a compiler system (along with a linker) generates a stand-alone machine code program, whereas an interpreter system performs the actions described by the high level program.
+
+For this project, this interpreter is written in C, a high level language, being split into three parts:
+\subsection{Lexical Analyzer}
+	
+	Lexical analysis (or tokenization) is the process of converting a sequence of characters into a sequence of tokens. A program that performs lexical analysis is called a lexer or tokenizer.
+	
+	In modern processing, a lexer forms the first phase of a compiler frontend, occuring mostly in one pass of the source code. A lexer is used alongside with a parser in most compilers and interpreters. It splits the source code, sentence by sentence, into tokens. Tokens are strings with an assigned meaning, being structured as a pair consisting of a token name and an optional token value. The token names can generally be split into:
+	
+	\begin{itemize}
+		\item \textit{Identifiers} - Names that a programmer/developer chooses.
+		\item \textit{Keywords} - Names that are already defined in the programming language
+		\item \textit{Separators/Punctuators} - Punctuation characters and paired-delimiters
+		\item \textit{Operators} - Symbols that operate on arguments and produce results
+		\item \textit{Literals} - Numeric, logical, textual, reference literals
+		\item \textit{Comments} - Line, block comments 
+	\end{itemize}
+	
+	When a statement is given as a source, the lexer splits every element of the statement, creating one token per element. For example, we consider a C expression: 
+	
+	\textit{c = a * (b + 5);}
+	
+	The lexer gets this statement, passes through its all defined lexems (the source program that matches the pattern for a token) and creates the token based on their lexem appartenance. In this case, the statement becomes:
+	\begin{itemize}
+			
+	\item (identifier, c)
+	\item (operator,=)
+	\item (identifier,a)
+	\item (operator,*)
+	\item (separator,()
+	\item (identifier,b)
+	\item (operator,+)
+	\item (literal,5)
+	\item (separator,))
+	\item (separator,;)
+	\end{itemize}
+
+	The tokens obtained are, then, passed to the parser.
+	
+\subsection{Syntactic Analyzer}
+	Syntactic analysis (or parsing) is the process of analyzing a string of symbols, either in natural language, computer languages or data structures, conforming to the rules of a formal grammar. In computer science, a parser is a software component that takes input data and builds a data structure - often a parse tree, abstract syntax tree or other hierarchical structure, giving a structural representation of the input while checking for correct syntax. In most cases, a lexer works hand-in-hand with a parser.
+	
+	After obtaining the tokens from the lexer, each token is analyzed based on its token name and creates a parse tree which is needed for passing through in order to get an order of operation handling, giving the response. 
+	%\ Aci bag exemplul cu diagrama pe care o folosesc si la parse tree si explic de frunze ca-s identificatori/literali
+\subsection{Parse Tree}
+ 	
+ 	The parse tree is the result of parsing the tokens from the lexer. Passing the tree determines the order of the operations done, giving the results. There are two ways of performing the pass of the tree:
+ 	
+ 	\begin{itemize}
+ 		\item \textbf{Top-down parsing}
+ 		
+ 		This method can be viewed as an attempt to find the left-most derivations of an input stream by searching for parse trees using a top-down expansion of the given formal grammar rules. Tokens are consumed from left to right.
+ 		
+ 		\item \textbf{Bottom-up parsing}
+ 		
+ 		A parser can start with the input and attempt to rewrite it to the start symbol. In this case, the input is represented by the leaves of the parse tree, being the most basic elements. The best example of this case are the LR(Left-to-right Rightmost) parsers, which analyze deterministic context-free languages in linear time.
+ 	\end{itemize}
+
+\chapter{Detailed Design and Implementation}
+
+\section{Project Component Diagram}
+%\Block Diagram of the application TBA
+This project is split into two main components:
+\begin{itemize}
+	\item Editor Application
+	\item SueC Interpreter
+\end{itemize}
+
+These components communicate bidirectionally in order to ensure a good workflow:
+\begin{itemize}
+	\item The editor application runs Windows shell commands to run the interpreter with the source file.
+	\item The result from the interpretation is then written in a file that is read by the editor application and displayed it there.  
+\end{itemize}
+\section{Editor Application}
+\subsection{Package Diagram}
+%\Package diagram TBA
+\begin{enumerate}
+	\item Controllers Package
+	\item Views Package
+	\item Utilities Package
+\end{enumerate}
+\section{SueC Interpreter}
+
+\chapter{Testing and Validation}
+
+About 5\% of the paper
+\section{Title}
+\section{Other title}
+
+\chapter{User's manual}
+
+In the installation description section your should detail the hardware and software resources needed for installing and running the application, and a step by step description of how your application can be deployed/installed. An administrator should be able to perform the installation/deployment based on your instructions.
+
+In the user manual section you describe how to use the application from the point of view of a user with no inside technical information; this should be done with screen shots and a stepwize explanation of the interaction. Based on user's manual, a person should be able to use your product.
+
+\section{Title}
+\section{Other title}
+
+\chapter{Conclusions}
+
+About. 5\% of the whole
+
+Here your write:
+\begin{itemize}
+\item a summary of your contributions/achievements,
+\item a critical analysis of the achieved results,
+\item a description of the possibilities of improving/further development.
+\end{itemize}
+\section{Title}
+\section{Other title}
+
+
+%\addcontentsline {toc}{chapter}{Bibliography} 
+\bibliographystyle{IEEEtran} 
+\bibliography{thesis}%same file name as for .bib
+
+\include{apendix}
+
+\end{document}
