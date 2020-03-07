@@ -53,7 +53,7 @@ extern FILE* yyin;
 "=="		return EQ;
 "!="		return NE;
 
-[ \t\n]+	;
+[ \t\n+]	;
 
 .			yyerror("Unknown character");
 

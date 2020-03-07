@@ -31,8 +31,7 @@ int execute_id(nodeType *p) {
 }
 
 int execute_oper(nodeType *p) {
-	char ch;
-	int exec;
+
 	if(!p)
 	{
 		printf("[Interpreter] Got an error here");
@@ -60,11 +59,16 @@ int execute_oper(nodeType *p) {
 	case WRITE: printf("[Interpreter] Got in WRITE\n");
 				printf("%d\n", execute_node(p->oper.op[0]));
 			 return 0;
+	case ';': execute_node(p->oper.op[0]);
+			 return execute_node(p->oper.op[1]);
 		//main operations
 	case '=': printf("[Interpreter] Got in =\n");
-			  ch = execute_node(p->oper.op[0]);
-			  exec = execute_node(p->oper.op[1]);
-			  return ch = exec;	
+			  switch(p->oper.op[0]->id.type)
+			  {
+			  	case HCVAR: return hcSym[p->oper.op[0]->id.value] = execute_node(p->oper.op[1]);
+			  	case LCVAR: return lcSym[p->oper.op[0]->id.value] = execute_node(p->oper.op[1]);
+			  }
+			  return 0;
 	case '+': printf("[Interpreter] Got in +\n");return execute_node(p->oper.op[0]) + execute_node(p->oper.op[1]);
 	case '-': printf("[Interpreter] Got in -\n");return execute_node(p->oper.op[0]) - execute_node(p->oper.op[1]);
 	case '*': printf("[Interpreter] Got in *\n");return execute_node(p->oper.op[0]) * execute_node(p->oper.op[1]);

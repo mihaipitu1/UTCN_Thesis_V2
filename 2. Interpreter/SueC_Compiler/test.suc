@@ -1,2 +1,7 @@
-write 4+5;
-write 3-2;
+int a;
+a=1;
+while(a<10)
+{
+	write a;
+	a = a + 1;
+}
