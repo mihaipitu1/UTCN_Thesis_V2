@@ -15,6 +15,8 @@ void yyerror(char* error);
 
 extern FILE* yyin;
 extern int yydebug;
+FILE* logFile;
+FILE* outputFile;
 %}
 
 %union {
@@ -50,23 +52,23 @@ program : program statement	{ execute_node($2); freeNode($2); }
 statement : simplestatement ';'
         | loopStatement
 		| condStatement
-		| INT variable ';'		{printf("[Yacc] Got in INT\n");}	
-	    | STRING variable ';'	{printf("[Yacc] Got in STRING\n");}	
+		| INT variable ';'		{fprintf(logFile,"[Yacc] Got in INT\n");}	
+	    | STRING variable ';'	{fprintf(logFile,"[Yacc] Got in STRING\n");}	
 		| '{' statementlist '}' { $$ = $2; }
         ;
 		
-condStatement : IF '(' expression ')' statement ELSE statement { printf("[Yacc]Got in IF-ELSE\n");$$ = operand(IF,3,$3,$5,$7); }
-		| IF '(' expression ')' statement { printf("[Yacc] Got in IF\n");$$ = operand(IF,2,$3,$5); }
+condStatement : IF '(' expression ')' statement ELSE statement { fprintf(logFile,"[Yacc]Got in IF-ELSE\n");$$ = operand(IF,3,$3,$5,$7); }
+		| IF '(' expression ')' statement { fprintf(logFile,"[Yacc] Got in IF\n");$$ = operand(IF,2,$3,$5); }
 		;
 		
 loopStatement : whileStatement
 			  | forStatement 
 		;
 		
-forStatement :	FOR '(' simplestatement ';' expression ';' expression ')' statement {printf("[Yacc] Got in FOR\n"); $$ = operand(FOR,4,$3,$5,$7,$9); }
+forStatement :	FOR '(' simplestatement ';' expression ';' expression ')' statement {fprintf(logFile,"[Yacc] Got in FOR\n"); $$ = operand(FOR,4,$3,$5,$7,$9); }
 		;
 		
-whileStatement :  WHILE '(' expression ')' statement { printf("[Yacc] Got in WHILE\n");$$ = operand(WHILE, 2,$3,$5); }
+whileStatement :  WHILE '(' expression ')' statement { fprintf(logFile,"[Yacc] Got in WHILE\n");$$ = operand(WHILE, 2,$3,$5); }
 		;
 		
 		
@@ -75,28 +77,28 @@ statementlist : statement
               ;
 
 simplestatement : expression 
-                | WRITE expression 		{ printf("[Yacc] Got in WRITE\n");$$ = operand(WRITE, 1, $2); }
-				| variable '=' expression	{ printf("[Yacc] Got in =\n");$$ = operand('=',2 , $1, $3); }
-				| READ variable 		{ printf("[Yacc] Got in READ\n");$$ = operand(READ, 1, $2); }
+                | WRITE expression 		{ fprintf(logFile,"[Yacc] Got in WRITE\n");$$ = operand(WRITE, 1, $2); }
+				| variable '=' expression	{ fprintf(logFile,"[Yacc] Got in =\n");$$ = operand('=',2 , $1, $3); }
+				| READ variable 		{ fprintf(logFile,"[Yacc] Got in READ\n");$$ = operand(READ, 1, $2); }
 				;
 				
-variable : HCVAR { printf("[Yacc] Got in HCVAR\n"); $$ = iden(HCVAR, $1); }
-		| LCVAR  { printf("[Yacc] Got in LCVAR\n"); $$ = iden(LCVAR, $1); }
+variable : HCVAR { fprintf(logFile,"[Yacc] Got in HCVAR\n"); $$ = iden(HCVAR, $1); }
+		| LCVAR  { fprintf(logFile,"[Yacc] Got in LCVAR\n"); $$ = iden(LCVAR, $1); }
 		;
 
-expression : NUM			{ printf("[Yacc] Got in NUM\n");$$ = leafInt(NUM, $1); }
-	   | '"' WORD '"' 				{ printf("[Yacc] Got in WORD\n");$$ = leafString(WORD,$2); }
+expression : NUM			{ fprintf(logFile,"[Yacc] Got in NUM\n");$$ = leafInt(NUM, $1); }
+	   | WORD  				{ fprintf(logFile,"[Yacc] Got in WORD\n");$$ = leafString(WORD,$1); }
 	   | variable	
-	   | expression '+' expression	{ printf("[Yacc] Got in +\n"); $$ = operand('+', 2, $1, $3); }
-	   | expression '-' expression	{ printf("[Yacc] Got in -\n");$$ = operand('-', 2, $1, $3); }
-	   | expression '*' expression	{ printf("[Yacc] Got in *\n");$$ = operand('*', 2, $1, $3); }
-	   | expression '/' expression	{ printf("[Yacc] Got in /\n");$$ = operand('/', 2, $1, $3); }
-	   | expression '<' expression	{ printf("[Yacc] Got in <\n");$$ = operand('<', 2, $1, $3); }
-	   | expression '>' expression	{ printf("[Yacc] Got in >\n");$$ = operand('>', 2, $1, $3); }
-	   | expression GE expression	{ printf("[Yacc] Got in >=\n");$$ = operand(GE, 2, $1, $3); }
-	   | expression LE expression	{ printf("[Yacc] Got in <=\n");$$ = operand(LE, 2, $1, $3); }
-	   | expression NE expression	{ printf("[Yacc] Got in !=\n");$$ = operand(NE, 2, $1, $3); }
-	   | expression EQ expression	{ printf("[Yacc] Got in ==\n");$$ = operand(EQ, 2, $1, $3); }
+	   | expression '+' expression	{ fprintf(logFile,"[Yacc] Got in +\n"); $$ = operand('+', 2, $1, $3); }
+	   | expression '-' expression	{ fprintf(logFile,"[Yacc] Got in -\n");$$ = operand('-', 2, $1, $3); }
+	   | expression '*' expression	{ fprintf(logFile,"[Yacc] Got in *\n");$$ = operand('*', 2, $1, $3); }
+	   | expression '/' expression	{ fprintf(logFile,"[Yacc] Got in /\n");$$ = operand('/', 2, $1, $3); }
+	   | expression '<' expression	{ fprintf(logFile,"[Yacc] Got in <\n");$$ = operand('<', 2, $1, $3); }
+	   | expression '>' expression	{ fprintf(logFile,"[Yacc] Got in >\n");$$ = operand('>', 2, $1, $3); }
+	   | expression GE expression	{ fprintf(logFile,"[Yacc] Got in >=\n");$$ = operand(GE, 2, $1, $3); }
+	   | expression LE expression	{ fprintf(logFile,"[Yacc] Got in <=\n");$$ = operand(LE, 2, $1, $3); }
+	   | expression NE expression	{ fprintf(logFile,"[Yacc] Got in !=\n");$$ = operand(NE, 2, $1, $3); }
+	   | expression EQ expression	{ fprintf(logFile,"[Yacc] Got in ==\n");$$ = operand(EQ, 2, $1, $3); }
 	   | '(' expression ')'		{ $$ = $2; }
 	   ;
 
@@ -111,7 +113,9 @@ nodeType* leafString(int type, char* value) {
 		yyerror("No memory left");
 	}
 	node->type = constType;
+	node->constant.sValue = (char*)malloc(sizeof(char*));
 	strcpy(node->constant.sValue,value);
+	fprintf(logFile,"[Yacc] %s", node->constant.sValue);
 	node->constant.type = type;
 	return node;
 }
@@ -185,19 +189,37 @@ void freeNode(nodeType* node) {
 void yyerror(char* error) {
 	extern char* yytext;
 	extern int yylineno;
-	printf("[Yacc] %s At Line: %d - Char: %c\n", error,yylineno,*yytext);
+	fprintf(logFile,"[Yacc] %s At Line: %d - Char: %c\n", error,yylineno,*yytext);
 }
 
 int main(int argc, char **argv)
 {
+	char* logFilePath = (char*)malloc(sizeof(char*));
+	char* outputFilePath = (char*)malloc(sizeof(char*));
+
+	strcpy(logFilePath, "./suec.log");
+	strcpy(outputFilePath,"./suec.output");
+
+	if(!(logFile = fopen(logFilePath,"wb+")))
+	{
+		printf("[Yacc] Error at log file.\n");
+		exit(1);
+	}
+
+	if(!(outputFile = fopen(outputFilePath,"wb+"))) 
+	{
+		printf("[Yacc] Error at output file.\n");
+		exit(1);
+	}
+
 	if(argc != 2)
 	{
-		printf("[Yacc] Error! No input file given.\n");
+		fprintf(logFile,"[Yacc] Error! No input file given.\n");
 		exit(1);
 	}
 	if(!(yyin = fopen(argv[1],"r")))
 	{
-		printf("[Yacc] Error! Cannot open file given.\n");
+		fprintf(logFile,"[Yacc] Error! Cannot open file given.\n");
 		exit(1);
 	}
 

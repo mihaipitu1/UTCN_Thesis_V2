@@ -1,7 +1,0 @@
-int a;
-a=1;
-while(a<10)
-{
-	write a;
-	a = a + 1;
-}

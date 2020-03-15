@@ -1,14 +1,18 @@
 package views;
 
-import commons.ui.MenuBar;
+
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
+import commons.ui.MainMenuBar;
+import commons.ui.menu.HelpMenu;
+
 public class BaseView extends JFrame {
-    private MenuBar menuBar;
+    private MainMenuBar menuBar;
     private JPanel mainPanel;
+    private HelpMenu helpMenu;
 
     public BaseView() {
         super();
@@ -23,13 +27,21 @@ public class BaseView extends JFrame {
         this.setLayout(layout);
 
 
-        menuBar = new MenuBar();
+        menuBar = new MainMenuBar();
+        helpMenu = new HelpMenu();
+
+        menuBar.addMenuItem(helpMenu.getMenu());
+
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(2,1,2,2));
         this.menuBar.getMenuBar().setSize(new Dimension(600,20));
 
         this.add(menuBar.getMenuBar(), BorderLayout.NORTH);
         this.add(mainPanel,BorderLayout.CENTER);
+    }
+
+    public MainMenuBar getMainMenuBar() {
+        return this.menuBar;
     }
 
     public JPanel getMainPanel() {

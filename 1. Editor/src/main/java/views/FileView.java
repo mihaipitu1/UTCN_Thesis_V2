@@ -1,36 +1,57 @@
 package views;
 
+
+import commons.ui.events.CompilerEvents;
 import commons.ui.events.FileEvents;
 import commons.ui.menu.CompileMenu;
 import commons.ui.menu.FileMenu;
-import commons.ui.menu.HelpMenu;
 import commons.ui.menu.TutorialMenu;
-import main.Main;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainView extends BaseView {
+public class FileView extends BaseView {
     private FileMenu fileMenu;
     private CompileMenu compileMenu;
     private TutorialMenu tutorialMenu;
 
     private FileEvents fileEvents;
+    private CompilerEvents compilerEvents;
 
-    public MainView() {
+    private JTextArea codeArea;
+    private JTextArea outputArea;
+
+    private String filePath;
+
+    public FileView(String fileName) {
         super();
-        initComponents();
+        initComponents(fileName);
     }
 
-    private void initComponents() {
-        this.setTitle("Main View");
+    private void initComponents(String fileName){
+        this.setTitle("SueC - " + fileName);
+        filePath = fileName;
         fileEvents = new FileEvents();
+        compilerEvents = new CompilerEvents();
+
+        codeArea = new JTextArea();
+        outputArea = new JTextArea();
+
+        codeArea.setText(fileEvents.openFileEvent(fileName));
+        outputArea.setEditable(false);
+
+
+        this.getMainPanel().add(codeArea);
+        this.getMainPanel().add(outputArea);
+
+
+
+
 
         fileMenu = new FileMenu();
         compileMenu = new CompileMenu();
         tutorialMenu = new TutorialMenu();
-
 
         this.getMainMenuBar().addMenuItemAt(fileMenu.getMenu(),0);
         this.getMainMenuBar().addMenuItemAt(compileMenu.getMenu(),1);
@@ -50,7 +71,7 @@ public class MainView extends BaseView {
 
                 if(userSelection == JFileChooser.APPROVE_OPTION) {
                     String path = fileEvents.newFileEvent(fileChooser.getSelectedFile().getAbsolutePath());
-                    MainView.this.setVisible(false);
+                    FileView.this.setVisible(false);
                     FileView fileView = new FileView(path);
                     fileView.setVisible(true);
                 }
@@ -66,10 +87,17 @@ public class MainView extends BaseView {
 
                 if (userSelection == JFileChooser.APPROVE_OPTION) {
                     String path = fileChooser.getSelectedFile().getAbsolutePath();
-                    MainView.this.setVisible(false);
+                    FileView.this.setVisible(false);
                     FileView fileView = new FileView(path);
                     fileView.setVisible(true);
                 }
+            }
+        });
+
+        fileMenu.getSaveMenuItem().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                fileEvents.saveFileEvent(filePath,codeArea.getText());
             }
         });
 
@@ -77,7 +105,15 @@ public class MainView extends BaseView {
             @Override
             public void actionPerformed (ActionEvent actionEvent){
                 System.out.println("Exiting...");
-                MainView.super.dispose();
+                FileView.super.dispose();
+            }
+        });
+
+        compileMenu.getCompileMenuItem().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                System.out.println("Compiling ... " + filePath);
+                compilerEvents.compilerFileEvent(filePath);
             }
         });
     }
