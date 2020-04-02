@@ -1,0 +1,59 @@
+[Yacc] Got in WORD
+[Yacc] Got in WRITE
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_oper() 
+[Interpreter] execute_oper >> Got in WRITE STRING
+[Yacc] Got in variable definition >> INTEGER LCVAR
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_id() 
+[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
+[Interpreter] execute_id_int >> Got in INTEGER LCVAR - a
+[Yacc] Got in NUM
+[Yacc] Got in = >> HCVAR
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_oper() 
+[Interpreter] execute_oper >> Got in =
+[Interpreter] execute_oper >> Got in LCVAR =
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_const() 
+[Interpreter] execute_const 
+[Interpreter] execute_const >> Got in NUM - 4
+[Yacc] Got in WRITE
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_oper() 
+[Interpreter] execute_oper >> Got in WRITE INT
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_id() 
+[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
+[Interpreter] execute_id_int >> Got in INTEGER LCVAR - a
+[Yacc] Got in variable definition >> INTEGER LCVAR
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_id() 
+[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
+[Interpreter] execute_id_int >> Got in INTEGER LCVAR - b
+[Yacc] Got in NUM
+[Yacc] Got in = >> HCVAR
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_oper() 
+[Interpreter] execute_oper >> Got in =
+[Interpreter] execute_oper >> Got in LCVAR =
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_const() 
+[Interpreter] execute_const 
+[Interpreter] execute_const >> Got in NUM - 5
+[Yacc] Got in -
+[Yacc] Got in WRITE
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_oper() 
+[Interpreter] execute_oper >> Got in WRITE INT
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_oper() 
+[Interpreter] execute_oper >> Got in -
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_id() 
+[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
+[Interpreter] execute_id_int >> Got in INTEGER LCVAR - a
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_id() 
+[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
+[Interpreter] execute_id_int >> Got in INTEGER LCVAR - b

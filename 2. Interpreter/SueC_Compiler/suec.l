@@ -9,9 +9,8 @@ extern FILE* yyin;
 
 %%
 
- 
-"int"  {return INT;}
-"string" {return STRING;}
+"int"  {return INTEGER;}
+"string" {return STRING;}	
 
  
 "if"   {return IF;}
@@ -20,7 +19,10 @@ extern FILE* yyin;
 "while" {return WHILE;}
 "read"  {return READ;}
 "write" {return WRITE;}
-
+"length" {return LENGTH;}
+"copy" {return COPY;}
+"unite" {return UNITE;}
+"compare" {return COMPARE;}
 
 
 [A-Z]	{
@@ -40,20 +42,20 @@ extern FILE* yyin;
 			return NUM;
 		}
 		
-\"[a-zA-Z]+\" 	{
-					yylval.word = strdup(yytext);
-					return WORD;
-				}
+\"[a-zA-Z .,!?-]+\"  	{
+							yylval.word = strdup(yytext);
+							return WORD;
+						}
 
 
-[-()+*=/<>;{}".]	 {return *yytext;}
+[-()+*=/<>;{}"]	 {return *yytext;}
 
 ">="		return GE;
 "<="		return LE;
 "=="		return EQ;
 "!="		return NE;
 
-[ \t\n+]	;
+[ \t\n]+	;
 
 .			yyerror("Unknown character");
 
@@ -62,6 +64,4 @@ int yywrap(void)
 {
 	return 1;
 }
-
-
 	

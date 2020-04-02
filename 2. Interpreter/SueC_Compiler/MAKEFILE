@@ -1,0 +1,10 @@
+all: lex yacc compile
+
+lex: suec.l
+	lex suec.l
+
+yacc: suec.y
+	yacc -d suec.y
+
+compile: lex.yy.c y.tab.c suec_interpreter.c
+	gcc -o suec.out lex.yy.c y.tab.c suec_interpreter.c

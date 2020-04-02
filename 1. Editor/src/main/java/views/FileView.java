@@ -112,8 +112,9 @@ public class FileView extends BaseView {
         compileMenu.getCompileMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                System.out.println("Compiling ... " + filePath);
-                compilerEvents.compilerFileEvent(filePath);
+                fileEvents.saveFileEvent(filePath,codeArea.getText());
+                String compileResult = compilerEvents.compilerFileEvent(filePath);
+                outputArea.setText(compileResult);
             }
         });
     }

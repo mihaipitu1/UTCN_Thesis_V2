@@ -7,7 +7,8 @@ typedef struct {
 } constNodeType;
 
 typedef struct {
-	int type;
+	int valueType;
+	int charType;
 	int value;
 } idNodeType;
 
@@ -27,5 +28,9 @@ typedef struct nodeTypeTag {
 	}
 } nodeType;
 
+int hcTypeSym[26];
+int lcTypeSym[26];
 int hcSym[26];
 int lcSym[26];
+char hcSymStr[26][1024];
+char lcSymStr[26][1024];

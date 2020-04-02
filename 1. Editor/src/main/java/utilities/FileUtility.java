@@ -11,7 +11,7 @@ public class FileUtility {
         try {
             newFile.createNewFile();
             FileWriter fileWriter = new FileWriter(fileName);
-            fileWriter.write("write \"Hello World\"");
+            fileWriter.write("write \"Hello World\";");
             fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();

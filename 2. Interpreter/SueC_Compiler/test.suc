@@ -1,0 +1,7 @@
+write "Hello, World";
+int a;
+a = 4;
+write a;
+int b;
+b = 5;
+write a-b;

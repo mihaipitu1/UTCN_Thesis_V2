@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TutorialUtility {
     private List<Tutorial> tutorials;
-    private static final String storageFileURL = "./src/storage/tutorials.json";
+    private static final String storageFileURL = "./resources/storage/tutorials.json";
 
     public TutorialUtility() {
         tutorials = new ArrayList<Tutorial>();

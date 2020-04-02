@@ -7,7 +7,7 @@ public class CompilerEvents {
 
     public CompilerEvents() { compilerUtility = new CompilerUtility(); }
 
-    public void compilerFileEvent(String fileName) {
-        compilerUtility.compileFile(fileName);
+    public String compilerFileEvent(String fileName) {
+        return compilerUtility.compileFile(fileName);
     }
 }
