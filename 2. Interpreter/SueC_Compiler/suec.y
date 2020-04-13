@@ -110,9 +110,9 @@ expression : NUM			{ fprintf(logFile,"[Yacc] Got in NUM\n");$$ = leafInt(NUM, $1
 	   | expression NE expression	{ fprintf(logFile,"[Yacc] Got in !=\n");$$ = operand(NE, 2, $1, $3); }
 	   | expression EQ expression	{ fprintf(logFile,"[Yacc] Got in ==\n");$$ = operand(EQ, 2, $1, $3); }
 	   | LENGTH expression	{ fprintf(logFile,"[Yacc] Got in LENGTH\n");$$ = operand(LENGTH, 1, $2); }
-	   | expression COPY expression	{ fprintf(logFile,"[Yacc] Got in COPY\n");$$ = operand(EQ, 2, $1, $3); }
-	   | expression UNITE expression	{ fprintf(logFile,"[Yacc] Got in UNITE\n");$$ = operand(EQ, 2, $1, $3); }
-	   | expression COMPARE expression	{ fprintf(logFile,"[Yacc] Got in COMPARE\n");$$ = operand(EQ, 2, $1, $3); }
+	   | expression COPY expression	{ fprintf(logFile,"[Yacc] Got in COPY\n");$$ = operand(COPY, 2, $1, $3); }
+	   | expression UNITE expression	{ fprintf(logFile,"[Yacc] Got in UNITE\n");$$ = operand(UNITE, 2, $1, $3); }
+	   | expression COMPARE expression	{ fprintf(logFile,"[Yacc] Got in COMPARE\n");$$ = operand(COMPARE, 2, $1, $3); }
 	   | '(' expression ')'		{ $$ = $2; }
 	   ;
 
@@ -129,7 +129,7 @@ nodeType* leafString(int type, char* value) {
 		yyerror("No memory left");
 	}
 	node->type = constType;
-	node->constant.sValue = trimString(strdup(value));
+	node->constant.sValue = strdup(trimString(value));
 	node->constant.type = type;
 	return node;
 }
@@ -159,8 +159,10 @@ nodeType *iden(int valueType, int charType, int value) {
 	node->id.value = value;
 
 	switch(charType) {
-		case LCVAR: lcTypeSym[value] = valueType;
-		case HCVAR: hcTypeSym[value] = valueType;
+		case LCVAR: 
+			lcSymbols[value].valueType = valueType;
+		case HCVAR: 
+			hcSymbols[value].valueType = valueType;
 	}
 	return node;
 }
@@ -170,8 +172,8 @@ nodeType *varType(int charType, int value) {
 	int valueType;
 
 	switch(charType) {
-		case LCVAR: valueType = lcTypeSym[value];
-		case HCVAR: valueType = hcTypeSym[value];
+		case LCVAR: valueType = lcSymbols[value].valueType;
+		case HCVAR: valueType = hcSymbols[value].valueType;
 	}
 
 	return iden(valueType,charType,value);
@@ -231,10 +233,10 @@ char* trimString(char* inputString) {
 	strcpy(trimmed, trimmed + 1);
 	trimmed[strlen(trimmed)-1] = 0;
 	return trimmed;
-} 
+}
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
+	
 	char* logFilePath = (char*)malloc(100);
 	char* outputFilePath = (char*)malloc(100);
 

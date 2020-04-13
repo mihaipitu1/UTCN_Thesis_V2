@@ -28,9 +28,14 @@ typedef struct nodeTypeTag {
 	}
 } nodeType;
 
-int hcTypeSym[26];
-int lcTypeSym[26];
-int hcSym[26];
-int lcSym[26];
-char hcSymStr[26][1024];
-char lcSymStr[26][1024];
+typedef struct {
+	int valueType;
+
+	union {
+		int iValue;
+		char sValue[1024];
+	}
+} symVar;
+
+symVar hcSymbols[26];
+symVar lcSymbols[26];

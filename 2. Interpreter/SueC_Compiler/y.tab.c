@@ -1530,19 +1530,19 @@ yyreduce:
 
   case 41:
 #line 113 "suec.y" /* yacc.c:1646  */
-    { fprintf(logFile,"[Yacc] Got in COPY\n");(yyval.np) = operand(EQ, 2, (yyvsp[-2].np), (yyvsp[0].np)); }
+    { fprintf(logFile,"[Yacc] Got in COPY\n");(yyval.np) = operand(COPY, 2, (yyvsp[-2].np), (yyvsp[0].np)); }
 #line 1535 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
 #line 114 "suec.y" /* yacc.c:1646  */
-    { fprintf(logFile,"[Yacc] Got in UNITE\n");(yyval.np) = operand(EQ, 2, (yyvsp[-2].np), (yyvsp[0].np)); }
+    { fprintf(logFile,"[Yacc] Got in UNITE\n");(yyval.np) = operand(UNITE, 2, (yyvsp[-2].np), (yyvsp[0].np)); }
 #line 1541 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 43:
 #line 115 "suec.y" /* yacc.c:1646  */
-    { fprintf(logFile,"[Yacc] Got in COMPARE\n");(yyval.np) = operand(EQ, 2, (yyvsp[-2].np), (yyvsp[0].np)); }
+    { fprintf(logFile,"[Yacc] Got in COMPARE\n");(yyval.np) = operand(COMPARE, 2, (yyvsp[-2].np), (yyvsp[0].np)); }
 #line 1547 "y.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1795,7 +1795,7 @@ nodeType* leafString(int type, char* value) {
 		yyerror("No memory left");
 	}
 	node->type = constType;
-	node->constant.sValue = trimString(strdup(value));
+	node->constant.sValue = strdup(trimString(value));
 	node->constant.type = type;
 	return node;
 }
@@ -1825,8 +1825,10 @@ nodeType *iden(int valueType, int charType, int value) {
 	node->id.value = value;
 
 	switch(charType) {
-		case LCVAR: lcTypeSym[value] = valueType;
-		case HCVAR: hcTypeSym[value] = valueType;
+		case LCVAR: 
+			lcSymbols[value].valueType = valueType;
+		case HCVAR: 
+			hcSymbols[value].valueType = valueType;
 	}
 	return node;
 }
@@ -1836,8 +1838,8 @@ nodeType *varType(int charType, int value) {
 	int valueType;
 
 	switch(charType) {
-		case LCVAR: valueType = lcTypeSym[value];
-		case HCVAR: valueType = hcTypeSym[value];
+		case LCVAR: valueType = lcSymbols[value].valueType;
+		case HCVAR: valueType = hcSymbols[value].valueType;
 	}
 
 	return iden(valueType,charType,value);
@@ -1897,10 +1899,10 @@ char* trimString(char* inputString) {
 	strcpy(trimmed, trimmed + 1);
 	trimmed[strlen(trimmed)-1] = 0;
 	return trimmed;
-} 
+}
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
+	
 	char* logFilePath = (char*)malloc(100);
 	char* outputFilePath = (char*)malloc(100);
 

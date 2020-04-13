@@ -383,7 +383,7 @@ static const YY_CHAR yy_ec[256] =
        12,   13,    8,    1,   14,   14,   14,   14,   14,   14,
        14,   14,   14,   14,   14,   14,   14,   14,   14,   14,
        14,   14,   14,   14,   14,   14,   14,   14,   14,   14,
-        1,    1,    1,    1,    1,    1,   15,   16,   17,   18,
+        1,    1,    1,    7,    1,    1,   15,   16,   17,   18,
 
        19,   20,   21,   22,   23,   16,   16,   24,   25,   26,
        27,   28,   16,   29,   30,   31,   32,   16,   33,   16,
@@ -850,7 +850,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 40 "suec.l"
+#line 39 "suec.l"
 {
 			yylval.iValue = atoi(yytext);
 			return NUM;
@@ -858,7 +858,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 45 "suec.l"
+#line 44 "suec.l"
 {
 							yylval.word = strdup(yytext);
 							return WORD;
@@ -866,43 +866,43 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 51 "suec.l"
+#line 50 "suec.l"
 {return *yytext;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 53 "suec.l"
+#line 52 "suec.l"
 return GE;
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 54 "suec.l"
+#line 53 "suec.l"
 return LE;
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 55 "suec.l"
+#line 54 "suec.l"
 return EQ;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 56 "suec.l"
+#line 55 "suec.l"
 return NE;
 	YY_BREAK
 case 22:
 /* rule 22 can match eol */
 YY_RULE_SETUP
-#line 58 "suec.l"
+#line 57 "suec.l"
 ;
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 60 "suec.l"
+#line 59 "suec.l"
 yyerror("Unknown character");
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 62 "suec.l"
+#line 61 "suec.l"
 ECHO;
 	YY_BREAK
 #line 909 "lex.yy.c"
@@ -1910,7 +1910,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 62 "suec.l"
+#line 61 "suec.l"
 
 int yywrap(void)
 {

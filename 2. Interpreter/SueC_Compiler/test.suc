@@ -1,7 +1,10 @@
-write "Hello, World";
-int a;
-a = 4;
-write a;
-int b;
-b = 5;
-write a-b;
+string a;
+a copy "Hello";
+string b;
+b copy "World";
+int c;
+c = b compare a;
+if (c==0)
+	write 1;
+else
+	write 2;

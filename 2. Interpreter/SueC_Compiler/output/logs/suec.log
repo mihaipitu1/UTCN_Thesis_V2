@@ -1,59 +1,74 @@
+[Yacc] Got in variable definition >> STRING LCVAR
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_id() 
+[Interpreter] execute_id >> Got in STRING - execute_id_str() 
+[Interpreter] execute_id_str >> Got in STRING LCVAR
 [Yacc] Got in WORD
-[Yacc] Got in WRITE
+[Yacc] Got in COPY
 [Interpreter] execute_node 
 [Interpreter] execute_node >> execute_oper() 
-[Interpreter] execute_oper >> Got in WRITE STRING
+[Interpreter] execute_oper >> Got in COPY
+[Interpreter] execute_oper >> COPY >> Oper 0 is LCVAR
+[Interpreter] execute_oper >> COPY >> Got in oper 1 as constant
+[Interpreter] execute_oper >> COPY >> Constant is: Hello
+[Interpreter] execute_oper >> COPY >> Before copy is: 
+[Interpreter] COPY >> Resulted copy is: Hello
+[Yacc] Got in variable definition >> STRING LCVAR
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_id() 
+[Interpreter] execute_id >> Got in STRING - execute_id_str() 
+[Interpreter] execute_id_str >> Got in STRING LCVAR
+[Yacc] Got in WORD
+[Yacc] Got in COPY
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_oper() 
+[Interpreter] execute_oper >> Got in COPY
+[Interpreter] execute_oper >> COPY >> Oper 0 is LCVAR
+[Interpreter] execute_oper >> COPY >> Got in oper 1 as constant
+[Interpreter] execute_oper >> COPY >> Constant is: World
+[Interpreter] execute_oper >> COPY >> Before copy is: 
+[Interpreter] COPY >> Resulted copy is: World
 [Yacc] Got in variable definition >> INTEGER LCVAR
 [Interpreter] execute_node 
 [Interpreter] execute_node >> execute_id() 
 [Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
-[Interpreter] execute_id_int >> Got in INTEGER LCVAR - a
-[Yacc] Got in NUM
+[Interpreter] execute_id_int >> Got in INTEGER LCVAR - c
+[Yacc] Got in COMPARE
 [Yacc] Got in = >> HCVAR
 [Interpreter] execute_node 
 [Interpreter] execute_node >> execute_oper() 
 [Interpreter] execute_oper >> Got in =
 [Interpreter] execute_oper >> Got in LCVAR =
 [Interpreter] execute_node 
-[Interpreter] execute_node >> execute_const() 
-[Interpreter] execute_const 
-[Interpreter] execute_const >> Got in NUM - 4
-[Yacc] Got in WRITE
-[Interpreter] execute_node 
 [Interpreter] execute_node >> execute_oper() 
-[Interpreter] execute_oper >> Got in WRITE INT
-[Interpreter] execute_node 
-[Interpreter] execute_node >> execute_id() 
-[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
-[Interpreter] execute_id_int >> Got in INTEGER LCVAR - a
-[Yacc] Got in variable definition >> INTEGER LCVAR
-[Interpreter] execute_node 
-[Interpreter] execute_node >> execute_id() 
-[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
-[Interpreter] execute_id_int >> Got in INTEGER LCVAR - b
+[Interpreter] execute_oper >> Got in COMPARE
+[Interpreter] execute_oper >> COMPARE >> Oper 0 is LCVAR
+[Interpreter] execute_id_str >> Got in STRING LCVAR
+[Interpreter] execute_oper >> COMPARE >> Resulted unite is: 15
+[Interpreter] execute_id_str >> Got in STRING LCVAR
 [Yacc] Got in NUM
-[Yacc] Got in = >> HCVAR
+[Yacc] Got in ==
+[Yacc] Got in NUM
+[Yacc] Got in WRITE
+[Yacc] Got in NUM
+[Yacc] Got in WRITE
+[Yacc]Got in IF-ELSE
 [Interpreter] execute_node 
 [Interpreter] execute_node >> execute_oper() 
-[Interpreter] execute_oper >> Got in =
-[Interpreter] execute_oper >> Got in LCVAR =
+[Interpreter] execute_oper >> Got in IF
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_oper() 
+[Interpreter] execute_oper >> Got in EQ
+[Interpreter] execute_node 
+[Interpreter] execute_node >> execute_id() 
+[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
+[Interpreter] execute_id_int >> Got in INTEGER LCVAR - c
 [Interpreter] execute_node 
 [Interpreter] execute_node >> execute_const() 
 [Interpreter] execute_const 
-[Interpreter] execute_const >> Got in NUM - 5
-[Yacc] Got in -
-[Yacc] Got in WRITE
+[Interpreter] execute_const >> Got in NUM - 0
 [Interpreter] execute_node 
 [Interpreter] execute_node >> execute_oper() 
-[Interpreter] execute_oper >> Got in WRITE INT
-[Interpreter] execute_node 
-[Interpreter] execute_node >> execute_oper() 
-[Interpreter] execute_oper >> Got in -
-[Interpreter] execute_node 
-[Interpreter] execute_node >> execute_id() 
-[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
-[Interpreter] execute_id_int >> Got in INTEGER LCVAR - a
-[Interpreter] execute_node 
-[Interpreter] execute_node >> execute_id() 
-[Interpreter] execute_id >> Got in INTEGER - execute_id_int() 
-[Interpreter] execute_id_int >> Got in INTEGER LCVAR - b
+[Interpreter] execute_oper >> do_print
+[Interpreter] do_print >> Got in constType
+[Interpreter] do_print >> Got in NUM

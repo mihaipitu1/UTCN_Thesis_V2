@@ -36,7 +36,6 @@ extern FILE* yyin;
 	}
 
 
-
 [0-9]+ 	{
 			yylval.iValue = atoi(yytext);
 			return NUM;
@@ -48,7 +47,7 @@ extern FILE* yyin;
 						}
 
 
-[-()+*=/<>;{}"]	 {return *yytext;}
+[-()+*=/<>;{}^"]	 {return *yytext;}
 
 ">="		return GE;
 "<="		return LE;
