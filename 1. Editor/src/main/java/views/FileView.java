@@ -41,13 +41,8 @@ public class FileView extends BaseView {
         codeArea.setText(fileEvents.openFileEvent(fileName));
         outputArea.setEditable(false);
 
-
         this.getMainPanel().add(codeArea);
         this.getMainPanel().add(outputArea);
-
-
-
-
 
         fileMenu = new FileMenu();
         compileMenu = new CompileMenu();

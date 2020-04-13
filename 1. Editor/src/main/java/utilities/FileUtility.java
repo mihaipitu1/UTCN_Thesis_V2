@@ -32,10 +32,7 @@ public class FileUtility {
     public void saveFile(String fileName, String content) {
         File file = new File(fileName);
 
-        if(file.exists())
-        {
-            file.delete();
-        }
+        deleteFile(fileName);
         try {
             file.createNewFile();
             FileWriter fileWriter = new FileWriter(fileName);
@@ -46,4 +43,11 @@ public class FileUtility {
         }
     }
 
+    public void deleteFile(String fileName) {
+        File file = new File(fileName);
+
+        if(file.exists()) {
+            file.delete();
+        }
+    }
 }
