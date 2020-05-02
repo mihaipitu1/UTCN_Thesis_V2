@@ -27,7 +27,8 @@ public class TutorialEvents {
         fileUtility.createFile(tempFileURL);
         fileUtility.saveFile(tempFileURL,content);
         String returnedOutput = compilerUtility.compileFile(tempFileURL);
+        String lines[] = returnedOutput.split("\n");
         fileUtility.deleteFile(tempFileURL);
-        return returnedOutput;
+        return lines[0];
     }
 }

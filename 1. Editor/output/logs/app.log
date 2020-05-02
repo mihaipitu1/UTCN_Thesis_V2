@@ -1,0 +1,18 @@
+Apr 25, 2020 6:54:08 PM commons.logger.LoggerConfig infoLog
+INFO: Started Application
+Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> MainView()
+Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> initComponents()
+Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> initComponents() >> Initiate events >> fileEvents
+Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> initComponents() >> Initiate menus >> fileMenu
+Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> initComponents() >> Initiate menus >> compileMenu
+Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> initComponents() >> Initiate menus >> tutorialMenu
+Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> initComponents() >> Set action events
+Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> setActionEvents()

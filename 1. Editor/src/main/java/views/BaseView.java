@@ -33,7 +33,7 @@ public class BaseView extends JFrame {
         menuBar.addMenuItem(helpMenu.getMenu());
 
         mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayout(2,1,2,2));
+        mainPanel.setLayout(new GridLayout(2,1,10,10));
         this.menuBar.getMenuBar().setSize(new Dimension(600,20));
 
         this.add(menuBar.getMenuBar(), BorderLayout.NORTH);
@@ -47,5 +47,4 @@ public class BaseView extends JFrame {
     public JPanel getMainPanel() {
         return this.mainPanel;
     }
-
 }

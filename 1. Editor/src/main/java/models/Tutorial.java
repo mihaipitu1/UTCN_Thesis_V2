@@ -46,4 +46,28 @@ public class Tutorial {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    @Override
+    public String toString() {
+        return this.title;
+    }
+
+    public boolean isEqual(Tutorial obj) {
+        if(this.getId() != obj.getId()) {
+            return false;
+        }
+        if(!this.getTitle().equals(obj.getTitle())) {
+            return false;
+        }
+        if(!this.getDescription().equals(obj.getDescription())) {
+            return false;
+        }
+        if(!this.getTask().equals(obj.getTask())) {
+            return false;
+        }
+        if(!this.getAnswer().equals(obj.getAnswer())) {
+            return false;
+        }
+        return true;
+    }
 }
