@@ -1,15 +1,15 @@
 [
   {
     "id":"1",
-    "title":"some title",
-    "description":"aaa",
-    "task":"task",
-    "answer":"4"
+    "title":"Introduction - Welcome to SueC Tutorials",
+    "description":"Welcome to SueC Tutorials!\nThese tutorials are useful for learning the basics of SueC programming language, an educational programming language aimed to be close to the pseudocode. It uses elements and structures similar to other programming languages like C and Python.",
+    "task":"For start, please write in the code area \"write \"Hello\";\" and press \"Compile Button\"",
+    "answer":"Hello"
   },
   {
     "id":"2",
-    "title":"some title",
-    "description":"BB",
+    "title":"Using variables - Integers",
+    "description":"Variables are the key elements of this programming language ",
     "task":"tk",
     "answer":"5"
   },

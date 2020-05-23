@@ -31,19 +31,19 @@ public class LoggerConfig {
         }
     }
 
-    public static void infoLog(String msg) {
-        logger.info(msg);
+    public static void infoLog(String tag, String msg) {
+        logger.info(tag + " >> "+ msg);
     }
 
-    public static void infoLog(String msg,Object[] params) {
-        logger.log(Level.INFO,msg,params);
+    public static void infoLog(String tag, String msg,Object[] params) {
+        logger.log(Level.INFO,tag + " >> "+ msg,params);
     }
 
-    public static void errorLog(String msg) {
-        logger.severe(msg);
+    public static void errorLog(String tag, String msg) {
+        logger.severe(tag + " >> "+ msg);
     }
 
-    public static void errorLog(String msg,Object[] params) {
-        logger.log(Level.SEVERE,msg,params);
+    public static void errorLog(String tag, String msg,Object[] params) {
+        logger.log(Level.SEVERE,tag + " >> "+ msg,params);
     }
 }

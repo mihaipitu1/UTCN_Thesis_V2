@@ -9,9 +9,10 @@ import java.io.File;
 import java.util.List;
 
 public class Main {
+    private static final String TAG = "Main";
     public static void main(String args[]) {
         LoggerConfig loggerConfig = new LoggerConfig();
-        LoggerConfig.infoLog("Started Application");
+        LoggerConfig.infoLog(TAG,"Started Application");
         MainView mW = new MainView();
         mW.setVisible(true);
     }

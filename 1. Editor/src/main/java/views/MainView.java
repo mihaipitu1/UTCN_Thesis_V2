@@ -4,10 +4,9 @@ import commons.logger.LoggerConfig;
 import commons.ui.events.FileEvents;
 import commons.ui.menu.CompileMenu;
 import commons.ui.menu.FileMenu;
-import commons.ui.menu.HelpMenu;
 import commons.ui.menu.TutorialMenu;
-import main.Main;
-import models.Tutorial;
+import views.guides.GuideView;
+import views.tutorials.TutorialView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,41 +17,43 @@ public class MainView extends BaseView {
     private CompileMenu compileMenu;
     private TutorialMenu tutorialMenu;
 
+    private static final String TAG = "Main View";
+
     private FileEvents fileEvents;
 
     public MainView() {
         super();
-        LoggerConfig.infoLog("Main View >> MainView()");
+        LoggerConfig.infoLog(TAG,"MainView()");
         initComponents();
     }
 
     private void initComponents() {
         this.setTitle("Main View");
-        LoggerConfig.infoLog("Main View >> initComponents()");
-        LoggerConfig.infoLog("Main View >> initComponents() >> Initiate events >> fileEvents");
+        LoggerConfig.infoLog(TAG,"initComponents()");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initiate events >> fileEvents");
         fileEvents = new FileEvents();
 
-        LoggerConfig.infoLog("Main View >> initComponents() >> Initiate menus >> fileMenu");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initiate menus >> fileMenu");
         fileMenu = new FileMenu();
-        LoggerConfig.infoLog("Main View >> initComponents() >> Initiate menus >> compileMenu");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initiate menus >> compileMenu");
         compileMenu = new CompileMenu();
-        LoggerConfig.infoLog("Main View >> initComponents() >> Initiate menus >> tutorialMenu");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initiate menus >> tutorialMenu");
         tutorialMenu = new TutorialMenu();
 
         this.getMainMenuBar().addMenuItemAt(fileMenu.getMenu(),0);
         this.getMainMenuBar().addMenuItemAt(compileMenu.getMenu(),1);
         this.getMainMenuBar().addMenuItemAt(tutorialMenu.getMenu(),2);
 
-        LoggerConfig.infoLog("Main View >> initComponents() >> Set action events");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Set action events");
         setActionEvents();
     }
 
     private void setActionEvents() {
-        LoggerConfig.infoLog("Main View >> setActionEvents()");
+        LoggerConfig.infoLog(TAG,"setActionEvents()");
         fileMenu.getNewMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                LoggerConfig.infoLog("Main View >> setActionEvents() >> fileMenu.getNewMenuItem() Action Listener");
+                LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getNewMenuItem() Action Listener");
                 JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setDialogTitle("New File...");
 
@@ -70,7 +71,7 @@ public class MainView extends BaseView {
         fileMenu.getOpenMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                LoggerConfig.infoLog("Main View >> setActionEvents() >> fileMenu.getOpenMenuItem() Action Listener");
+                LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getOpenMenuItem() Action Listener");
                 JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setDialogTitle("Open File...");
                 int userSelection = fileChooser.showOpenDialog(new JFrame());
@@ -87,7 +88,7 @@ public class MainView extends BaseView {
         fileMenu.getExitMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent actionEvent){
-                LoggerConfig.infoLog("Main View >> setActionEvents() >> fileMenu.getOpenMenuItem() Action Listener");
+                LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getOpenMenuItem() Action Listener");
                 MainView.super.dispose();
             }
         });
@@ -95,10 +96,20 @@ public class MainView extends BaseView {
         tutorialMenu.getTutorialListMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                LoggerConfig.infoLog("Main View >> setActionEvents() >> tutorialMenu.getTutorialListMenuItem() Action Listener");
+                LoggerConfig.infoLog(TAG,"setActionEvents() >> tutorialMenu.getTutorialListMenuItem() Action Listener");
                 TutorialView tutorialView = new TutorialView();
                 MainView.this.setVisible(false);
                 tutorialView.setVisible(true);
+            }
+        });
+
+        tutorialMenu.getHelpListMenuItem().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                LoggerConfig.infoLog(TAG, "setActionEvents() >> tutorialMenu.getHelpListMenuItem() Action Listener");
+                GuideView guideView = new GuideView();
+                MainView.this.setVisible(false);
+                guideView.setVisible(true);
             }
         });
     }

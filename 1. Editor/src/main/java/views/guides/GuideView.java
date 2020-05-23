@@ -1,4 +1,4 @@
-package views;
+package views.guides;
 
 import commons.logger.LoggerConfig;
 import commons.ui.events.FileEvents;
@@ -6,7 +6,10 @@ import commons.ui.events.TutorialEvents;
 import commons.ui.menu.CompileMenu;
 import commons.ui.menu.FileMenu;
 import commons.ui.menu.TutorialMenu;
-import models.Tutorial;
+import models.Guide;
+import views.BaseView;
+import views.FileView;
+import views.tutorials.DynamicTutorialView;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -15,9 +18,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import java.util.Vector;
 
-public class TutorialView extends BaseView {
+public class GuideView extends BaseView {
     private FileMenu fileMenu;
     private CompileMenu compileMenu;
     private TutorialMenu tutorialMenu;
@@ -25,91 +27,93 @@ public class TutorialView extends BaseView {
     private TutorialEvents tutorialEvents;
     private FileEvents fileEvents;
 
-    private List<Tutorial> tutorials;
-
+    private List<Guide> guideList;
+    
     private JPanel topPanel;
     private JPanel bottomPanel;
     private JPanel bottomLeftPanel;
-
-    private JButton startTutorialButton;
-
+    
+    private JButton startGuideButton;
+    
     private JLabel titleLbl;
     private JLabel subtitleLbl;
-    private JList tutorialList;
-
-    public TutorialView() {
+    private JList guidesList;
+    
+    private static final String TAG = "Guide View";
+    
+    public GuideView() {
         super();
-        LoggerConfig.infoLog("Tutorial View >> TutorialView()");
+        LoggerConfig.infoLog(TAG, "GuideView()");
         initComponents();
     }
-
+    
     private void initComponents() {
-        this.setTitle("SueC - Tutorials");
-        LoggerConfig.infoLog("Tutorial View >> initComponents()");
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing events >> tutorialEvents");
+        this.setTitle("SueC - Guides");
+        LoggerConfig.infoLog(TAG,"initComponents()");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing events >> tutorialEvents");
         tutorialEvents = new TutorialEvents();
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing events >> fileEvents");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing events >> fileEvents");
         fileEvents = new FileEvents();
 
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing menus >> fileMenu");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing menus >> fileMenu");
         fileMenu = new FileMenu();
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing menus >> compileMenu");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing menus >> compileMenu");
         compileMenu =  new CompileMenu();
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing menus >> tutorialMenu");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing menus >> tutorialMenu");
         tutorialMenu = new TutorialMenu();
 
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing tutorials list >> tutorials");
-        tutorials = tutorialEvents.loadTutorialsEvent();
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing tutorials list >> tutorials");
+        guideList = tutorialEvents.loadGuidesEvent();
 
         this.getMainMenuBar().addMenuItemAt(fileMenu.getMenu(),0);
         this.getMainMenuBar().addMenuItemAt(compileMenu.getMenu(),1);
         this.getMainMenuBar().addMenuItemAt(tutorialMenu.getMenu(),2);
 
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing JPanels >> topPanel");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> topPanel");
         topPanel = new JPanel();
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing JPanels >> bottomPanel");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> bottomPanel");
         bottomPanel = new JPanel();
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing JPanels >> bottomLeftPanel");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> bottomLeftPanel");
         bottomLeftPanel = new JPanel();
 
         topPanel.setLayout(new GridLayout(1,2));
         bottomPanel.setLayout(new GridLayout(1,2));
         bottomLeftPanel.setLayout(new GridLayout(2,1));
 
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing JLabels >> titleLbl");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabels >> titleLbl");
         titleLbl = new JLabel("Title Label");
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing JPanels >> subtitleLbl");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> subtitleLbl");
         subtitleLbl = new JLabel("SubTitle Label");
 
         topPanel.add(titleLbl);
         topPanel.add(subtitleLbl);
 
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing JList >> tutorialList");
-        tutorialList = new JList(tutorials.toArray());
-        tutorialList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JList >> tutorialList");
+        guidesList = new JList(guideList.toArray());
+        guidesList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Initializing JButtons >> startTutorialButton");
-        startTutorialButton = new JButton("Start Tutorials");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JButtons >> startTutorialButton");
+        startGuideButton = new JButton("Start Tutorials");
 
         bottomLeftPanel.add(titleLbl);
-        bottomLeftPanel.add(startTutorialButton);
+        bottomLeftPanel.add(startGuideButton);
 
         bottomPanel.add(bottomLeftPanel);
-        bottomPanel.add(tutorialList);
+        bottomPanel.add(guidesList);
 
         this.getMainPanel().add(topPanel);
         this.getMainPanel().add(bottomPanel);
 
-        LoggerConfig.infoLog("Tutorial View >> initComponents() >> Set Action Events");
+        LoggerConfig.infoLog(TAG,"initComponents() >> Set Action Events");
         setActionEvents();
     }
 
     private void setActionEvents() {
-        LoggerConfig.infoLog("Tutorial View >> setActionEvents()");
+        LoggerConfig.infoLog(TAG,"setActionEvents()");
         fileMenu.getNewMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent)  {
-                LoggerConfig.infoLog("Tutorial View >> setActionEvents() >> fileMenu.getNewMenuItem() Action Listener");
+                LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getNewMenuItem() Action Listener");
                 JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setDialogTitle("New File...");
 
@@ -117,7 +121,7 @@ public class TutorialView extends BaseView {
 
                 if(userSelection == JFileChooser.APPROVE_OPTION) {
                     String path = fileEvents.newFileEvent(fileChooser.getSelectedFile().getAbsolutePath());
-                    TutorialView.this.setVisible(false);
+                    GuideView.this.setVisible(false);
                     FileView fileView = new FileView(path);
                     fileView.setVisible(true);
                 }
@@ -127,14 +131,14 @@ public class TutorialView extends BaseView {
         fileMenu.getOpenMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                LoggerConfig.infoLog("Tutorial View >> setActionEvents() >> fileMenu.getOpenMenuItem() Action Listener");
+                LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getOpenMenuItem() Action Listener");
                 JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setDialogTitle("Open File...");
                 int userSelection = fileChooser.showOpenDialog(new JFrame());
 
                 if (userSelection == JFileChooser.APPROVE_OPTION) {
                     String path = fileChooser.getSelectedFile().getAbsolutePath();
-                    TutorialView.this.setVisible(false);
+                    GuideView.this.setVisible(false);
                     FileView fileView = new FileView(path);
                     fileView.setVisible(true);
                 }
@@ -144,30 +148,30 @@ public class TutorialView extends BaseView {
         fileMenu.getExitMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent actionEvent){
-                LoggerConfig.infoLog("Tutorial View >> setActionEvents() >> fileMenu.getExitMenuItem() Action Listener");
-                TutorialView.super.dispose();
+                LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getExitMenuItem() Action Listener");
+                GuideView.super.dispose();
             }
         });
 
-        tutorialList.addListSelectionListener(new ListSelectionListener() {
+        guidesList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent listSelectionEvent) {
-                LoggerConfig.infoLog("Tutorial View >> setActionEvents() >> tutorialList.addListSelectionListener() List Selection Listener");
+                LoggerConfig.infoLog(TAG,"setActionEvents() >> tutorialList.addListSelectionListener() List Selection Listener");
                 if(!listSelectionEvent.getValueIsAdjusting()){
-                    DynamicTutorialView dynamicTutorialView = new DynamicTutorialView((Tutorial)tutorialList.getSelectedValue());
-                    TutorialView.this.setVisible(false);
-                    dynamicTutorialView.setVisible(true);
+                    DynamicGuideView dynamicGuideView = new DynamicGuideView((Guide)guidesList.getSelectedValue());
+                    GuideView.this.setVisible(false);
+                    dynamicGuideView.setVisible(true);
                 }
             }
         });
 
-        startTutorialButton.addActionListener(new ActionListener() {
+        startGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                LoggerConfig.infoLog("Tutorial View >> setActionEvents() >> startTutorialButton Action Listener");
-                DynamicTutorialView dynamicTutorialView = new DynamicTutorialView(tutorials.get(0));
-                TutorialView.this.setVisible(false);
-                dynamicTutorialView.setVisible(true);
+                LoggerConfig.infoLog(TAG,"setActionEvents() >> startTutorialButton Action Listener");
+                DynamicGuideView dynamicGuideView = new DynamicGuideView(guideList.get(0));
+                GuideView.this.setVisible(false);
+                dynamicGuideView.setVisible(true);
             }
         });
     }

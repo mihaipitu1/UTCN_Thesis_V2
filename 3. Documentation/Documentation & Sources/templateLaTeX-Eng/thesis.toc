@@ -8,8 +8,8 @@
 \contentsline {section}{\numberline {3.3}Technologies used}{16}
 \contentsline {subsection}{\numberline {3.3.1}Lex}{16}
 \contentsline {subsection}{\numberline {3.3.2}Yacc}{16}
-\contentsline {subsection}{\numberline {3.3.3}.NET Framework}{16}
-\contentsline {subsection}{\numberline {3.3.4}Windows Forms}{17}
+\contentsline {subsection}{\numberline {3.3.3}Java Programming Language}{16}
+\contentsline {subsection}{\numberline {3.3.4}Java Swing UI}{17}
 \contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation}{18}
 \contentsline {section}{\numberline {4.1}Editor Application}{18}
 \contentsline {subsection}{\numberline {4.1.1}Model-View-Controller(MVC) Architecture}{18}

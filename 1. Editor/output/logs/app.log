@@ -1,18 +1,710 @@
-Apr 25, 2020 6:54:08 PM commons.logger.LoggerConfig infoLog
-INFO: Started Application
-Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
+INFO: Main >> Started Application
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> MainView()
-Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> initComponents()
-Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> initComponents() >> Initiate events >> fileEvents
-Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> initComponents() >> Initiate menus >> fileMenu
-Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> initComponents() >> Initiate menus >> compileMenu
-Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> initComponents() >> Initiate menus >> tutorialMenu
-Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> initComponents() >> Set action events
-Apr 25, 2020 6:54:09 PM commons.logger.LoggerConfig infoLog
+May 09, 2020 3:07:41 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> setActionEvents()
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> setActionEvents() >> tutorialMenu.getHelpListMenuItem() Action Listener
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> GuideView()
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents()
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing events >> tutorialEvents
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "task":"task",
+    "answer":"4"
+  },
+  {
+    "id":"2",
+    "title":"some title",
+    "description":"BB",
+    "task":"tk",
+    "answer":"5"
+  },
+  {
+    "id":"3",
+    "title":"se",
+    "description":"ccc",
+    "task":"tasddasdak",
+    "answer":"Hello"
+  }
+]
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "example": "Example"
+  },
+  {
+    "id":"2",
+    "title":"some titlesdad",
+    "description":"sdasda",
+    "example": "Examplezz"
+  },
+  {
+    "id":"3",
+    "title":"some Da",
+    "description":"aaa",
+    "example": "Example33r1"
+  }
+]
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing events >> fileEvents
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing menus >> fileMenu
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing menus >> compileMenu
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing menus >> tutorialMenu
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> topPanel
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> bottomPanel
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> bottomLeftPanel
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JLabels >> titleLbl
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> subtitleLbl
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JList >> tutorialList
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JButtons >> startTutorialButton
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Set Action Events
+May 09, 2020 3:07:44 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> setActionEvents()
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> setActionEvents() >> startTutorialButton Action Listener
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 1 - some title >> GuideView() 
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "task":"task",
+    "answer":"4"
+  },
+  {
+    "id":"2",
+    "title":"some title",
+    "description":"BB",
+    "task":"tk",
+    "answer":"5"
+  },
+  {
+    "id":"3",
+    "title":"se",
+    "description":"ccc",
+    "task":"tasddasdak",
+    "answer":"Hello"
+  }
+]
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "example": "Example"
+  },
+  {
+    "id":"2",
+    "title":"some titlesdad",
+    "description":"sdasda",
+    "example": "Examplezz"
+  },
+  {
+    "id":"3",
+    "title":"some Da",
+    "description":"aaa",
+    "example": "Example33r1"
+  }
+]
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> fileMenu
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> compileMenu
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> tutorialMenu
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+May 09, 2020 3:07:46 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> nextButton Action Listener
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 2 - some titlesdad >> GuideView() 
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "task":"task",
+    "answer":"4"
+  },
+  {
+    "id":"2",
+    "title":"some title",
+    "description":"BB",
+    "task":"tk",
+    "answer":"5"
+  },
+  {
+    "id":"3",
+    "title":"se",
+    "description":"ccc",
+    "task":"tasddasdak",
+    "answer":"Hello"
+  }
+]
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "example": "Example"
+  },
+  {
+    "id":"2",
+    "title":"some titlesdad",
+    "description":"sdasda",
+    "example": "Examplezz"
+  },
+  {
+    "id":"3",
+    "title":"some Da",
+    "description":"aaa",
+    "example": "Example33r1"
+  }
+]
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> fileMenu
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> compileMenu
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> tutorialMenu
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+May 09, 2020 3:07:49 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> nextButton Action Listener
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 3 - some Da >> GuideView() 
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "task":"task",
+    "answer":"4"
+  },
+  {
+    "id":"2",
+    "title":"some title",
+    "description":"BB",
+    "task":"tk",
+    "answer":"5"
+  },
+  {
+    "id":"3",
+    "title":"se",
+    "description":"ccc",
+    "task":"tasddasdak",
+    "answer":"Hello"
+  }
+]
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "example": "Example"
+  },
+  {
+    "id":"2",
+    "title":"some titlesdad",
+    "description":"sdasda",
+    "example": "Examplezz"
+  },
+  {
+    "id":"3",
+    "title":"some Da",
+    "description":"aaa",
+    "example": "Example33r1"
+  }
+]
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> fileMenu
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> compileMenu
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> tutorialMenu
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+May 09, 2020 3:07:53 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+May 09, 2020 3:07:54 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> finishButton Action Listener
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> backButton Action Listener
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 2 - some titlesdad >> GuideView() 
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "task":"task",
+    "answer":"4"
+  },
+  {
+    "id":"2",
+    "title":"some title",
+    "description":"BB",
+    "task":"tk",
+    "answer":"5"
+  },
+  {
+    "id":"3",
+    "title":"se",
+    "description":"ccc",
+    "task":"tasddasdak",
+    "answer":"Hello"
+  }
+]
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "example": "Example"
+  },
+  {
+    "id":"2",
+    "title":"some titlesdad",
+    "description":"sdasda",
+    "example": "Examplezz"
+  },
+  {
+    "id":"3",
+    "title":"some Da",
+    "description":"aaa",
+    "example": "Example33r1"
+  }
+]
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> fileMenu
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> compileMenu
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> tutorialMenu
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+May 09, 2020 3:07:57 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> backButton Action Listener
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 1 - some title >> GuideView() 
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "task":"task",
+    "answer":"4"
+  },
+  {
+    "id":"2",
+    "title":"some title",
+    "description":"BB",
+    "task":"tk",
+    "answer":"5"
+  },
+  {
+    "id":"3",
+    "title":"se",
+    "description":"ccc",
+    "task":"tasddasdak",
+    "answer":"Hello"
+  }
+]
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [
+  {
+    "id":"1",
+    "title":"some title",
+    "description":"aaa",
+    "example": "Example"
+  },
+  {
+    "id":"2",
+    "title":"some titlesdad",
+    "description":"sdasda",
+    "example": "Examplezz"
+  },
+  {
+    "id":"3",
+    "title":"some Da",
+    "description":"aaa",
+    "example": "Example33r1"
+  }
+]
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> fileMenu
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> compileMenu
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing menus >> tutorialMenu
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+May 09, 2020 3:07:58 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()

@@ -308,24 +308,36 @@ Python is meant to be an easily readable language due to its syntax and semantic
 
 \subsection{Lex}
 
-Lex/Flex is a computer program designed for generating lexical analyzers. It is the standard lexical analyzer generator on many Unix systems, having an equivalent tool as part of the POSIX standard. It is commonly used with \textit{yacc} parser generator.
+Lex is a computer program designed for generating lexical analyzers. It is the standard lexical analyzer generator on many Unix systems, having an equivalent tool as part of the POSIX standard. It is commonly used with \textit{yacc} parser generator.
 
-Lex reads an input stream specifying the lexical analyzer and outputs source code implementing a lexer in C. Older versions of Lex could also generate lexers in Ratfor. 
+Lex reads an input stream specifying the lexical analyzer and outputs source code implementing a lexer in C. This input stream is given to Lex directly as standard input from the user or a file that contains the 
 
-\subsection{Yacc}
+\subsection{Yacc}j
 
 Yacc\textit{(Yet Another Compiler-Compiler)} is a computer program for the Unix operating system. It is a LALR\textit{(Look Ahead Left-to-Right)} parser generator, which generates a parser, the part of a compiler that tries to make syntactic sense of the source code. 
 
-\subsection{.NET Framework}
+\subsection{Java Programming Language}
+Java is a general-purpose programming language that is object-oriented and class-based. It is designed to have as few implementation dependencies as possible, with the intention to letting application developers apply the WORA rule (Write Once, Run Anywhere) - all compiled Java code can run on all platforms that support Java without the need for recompilation. 
+Java applications are typically compiled to bytecode that can be run on any Java Virtual Machine (JVM), regardless of the underlying computer and/or software architecture. 
 
-.NET Framework is a software development framework created by Microsoft and used for creating, compiling and distributing Windows and Web applications. It includes several technologies, such as ASP, LINQ, SQL, WPF, UWP that can be implemented in different programming languages, mainly: C\#, C++, F\#, Visual Basic, showing that there are implementations for objected oriented and functional programming. Besides the technologies, .NET framework holds a set of APIs and a runtime environment similar with Java Virtual Machine (JVM), called Common Language Runtime(CTR). 
+This programming language has been designed in May 1995 by James Gosling from Sun Microsystems (now being acquired by Oracle) being licensed under the same companu. Since May 2007, Java has been relicensed under GNU General Public License with the original Java compilers, virtual machines and class libraries. Nowadays, this programming language is one of the most popular programming languages in use, mainly for client-server applications. 
 
-All the programming languages included in the framework respect the OOP rules via the introduction of a Common Type System (CTS) which defines all possible data types and programming constructs supported by CTR and how they may or may not interact according to Common Language Infrastructure (CLI) specification. These rules include: the creation of classes, interfaces, references, data types, SOLID principles, exception handling etc. 
+The syntax of Java is similar to C and C++, but it has fewer low-level facilities than either of them. The main draw for the programming language is being class-based. Classes are a code template for creating objects, providing initial values for state (variables/attributes) and implementations of behavior (methods). Besides creating objects, a class can be used as a standalone program, running imperatively as any C or C++ program. The main goals in the creation of this language are:
+\begin{itemize}
+ \item The language must be simple, object-oriented and familiar.
+ \item The language must be robust and secure.
+ \item The language must be architecture-neutral and portable.
+ \item The language must execute with high performance.
+ \item The language must be interpreted, threaded and dynamic.
+\end{itemize}
 
-\subsection{Windows Forms}
-Windows Forms represents the graphical interface API included in .NET framework. A Form in .NET is represented in Windows applications as a window.
 
-A Form is an object which show properties that define the graphical interface and methods of responding to the events of user interface. By creating code for handling the events and setting the properties, objects are created based on the requirements needed for the application. One form contains a title bar, navigation bars, a menu, toolbars and a client zone for defining the event operations.
+\subsection{Java Swing UI}
+
+Java Swing is a GUI widget toolkit for Java, creating desktop applications similar to Windows Forms. It provides a more sophisticated set of GUI components than the earlier Abstract Window Toolkit (AWT), making it easir to emulate application functionalities with powerful and flexible components. 
+
+This framework follows a single-threaded programming model, applying functionalities similar to Model-View-Controller design pattern. Each Swing component has an associated model specified in terms of a Java interface that can be used either as the default implementation or as a variation of the component created by the developer. Based on this model and the MVC pattern, it offers loose coupling between components and elements of the application.
+
 
 \chapter{Analysis and Theoretical Foundation}
 \section{Editor Application}
@@ -472,17 +484,13 @@ This project is split into two main components:
 
 These components communicate bidirectionally in order to ensure a good workflow:
 \begin{itemize}
-	\item The editor application runs Windows shell commands to run the interpreter with the source file.
+	\item The editor application runs the interpreter that compiles the source file via running the Linux process.
 	\item The result from the interpretation is then written in a file that is read by the editor application and displayed it there.  
 \end{itemize}
 \section{Editor Application}
 \subsection{Package Diagram}
 %\Package diagram TBA
-\begin{enumerate}
-	\item Controllers Package
-	\item Views Package
-	\item Utilities Package
-\end{enumerate}
+
 \section{SueC Interpreter}
 
 \chapter{Testing and Validation}
