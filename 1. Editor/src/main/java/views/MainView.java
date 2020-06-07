@@ -29,7 +29,7 @@ public class MainView extends BaseView {
         LoggerConfig.infoLog(TAG,"initComponents() >> Initiate events >> fileEvents");
         fileEvents = new FileEvents();
 
-        titleLabel = new JLabel("Welcome to SueC!", SwingConstants.CENTER);
+        titleLabel = new JLabel("Welcome to SueC! Try it!", SwingConstants.CENTER);
         titleLabel.setFont(this.getCommonElements().getTitleFont());
 
         this.getMainPanel().add(titleLabel);
