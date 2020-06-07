@@ -1,6 +1,7 @@
 package views.tutorials;
 
 import commons.logger.LoggerConfig;
+import commons.ui.TextAreaElement;
 import commons.ui.events.CompilerEvents;
 import commons.ui.events.FileEvents;
 import commons.ui.events.TutorialEvents;
@@ -31,9 +32,9 @@ public class DynamicTutorialView extends BaseView {
     private JButton compileButton;
     private JButton finishButton;
 
-    private JLabel titleLbl;
-    private JLabel descriptionLbl;
-    private JLabel taskLbl;
+    private TextAreaElement titleArea;
+    private TextAreaElement descriptionArea;
+    private TextAreaElement taskArea;
 
     private JTextArea codeArea;
     private JTextArea answerArea;
@@ -84,14 +85,17 @@ public class DynamicTutorialView extends BaseView {
         compileButton = new JButton("Compile Tutorial");
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabel >> titleLbl");
-        titleLbl = new JLabel(t.getTitle());
+        titleArea = new TextAreaElement(t.getTitle());
+        titleArea.setFont(this.getCommonElements().getSubtitleFont());
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabel >> descriptionLbl");
-        descriptionLbl = new JLabel(t.getDescription());
+        descriptionArea = new TextAreaElement(t.getDescription());
+        descriptionArea.setFont(this.getCommonElements().getInfoFont());
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabel >> taskLbl");
-        taskLbl = new JLabel(t.getTask());
+        taskArea = new TextAreaElement(t.getTask());
+        taskArea.setFont(this.getCommonElements().getInfoFont());
 
         titlePanel.add(backButton);
-        titlePanel.add(titleLbl);
+        titlePanel.add(titleArea);
         titlePanel.add(nextButton);
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Adding visibility rules for nextButton/finishButton");
@@ -106,8 +110,8 @@ public class DynamicTutorialView extends BaseView {
             titlePanel.add(finishButton);
             finishButton.setVisible(false);
         }
-        descriptionPanel.add(descriptionLbl);
-        descriptionPanel.add(taskLbl);
+        descriptionPanel.add(descriptionArea);
+        descriptionPanel.add(taskArea);
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JTextArea >> codeArea");
         codeArea = new JTextArea();

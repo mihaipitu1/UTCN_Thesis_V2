@@ -58,26 +58,29 @@ public class TutorialView extends BaseView {
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> bottomLeftPanel");
         bottomLeftPanel = new JPanel();
 
-        topPanel.setLayout(new GridLayout(1,2));
+        topPanel.setLayout(new GridLayout(2,1));
         bottomPanel.setLayout(new GridLayout(1,2));
         bottomLeftPanel.setLayout(new GridLayout(2,1));
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabels >> titleLbl");
-        titleLbl = new JLabel("Title Label");
+        titleLbl = new JLabel("Title Label",SwingConstants.CENTER);
+        titleLbl.setFont(this.getCommonElements().getTitleFont());
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> subtitleLbl");
-        subtitleLbl = new JLabel("SubTitle Label");
+        subtitleLbl = new JLabel("SubTitle Label",SwingConstants.CENTER);
+        subtitleLbl.setFont(this.getCommonElements().getSubtitleFont());
 
         topPanel.add(titleLbl);
         topPanel.add(subtitleLbl);
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JList >> tutorialList");
         tutorialList = new JList(tutorials.toArray());
+        tutorialList.setFont(this.getCommonElements().getInfoFont());
         tutorialList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JButtons >> startTutorialButton");
         startTutorialButton = new JButton("Start Tutorials");
+        startTutorialButton.setFont(this.getCommonElements().getInfoFont());
 
-        bottomLeftPanel.add(titleLbl);
         bottomLeftPanel.add(startTutorialButton);
 
         bottomPanel.add(bottomLeftPanel);

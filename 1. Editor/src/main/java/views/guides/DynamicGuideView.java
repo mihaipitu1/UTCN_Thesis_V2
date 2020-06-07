@@ -1,6 +1,7 @@
 package views.guides;
 
 import commons.logger.LoggerConfig;
+import commons.ui.TextAreaElement;
 import commons.ui.events.CompilerEvents;
 import commons.ui.events.FileEvents;
 import commons.ui.events.TutorialEvents;
@@ -29,8 +30,8 @@ public class DynamicGuideView extends BaseView {
     private JButton nextButton;
     private JButton finishButton;
 
-    private JLabel titleLbl;
-    private JLabel descriptionLbl;
+    private TextAreaElement titleArea;
+    private TextAreaElement descriptionArea;
 
     private JTextArea codeArea;
 
@@ -76,12 +77,14 @@ public class DynamicGuideView extends BaseView {
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JButtons >> compileButton");
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabel >> titleLbl");
-        titleLbl = new JLabel(g.getTitle());
+        titleArea = new TextAreaElement(g.getTitle());
+        titleArea.setFont(this.getCommonElements().getSubtitleFont());
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabel >> descriptionLbl");
-        descriptionLbl = new JLabel(g.getDescription());
+        descriptionArea = new TextAreaElement(g.getDescription());
+        descriptionArea.setFont(this.getCommonElements().getInfoFont());
 
         titlePanel.add(backButton);
-        titlePanel.add(titleLbl);
+        titlePanel.add(titleArea);
         titlePanel.add(nextButton);
 
         if(g.getId() == 1) {
@@ -98,7 +101,7 @@ public class DynamicGuideView extends BaseView {
         codeArea.setText(g.getExample());
         codeArea.setEditable(false);
 
-        descriptionPanel.add(descriptionLbl);
+        descriptionPanel.add(descriptionArea);
         descriptionPanel.add(codeArea);
         
         this.getMainPanel().setLayout(new GridLayout(3,1,20,20));

@@ -63,8 +63,10 @@ public class GuideView extends BaseView {
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabels >> titleLbl");
         titleLbl = new JLabel("Title Label");
+        titleLbl.setFont(this.getCommonElements().getTitleFont());
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> subtitleLbl");
         subtitleLbl = new JLabel("SubTitle Label");
+        subtitleLbl.setFont(this.getCommonElements().getSubtitleFont());
 
         topPanel.add(titleLbl);
         topPanel.add(subtitleLbl);

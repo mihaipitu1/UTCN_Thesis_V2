@@ -17,6 +17,10 @@ public class CommonElements {
     private TutorialMenu tutorialMenu;
     private HelpMenu helpMenu;
 
+    private Font titleFont;
+    private Font subtitleFont;
+    private Font infoFont;
+
     public CommonElements() {
         initElements();
     }
@@ -34,5 +38,9 @@ public class CommonElements {
         mainMenuBar.addMenuItem(compileMenu.getMenu());
         mainMenuBar.addMenuItem(tutorialMenu.getMenu());
         mainMenuBar.addMenuItem(helpMenu.getMenu());
+
+        titleFont = new Font(Font.SANS_SERIF, Font.BOLD, 36);
+        subtitleFont = new Font(Font.SANS_SERIF, Font.BOLD, 20);
+        infoFont = new Font(Font.SANS_SERIF, Font.BOLD, 14);
     }
 }
