@@ -4,19 +4,12 @@ package views;
 import commons.logger.LoggerConfig;
 import commons.ui.events.CompilerEvents;
 import commons.ui.events.FileEvents;
-import commons.ui.menu.CompileMenu;
-import commons.ui.menu.FileMenu;
-import commons.ui.menu.TutorialMenu;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FileView extends BaseView {
-    private FileMenu fileMenu;
-    private CompileMenu compileMenu;
-    private TutorialMenu tutorialMenu;
-
     private FileEvents fileEvents;
     private CompilerEvents compilerEvents;
 
@@ -55,24 +48,13 @@ public class FileView extends BaseView {
         this.getMainPanel().add(codeArea);
         this.getMainPanel().add(outputArea);
 
-        LoggerConfig.infoLog(TAG,"initComponents() >> Initialize menus >> fileMenu");
-        fileMenu = new FileMenu();
-        LoggerConfig.infoLog(TAG,"initComponents() >> Initialize menus >> compileMenu");
-        compileMenu = new CompileMenu();
-        LoggerConfig.infoLog(TAG,"initComponents() >> Initialize menus >> tutorialMenu");
-        tutorialMenu = new TutorialMenu();
-
-        this.getMainMenuBar().addMenuItemAt(fileMenu.getMenu(),0);
-        this.getMainMenuBar().addMenuItemAt(compileMenu.getMenu(),1);
-        this.getMainMenuBar().addMenuItemAt(tutorialMenu.getMenu(),2);
-
         LoggerConfig.infoLog(TAG,"initComponents() >> Set action events");
         setActionEvents();
     }
 
     private void setActionEvents() {
         LoggerConfig.infoLog(TAG,"setActionEvents()");
-        fileMenu.getNewMenuItem().addActionListener(new ActionListener() {
+        this.getCommonElements().getFileMenu().getNewMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getNewMenuItem() Action Listener");
@@ -90,7 +72,7 @@ public class FileView extends BaseView {
             }
         });
 
-        fileMenu.getOpenMenuItem().addActionListener(new ActionListener() {
+        this.getCommonElements().getFileMenu().getOpenMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getOpenMenuItem() Action Listener");
@@ -107,7 +89,7 @@ public class FileView extends BaseView {
             }
         });
 
-        fileMenu.getSaveMenuItem().addActionListener(new ActionListener() {
+        this.getCommonElements().getFileMenu().getSaveMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getSaveMenuItem() Action Listener");
@@ -115,7 +97,7 @@ public class FileView extends BaseView {
             }
         });
 
-        fileMenu.getExitMenuItem().addActionListener(new ActionListener() {
+        this.getCommonElements().getFileMenu().getExitMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent actionEvent){
                 LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getExitMenuItem() Action Listener");
@@ -123,7 +105,7 @@ public class FileView extends BaseView {
             }
         });
 
-        compileMenu.getCompileMenuItem().addActionListener(new ActionListener() {
+        this.getCommonElements().getCompileMenu().getCompileMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LoggerConfig.infoLog(TAG,"setActionEvents() >> compileMenu.getCompileMenuItem() Action Listener");

@@ -312,7 +312,7 @@ Lex is a computer program designed for generating lexical analyzers. It is the s
 
 Lex reads an input stream specifying the lexical analyzer and outputs source code implementing a lexer in C. This input stream is given to Lex directly as standard input from the user or a file that contains the 
 
-\subsection{Yacc}j
+\subsection{Yacc}
 
 Yacc\textit{(Yet Another Compiler-Compiler)} is a computer program for the Unix operating system. It is a LALR\textit{(Look Ahead Left-to-Right)} parser generator, which generates a parser, the part of a compiler that tries to make syntactic sense of the source code. 
 
@@ -436,20 +436,17 @@ For this project, this interpreter is written in C, a high level language, being
 	
 	\textit{c = a * (b + 5);}
 	
-	The lexer gets this statement, passes through its all defined lexems (the source program that matches the pattern for a token) and creates the token based on their lexem appartenance. In this case, the statement becomes:
-	\begin{itemize}
-			
-	\item (identifier, c)
-	\item (operator,=)
-	\item (identifier,a)
-	\item (operator,*)
-	\item (separator,()
-	\item (identifier,b)
-	\item (operator,+)
-	\item (literal,5)
-	\item (separator,))
-	\item (separator,;)
-	\end{itemize}
+	The lexer gets this statement, passes through its all defined lexems (the source program that matches the pattern for a token) and creates the token based on their lexem appartenance. In this case, the statement is split into tokens that are categorised:
+	\begin{table}[H]
+	\centering
+\begin{tabular}{|c|c|c|c|l}
+\cline{1-4}
+\multicolumn{1}{|l|}{identifier} & \multicolumn{1}{l|}{operator} & \multicolumn{1}{l|}{separator} & \multicolumn{1}{l|}{literal} &  \\ \cline{1-4}
+c                                & =                             & (                              & 5                            &  \\ \cline{1-4}
+a                                & *                             & )                              &                              &  \\ \cline{1-4}
+b                                & +                             & ;                              &                              &  \\ \cline{1-4}
+\end{tabular}
+\end{table}
 
 	The tokens obtained are, then, passed to the parser.
 	
@@ -475,7 +472,12 @@ For this project, this interpreter is written in C, a high level language, being
 \chapter{Detailed Design and Implementation}
 
 \section{Project Component Diagram}
-%\Block Diagram of the application TBA
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.6]{img/CompDiag.png}
+ \caption{Component Diagram}
+\end{figure}
+
 This project is split into two main components:
 \begin{itemize}
 	\item Editor Application
@@ -487,11 +489,93 @@ These components communicate bidirectionally in order to ensure a good workflow:
 	\item The editor application runs the interpreter that compiles the source file via running the Linux process.
 	\item The result from the interpretation is then written in a file that is read by the editor application and displayed it there.  
 \end{itemize}
-\section{Editor Application}
-\subsection{Package Diagram}
-%\Package diagram TBA
 
-\section{SueC Interpreter}
+
+\section{Editor Application}
+The editor application is a Java Swing Desktop application that acts as the main interface of compiling SueC code files. The main purpose of creating it was to have a simple and easy-to-read graphical user interface for an user to create, edit and run SueC code files.
+\subsection{Packages}
+
+The main structure of the application (see Figure 5.2) is based on the Model-View-Controller pattern:
+\begin{itemize}
+ \item The \textit{Model} component is represented by the main models used in the project.
+ \item The \textit{View} component is represented by the Swing views created to display specific tasks.
+ \item The \textit{Controller} component is already integrated into the Java Swing architecture, as these are represented by the event handlers used for each component used in each view.
+\end{itemize}
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.5]{img/packagediag.png}
+ \caption{Package Diagram}
+\end{figure}
+
+Besides the MVC-like packages, there are also packages used for other functionalities that are used to ensure the workflow of the Editor App and the SueC Interpreter.
+
+\begin{enumerate}
+ \item \textbf{\textit{models} package}
+ 
+ \begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.4]{img/ModelsPackage.png}
+ \caption{Class diagram of \textit{models} package}
+\end{figure}
+
+This package contains the main models used in the project for representing the educational part of the application.  
+\begin{itemize}
+ \item \textbf{Tutorial} class
+    
+    This class resembles a simple version of a tutorial object. It is used for adding the tutorial data for the tutorial views. Each tutorial contains:
+    \begin{itemize}
+        \item \textit{id} - the number associated to the tutorial
+        \item \textit{title} - the title of the tutorial
+        \item \textit{description} - the description of the tutorial
+        \item \textit{task} - the task required for the user to finish the tutorial
+        \item \textit{answer} - the expected answer that the interpreter should give after the user runs the task.
+    \end{itemize}
+    
+    \item \textbf{Guide} class
+    
+    This class resembles a simple version of a guide object. It is used for adding the guide data for the guide views. Each tutorial contains:
+    \begin{itemize}
+        \item \textit{id} - the number associated to the guide
+        \item \textit{title} - the title of the guide
+        \item \textit{description} - the description of the guide
+        \item \textit{example} - am example of usage of the notion described in the guide
+    \end{itemize}
+\end{itemize}
+These resource files are JSON files - \textit{tutorials.json} and \textit{guides.json} - that contain a list of tutorial and guide objects, respectively. The lists are then used for displaying the tutorials/guides in the application. The model classes are used as the template objects for these JSON resource files.
+
+\item \textbf{\textit{views} package}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{img/ViewsPackage.png}
+    \caption{Views Package}
+    \label{fig:conf}
+\end{figure}
+
+This package contains all the view classes that are displayed in the application. These classes have been made using components from Java Swing that were directly used or extended in objects from the \textbf{\textit{commons}} package.
+
+All views that are shown are created from extending the \textbf {BaseView} class. This class holds the main structure of the views, all other views being extended from this. Itself, it is extended from \textbf{JFrame} class that comes from Swing library - creating the actual frame that is displayed to the user. The view consists of:
+\begin{itemize}
+ \item \textbf{Main Menu Bar} - it is defined in the \textbf{\textit{commons}} package as a \textbf{MainMenuBar} object, an extension of the associated Swing object. It holds all of the menus that are also defined and used throughout the views. 
+ \item \textbf{Help Menu} - one of the defined menus created  in \textbf{\textit{commons}} package and used in all the views. It is a \textbf{HelpMenu} object. 
+ \item \textbf{Main Panel} - a JPanel object that serves as the main panel of the JFrame. Each view adds elements only to this element, as it is structured as a grid with one column and two or three columns, depending on the view.
+\end{itemize}
+
+The other views are created and grouped based on their functionality. These views are linked via events that are triggered by accessing the menu options from the menu bar.  
+
+\begin{enumerate}
+ \item \textbf{Main View - MainView} class
+ 
+ 
+ 
+ 
+\end{enumerate}
+
+
+\end{enumerate}
+
+
 
 \chapter{Testing and Validation}
 

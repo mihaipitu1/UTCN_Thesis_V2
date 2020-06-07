@@ -1,18 +1,15 @@
 package views;
 
 
+import commons.CommonElements;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
-import commons.ui.MainMenuBar;
-import commons.ui.menu.HelpMenu;
-
 public class BaseView extends JFrame {
-    private MainMenuBar menuBar;
+
     private JPanel mainPanel;
-    private HelpMenu helpMenu;
+    private CommonElements commonElements;
 
     public BaseView() {
         super();
@@ -23,25 +20,20 @@ public class BaseView extends JFrame {
         this.setSize(600,600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+        commonElements = new CommonElements();
+
         BorderLayout layout = new BorderLayout();
         this.setLayout(layout);
 
-
-        menuBar = new MainMenuBar();
-        helpMenu = new HelpMenu();
-
-        menuBar.addMenuItem(helpMenu.getMenu());
-
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(2,1,10,10));
-        this.menuBar.getMenuBar().setSize(new Dimension(600,20));
 
-        this.add(menuBar.getMenuBar(), BorderLayout.NORTH);
+        this.add(commonElements.getMainMenuBar().getMenuBar(), BorderLayout.NORTH);
         this.add(mainPanel,BorderLayout.CENTER);
     }
 
-    public MainMenuBar getMainMenuBar() {
-        return this.menuBar;
+    public CommonElements getCommonElements() {
+        return this.commonElements;
     }
 
     public JPanel getMainPanel() {

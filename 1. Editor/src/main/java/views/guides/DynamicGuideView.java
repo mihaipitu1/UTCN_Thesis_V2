@@ -4,13 +4,9 @@ import commons.logger.LoggerConfig;
 import commons.ui.events.CompilerEvents;
 import commons.ui.events.FileEvents;
 import commons.ui.events.TutorialEvents;
-import commons.ui.menu.CompileMenu;
-import commons.ui.menu.FileMenu;
-import commons.ui.menu.TutorialMenu;
 import models.Guide;
 import views.BaseView;
 import views.FileView;
-import views.tutorials.DynamicTutorialView;
 import views.tutorials.TutorialView;
 
 import javax.swing.*;
@@ -20,10 +16,6 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class DynamicGuideView extends BaseView {
-    private FileMenu fileMenu;
-    private CompileMenu compileMenu;
-    private TutorialMenu tutorialMenu;
-
     private TutorialEvents tutorialEvents;
     private FileEvents fileEvents;
     private CompilerEvents compilerEvents;
@@ -65,13 +57,6 @@ public class DynamicGuideView extends BaseView {
         fileEvents = new FileEvents();
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing events >> compilerEvents");
         compilerEvents = new CompilerEvents();
-
-        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing menus >> fileMenu");
-        fileMenu = new FileMenu();
-        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing menus >> compileMenu");
-        compileMenu =  new CompileMenu();
-        LoggerConfig.infoLog(TAG,"initComponents() >> Initializing menus >> tutorialMenu");
-        tutorialMenu = new TutorialMenu();
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing tutorials list >> tutorials");
         guides = tutorialEvents.loadGuidesEvent();
@@ -118,10 +103,6 @@ public class DynamicGuideView extends BaseView {
         
         this.getMainPanel().setLayout(new GridLayout(3,1,20,20));
 
-        this.getMainMenuBar().addMenuItemAt(fileMenu.getMenu(),0);
-        this.getMainMenuBar().addMenuItemAt(compileMenu.getMenu(),1);
-        this.getMainMenuBar().addMenuItemAt(tutorialMenu.getMenu(),2);
-
         this.getMainPanel().add(titlePanel);
         this.getMainPanel().add(descriptionPanel);
 
@@ -131,7 +112,7 @@ public class DynamicGuideView extends BaseView {
 
     private void setActionEvents() {
         LoggerConfig.infoLog(TAG, "setActionEvents()");
-        fileMenu.getNewMenuItem().addActionListener(new ActionListener() {
+        this.getCommonElements().getFileMenu().getNewMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LoggerConfig.infoLog(TAG, "setActionEvents() >> fileMenu.getNewMenuItem() Action Listener");
@@ -149,7 +130,7 @@ public class DynamicGuideView extends BaseView {
             }
         });
 
-        fileMenu.getOpenMenuItem().addActionListener(new ActionListener() {
+        this.getCommonElements().getFileMenu().getOpenMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LoggerConfig.infoLog(TAG, "setActionEvents() >> fileMenu.getOpenMenuItem() Action Listener");
@@ -166,7 +147,7 @@ public class DynamicGuideView extends BaseView {
             }
         });
 
-        fileMenu.getExitMenuItem().addActionListener(new ActionListener() {
+        this.getCommonElements().getFileMenu().getExitMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LoggerConfig.infoLog(TAG, "setActionEvents() >> fileMenu.getExitMenuItem() Action Listener");
@@ -174,7 +155,7 @@ public class DynamicGuideView extends BaseView {
             }
         });
 
-        tutorialMenu.getTutorialListMenuItem().addActionListener(new ActionListener() {
+        this.getCommonElements().getTutorialMenu().getTutorialListMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 LoggerConfig.infoLog(TAG, "setActionEvents() >> tutorialMenu.getTutorialListMenuItem() Action Listener");
