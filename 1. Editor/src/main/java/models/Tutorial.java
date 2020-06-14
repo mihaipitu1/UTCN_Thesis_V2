@@ -12,7 +12,7 @@ public class Tutorial {
 
     @Override
     public String toString() {
-        return this.title;
+        return this.id + ". " + this.title;
     }
 
     public boolean isEqual(Tutorial obj) {

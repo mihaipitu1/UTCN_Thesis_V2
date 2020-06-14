@@ -216,7 +216,11 @@ public class DynamicTutorialView extends BaseView {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
                     LoggerConfig.infoLog(TAG,"setActionEvents() >> finishButton Action Listener");
-                    JOptionPane.showMessageDialog(new JFrame(), "You did it!"); }
+                    JOptionPane.showMessageDialog(new JFrame(), "You did it!");
+                    TutorialView tutorialView = new TutorialView();
+                    DynamicTutorialView.this.setVisible(false);
+                    tutorialView.setVisible(true);
+                }
             });
 
 

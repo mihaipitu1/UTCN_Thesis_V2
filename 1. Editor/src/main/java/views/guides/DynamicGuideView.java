@@ -195,6 +195,9 @@ public class DynamicGuideView extends BaseView {
             public void actionPerformed(ActionEvent actionEvent) {
                 LoggerConfig.infoLog(TAG, "setActionEvents() >> finishButton Action Listener");
                 JOptionPane.showMessageDialog(new JFrame(), "You did it!");
+                GuideView guideView = new GuideView();
+                DynamicGuideView.this.setVisible(false);
+                guideView.setVisible(true);
             }
         });
     }

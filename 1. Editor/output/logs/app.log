@@ -1,14 +1,546 @@
-Jun 07, 2020 6:16:13 PM commons.logger.LoggerConfig infoLog
+Jun 14, 2020 4:24:44 PM commons.logger.LoggerConfig infoLog
 INFO: Main >> Started Application
-Jun 07, 2020 6:16:13 PM commons.logger.LoggerConfig infoLog
+Jun 14, 2020 4:24:45 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> MainView()
-Jun 07, 2020 6:16:13 PM commons.logger.LoggerConfig infoLog
+Jun 14, 2020 4:24:45 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> initComponents()
-Jun 07, 2020 6:16:13 PM commons.logger.LoggerConfig infoLog
+Jun 14, 2020 4:24:45 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> initComponents() >> Initiate events >> fileEvents
-Jun 07, 2020 6:16:13 PM commons.logger.LoggerConfig infoLog
+Jun 14, 2020 4:24:45 PM commons.logger.LoggerConfig infoLog
 INFO: File Events >> FileEvents() - initializing necessary utilities
-Jun 07, 2020 6:16:13 PM commons.logger.LoggerConfig infoLog
+Jun 14, 2020 4:24:45 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> initComponents() >> Set action events
-Jun 07, 2020 6:16:13 PM commons.logger.LoggerConfig infoLog
+Jun 14, 2020 4:24:45 PM commons.logger.LoggerConfig infoLog
 INFO: Main View >> setActionEvents()
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> setActionEvents() >> tutorialMenu.getHelpListMenuItem() Action Listener
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> GuideView()
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents()
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing events >> tutorialEvents
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [{"id":1,"title":"Introduction","description":"Welcome to SueC tutorials!\n\nThese tutorials are useful for learning the basics of SueC programming language, an educational programming language aimed to be close to the pseudocode. It uses elements ans structures similar to other programming languages like C and Python. \nEach statement ends with a semicolon and no curly brackets are needed. ","task":"For first, please write this in the code area:\n\nwrite \"Hello\";","answer":"Hello"},{"id":2,"title":"Variables - Integers","description":"Variables are the key elements of a programming language. These are used for storing different information in memory. The main structure of the statement is:\n\u003ctype\u003e \u003cvar_name\u003e ;\n\u003ctype\u003e - int for integer or string for string;\n\u003cvar_name\u003e - one letter of the English alphabet. The camel-case counts.","task":"Define an integer variable a with value 4 and display it using \"write\" command.","answer":"4"},{"id":3,"title":"Variables - Strings","description":"Same as before, variables can also store strings. The good part is that the strings have their memory already allocated, once the variable is created and assigned.\nThe assignment of a string is different - using the \"copy\" command:\n\ncopy \u003cdest\u003e \u003csource\u003e;","task":"Create a string variable and assign the string \"Hello\". After that, display on the screen.","answer":"Hello"},{"id":4,"title":"Integers","description":"Integers are used for mathematical operations in computer programming, as they are the most simple operations implemented in computer science. These operations are:\n- addition: a+b\n- subtraction: a-b\n- multiplication: a*b\n- division: a/b","task":"Display the addition of 3 and 4.","answer":"7"},{"id":5,"title":"Strings","description":"Strings are used frequently in programming languages mostly for storing data and creating objects for databases or displaying them in different applications. Operations that are specified in SueC are:\n- copy \u003cdest\u003e \u003csource\u003e - copies the source string into the destination string\n- unite \u003cdest\u003e \u003csource\u003e - united the source string with the destination string\n- compare \u003cstr_1\u003e \u003cstr_2\u003e - compares the strings. \n- length \u003cstr\u003e - it returns the length of the string","task":"Unite \"Hello\" and \"World\" and display it on the screen.","answer":"HelloWorld"}]
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [{"id":1,"title":"Variables","description":"Variables are the key elements of storing data in memory. These variables map a specific value that is stored in the memory. The main structure is:\n\u003ctype\u003e \u003cvariable\u003e;","example":"int a; - for integers\n\nstring a; - for strings\n"},{"id":2,"title":"Integer operations","description":"The main operations for integers are:\n- addition\n- subtraction\n- multiplication\n- division\n\nThere are also operations for assignment and comparison.","example":"a+b | a-b | a*b | a/b | a\u003db\na\u003eb | a \u003e\u003d b | a \u003d\u003db | a\u003c\u003db | a\u003cb | a !\u003d b"},{"id":3,"title":"String operations","description":"Operations specific to strings:\n- copy one string into another\n- concatenate one string with another\n- compare one string with another\n- getting the length of a string","example":"copy a,b;\nunite a,b;\ncompare a,b;\nlength a;"},{"id":4,"title":"If statement","description":"If statement is used for conditional programming. ","example":"if \u003ccondition\u003e then \u003cstatement\u003e\n\nif \u003ccondition\u003e then \u003cstatement\u003e else \u003cstatement\u003e"}]
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing events >> fileEvents
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> topPanel
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> bottomPanel
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> bottomLeftPanel
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JLabels >> titleLbl
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> subtitleLbl
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JList >> tutorialList
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JButtons >> startTutorialButton
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Set Action Events
+Jun 14, 2020 4:24:47 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> setActionEvents()
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> setActionEvents() >> startTutorialButton Action Listener
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 1 - Variables >> GuideView() 
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [{"id":1,"title":"Introduction","description":"Welcome to SueC tutorials!\n\nThese tutorials are useful for learning the basics of SueC programming language, an educational programming language aimed to be close to the pseudocode. It uses elements ans structures similar to other programming languages like C and Python. \nEach statement ends with a semicolon and no curly brackets are needed. ","task":"For first, please write this in the code area:\n\nwrite \"Hello\";","answer":"Hello"},{"id":2,"title":"Variables - Integers","description":"Variables are the key elements of a programming language. These are used for storing different information in memory. The main structure of the statement is:\n\u003ctype\u003e \u003cvar_name\u003e ;\n\u003ctype\u003e - int for integer or string for string;\n\u003cvar_name\u003e - one letter of the English alphabet. The camel-case counts.","task":"Define an integer variable a with value 4 and display it using \"write\" command.","answer":"4"},{"id":3,"title":"Variables - Strings","description":"Same as before, variables can also store strings. The good part is that the strings have their memory already allocated, once the variable is created and assigned.\nThe assignment of a string is different - using the \"copy\" command:\n\ncopy \u003cdest\u003e \u003csource\u003e;","task":"Create a string variable and assign the string \"Hello\". After that, display on the screen.","answer":"Hello"},{"id":4,"title":"Integers","description":"Integers are used for mathematical operations in computer programming, as they are the most simple operations implemented in computer science. These operations are:\n- addition: a+b\n- subtraction: a-b\n- multiplication: a*b\n- division: a/b","task":"Display the addition of 3 and 4.","answer":"7"},{"id":5,"title":"Strings","description":"Strings are used frequently in programming languages mostly for storing data and creating objects for databases or displaying them in different applications. Operations that are specified in SueC are:\n- copy \u003cdest\u003e \u003csource\u003e - copies the source string into the destination string\n- unite \u003cdest\u003e \u003csource\u003e - united the source string with the destination string\n- compare \u003cstr_1\u003e \u003cstr_2\u003e - compares the strings. \n- length \u003cstr\u003e - it returns the length of the string","task":"Unite \"Hello\" and \"World\" and display it on the screen.","answer":"HelloWorld"}]
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [{"id":1,"title":"Variables","description":"Variables are the key elements of storing data in memory. These variables map a specific value that is stored in the memory. The main structure is:\n\u003ctype\u003e \u003cvariable\u003e;","example":"int a; - for integers\n\nstring a; - for strings\n"},{"id":2,"title":"Integer operations","description":"The main operations for integers are:\n- addition\n- subtraction\n- multiplication\n- division\n\nThere are also operations for assignment and comparison.","example":"a+b | a-b | a*b | a/b | a\u003db\na\u003eb | a \u003e\u003d b | a \u003d\u003db | a\u003c\u003db | a\u003cb | a !\u003d b"},{"id":3,"title":"String operations","description":"Operations specific to strings:\n- copy one string into another\n- concatenate one string with another\n- compare one string with another\n- getting the length of a string","example":"copy a,b;\nunite a,b;\ncompare a,b;\nlength a;"},{"id":4,"title":"If statement","description":"If statement is used for conditional programming. ","example":"if \u003ccondition\u003e then \u003cstatement\u003e\n\nif \u003ccondition\u003e then \u003cstatement\u003e else \u003cstatement\u003e"}]
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+Jun 14, 2020 4:38:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> nextButton Action Listener
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 2 - Integer operations >> GuideView() 
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [{"id":1,"title":"Introduction","description":"Welcome to SueC tutorials!\n\nThese tutorials are useful for learning the basics of SueC programming language, an educational programming language aimed to be close to the pseudocode. It uses elements ans structures similar to other programming languages like C and Python. \nEach statement ends with a semicolon and no curly brackets are needed. ","task":"For first, please write this in the code area:\n\nwrite \"Hello\";","answer":"Hello"},{"id":2,"title":"Variables - Integers","description":"Variables are the key elements of a programming language. These are used for storing different information in memory. The main structure of the statement is:\n\u003ctype\u003e \u003cvar_name\u003e ;\n\u003ctype\u003e - int for integer or string for string;\n\u003cvar_name\u003e - one letter of the English alphabet. The camel-case counts.","task":"Define an integer variable a with value 4 and display it using \"write\" command.","answer":"4"},{"id":3,"title":"Variables - Strings","description":"Same as before, variables can also store strings. The good part is that the strings have their memory already allocated, once the variable is created and assigned.\nThe assignment of a string is different - using the \"copy\" command:\n\ncopy \u003cdest\u003e \u003csource\u003e;","task":"Create a string variable and assign the string \"Hello\". After that, display on the screen.","answer":"Hello"},{"id":4,"title":"Integers","description":"Integers are used for mathematical operations in computer programming, as they are the most simple operations implemented in computer science. These operations are:\n- addition: a+b\n- subtraction: a-b\n- multiplication: a*b\n- division: a/b","task":"Display the addition of 3 and 4.","answer":"7"},{"id":5,"title":"Strings","description":"Strings are used frequently in programming languages mostly for storing data and creating objects for databases or displaying them in different applications. Operations that are specified in SueC are:\n- copy \u003cdest\u003e \u003csource\u003e - copies the source string into the destination string\n- unite \u003cdest\u003e \u003csource\u003e - united the source string with the destination string\n- compare \u003cstr_1\u003e \u003cstr_2\u003e - compares the strings. \n- length \u003cstr\u003e - it returns the length of the string","task":"Unite \"Hello\" and \"World\" and display it on the screen.","answer":"HelloWorld"}]
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [{"id":1,"title":"Variables","description":"Variables are the key elements of storing data in memory. These variables map a specific value that is stored in the memory. The main structure is:\n\u003ctype\u003e \u003cvariable\u003e;","example":"int a; - for integers\n\nstring a; - for strings\n"},{"id":2,"title":"Integer operations","description":"The main operations for integers are:\n- addition\n- subtraction\n- multiplication\n- division\n\nThere are also operations for assignment and comparison.","example":"a+b | a-b | a*b | a/b | a\u003db\na\u003eb | a \u003e\u003d b | a \u003d\u003db | a\u003c\u003db | a\u003cb | a !\u003d b"},{"id":3,"title":"String operations","description":"Operations specific to strings:\n- copy one string into another\n- concatenate one string with another\n- compare one string with another\n- getting the length of a string","example":"copy a,b;\nunite a,b;\ncompare a,b;\nlength a;"},{"id":4,"title":"If statement","description":"If statement is used for conditional programming. ","example":"if \u003ccondition\u003e then \u003cstatement\u003e\n\nif \u003ccondition\u003e then \u003cstatement\u003e else \u003cstatement\u003e"}]
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+Jun 14, 2020 4:56:51 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> backButton Action Listener
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 1 - Variables >> GuideView() 
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [{"id":1,"title":"Introduction","description":"Welcome to SueC tutorials!\n\nThese tutorials are useful for learning the basics of SueC programming language, an educational programming language aimed to be close to the pseudocode. It uses elements ans structures similar to other programming languages like C and Python. \nEach statement ends with a semicolon and no curly brackets are needed. ","task":"For first, please write this in the code area:\n\nwrite \"Hello\";","answer":"Hello"},{"id":2,"title":"Variables - Integers","description":"Variables are the key elements of a programming language. These are used for storing different information in memory. The main structure of the statement is:\n\u003ctype\u003e \u003cvar_name\u003e ;\n\u003ctype\u003e - int for integer or string for string;\n\u003cvar_name\u003e - one letter of the English alphabet. The camel-case counts.","task":"Define an integer variable a with value 4 and display it using \"write\" command.","answer":"4"},{"id":3,"title":"Variables - Strings","description":"Same as before, variables can also store strings. The good part is that the strings have their memory already allocated, once the variable is created and assigned.\nThe assignment of a string is different - using the \"copy\" command:\n\ncopy \u003cdest\u003e \u003csource\u003e;","task":"Create a string variable and assign the string \"Hello\". After that, display on the screen.","answer":"Hello"},{"id":4,"title":"Integers","description":"Integers are used for mathematical operations in computer programming, as they are the most simple operations implemented in computer science. These operations are:\n- addition: a+b\n- subtraction: a-b\n- multiplication: a*b\n- division: a/b","task":"Display the addition of 3 and 4.","answer":"7"},{"id":5,"title":"Strings","description":"Strings are used frequently in programming languages mostly for storing data and creating objects for databases or displaying them in different applications. Operations that are specified in SueC are:\n- copy \u003cdest\u003e \u003csource\u003e - copies the source string into the destination string\n- unite \u003cdest\u003e \u003csource\u003e - united the source string with the destination string\n- compare \u003cstr_1\u003e \u003cstr_2\u003e - compares the strings. \n- length \u003cstr\u003e - it returns the length of the string","task":"Unite \"Hello\" and \"World\" and display it on the screen.","answer":"HelloWorld"}]
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [{"id":1,"title":"Variables","description":"Variables are the key elements of storing data in memory. These variables map a specific value that is stored in the memory. The main structure is:\n\u003ctype\u003e \u003cvariable\u003e;","example":"int a; - for integers\n\nstring a; - for strings\n"},{"id":2,"title":"Integer operations","description":"The main operations for integers are:\n- addition\n- subtraction\n- multiplication\n- division\n\nThere are also operations for assignment and comparison.","example":"a+b | a-b | a*b | a/b | a\u003db\na\u003eb | a \u003e\u003d b | a \u003d\u003db | a\u003c\u003db | a\u003cb | a !\u003d b"},{"id":3,"title":"String operations","description":"Operations specific to strings:\n- copy one string into another\n- concatenate one string with another\n- compare one string with another\n- getting the length of a string","example":"copy a,b;\nunite a,b;\ncompare a,b;\nlength a;"},{"id":4,"title":"If statement","description":"If statement is used for conditional programming. ","example":"if \u003ccondition\u003e then \u003cstatement\u003e\n\nif \u003ccondition\u003e then \u003cstatement\u003e else \u003cstatement\u003e"}]
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+Jun 14, 2020 5:59:03 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> nextButton Action Listener
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 2 - Integer operations >> GuideView() 
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [{"id":1,"title":"Introduction","description":"Welcome to SueC tutorials!\n\nThese tutorials are useful for learning the basics of SueC programming language, an educational programming language aimed to be close to the pseudocode. It uses elements ans structures similar to other programming languages like C and Python. \nEach statement ends with a semicolon and no curly brackets are needed. ","task":"For first, please write this in the code area:\n\nwrite \"Hello\";","answer":"Hello"},{"id":2,"title":"Variables - Integers","description":"Variables are the key elements of a programming language. These are used for storing different information in memory. The main structure of the statement is:\n\u003ctype\u003e \u003cvar_name\u003e ;\n\u003ctype\u003e - int for integer or string for string;\n\u003cvar_name\u003e - one letter of the English alphabet. The camel-case counts.","task":"Define an integer variable a with value 4 and display it using \"write\" command.","answer":"4"},{"id":3,"title":"Variables - Strings","description":"Same as before, variables can also store strings. The good part is that the strings have their memory already allocated, once the variable is created and assigned.\nThe assignment of a string is different - using the \"copy\" command:\n\ncopy \u003cdest\u003e \u003csource\u003e;","task":"Create a string variable and assign the string \"Hello\". After that, display on the screen.","answer":"Hello"},{"id":4,"title":"Integers","description":"Integers are used for mathematical operations in computer programming, as they are the most simple operations implemented in computer science. These operations are:\n- addition: a+b\n- subtraction: a-b\n- multiplication: a*b\n- division: a/b","task":"Display the addition of 3 and 4.","answer":"7"},{"id":5,"title":"Strings","description":"Strings are used frequently in programming languages mostly for storing data and creating objects for databases or displaying them in different applications. Operations that are specified in SueC are:\n- copy \u003cdest\u003e \u003csource\u003e - copies the source string into the destination string\n- unite \u003cdest\u003e \u003csource\u003e - united the source string with the destination string\n- compare \u003cstr_1\u003e \u003cstr_2\u003e - compares the strings. \n- length \u003cstr\u003e - it returns the length of the string","task":"Unite \"Hello\" and \"World\" and display it on the screen.","answer":"HelloWorld"}]
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [{"id":1,"title":"Variables","description":"Variables are the key elements of storing data in memory. These variables map a specific value that is stored in the memory. The main structure is:\n\u003ctype\u003e \u003cvariable\u003e;","example":"int a; - for integers\n\nstring a; - for strings\n"},{"id":2,"title":"Integer operations","description":"The main operations for integers are:\n- addition\n- subtraction\n- multiplication\n- division\n\nThere are also operations for assignment and comparison.","example":"a+b | a-b | a*b | a/b | a\u003db\na\u003eb | a \u003e\u003d b | a \u003d\u003db | a\u003c\u003db | a\u003cb | a !\u003d b"},{"id":3,"title":"String operations","description":"Operations specific to strings:\n- copy one string into another\n- concatenate one string with another\n- compare one string with another\n- getting the length of a string","example":"copy a,b;\nunite a,b;\ncompare a,b;\nlength a;"},{"id":4,"title":"If statement","description":"If statement is used for conditional programming. ","example":"if \u003ccondition\u003e then \u003cstatement\u003e\n\nif \u003ccondition\u003e then \u003cstatement\u003e else \u003cstatement\u003e"}]
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> nextButton Action Listener
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 3 - String operations >> GuideView() 
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [{"id":1,"title":"Introduction","description":"Welcome to SueC tutorials!\n\nThese tutorials are useful for learning the basics of SueC programming language, an educational programming language aimed to be close to the pseudocode. It uses elements ans structures similar to other programming languages like C and Python. \nEach statement ends with a semicolon and no curly brackets are needed. ","task":"For first, please write this in the code area:\n\nwrite \"Hello\";","answer":"Hello"},{"id":2,"title":"Variables - Integers","description":"Variables are the key elements of a programming language. These are used for storing different information in memory. The main structure of the statement is:\n\u003ctype\u003e \u003cvar_name\u003e ;\n\u003ctype\u003e - int for integer or string for string;\n\u003cvar_name\u003e - one letter of the English alphabet. The camel-case counts.","task":"Define an integer variable a with value 4 and display it using \"write\" command.","answer":"4"},{"id":3,"title":"Variables - Strings","description":"Same as before, variables can also store strings. The good part is that the strings have their memory already allocated, once the variable is created and assigned.\nThe assignment of a string is different - using the \"copy\" command:\n\ncopy \u003cdest\u003e \u003csource\u003e;","task":"Create a string variable and assign the string \"Hello\". After that, display on the screen.","answer":"Hello"},{"id":4,"title":"Integers","description":"Integers are used for mathematical operations in computer programming, as they are the most simple operations implemented in computer science. These operations are:\n- addition: a+b\n- subtraction: a-b\n- multiplication: a*b\n- division: a/b","task":"Display the addition of 3 and 4.","answer":"7"},{"id":5,"title":"Strings","description":"Strings are used frequently in programming languages mostly for storing data and creating objects for databases or displaying them in different applications. Operations that are specified in SueC are:\n- copy \u003cdest\u003e \u003csource\u003e - copies the source string into the destination string\n- unite \u003cdest\u003e \u003csource\u003e - united the source string with the destination string\n- compare \u003cstr_1\u003e \u003cstr_2\u003e - compares the strings. \n- length \u003cstr\u003e - it returns the length of the string","task":"Unite \"Hello\" and \"World\" and display it on the screen.","answer":"HelloWorld"}]
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [{"id":1,"title":"Variables","description":"Variables are the key elements of storing data in memory. These variables map a specific value that is stored in the memory. The main structure is:\n\u003ctype\u003e \u003cvariable\u003e;","example":"int a; - for integers\n\nstring a; - for strings\n"},{"id":2,"title":"Integer operations","description":"The main operations for integers are:\n- addition\n- subtraction\n- multiplication\n- division\n\nThere are also operations for assignment and comparison.","example":"a+b | a-b | a*b | a/b | a\u003db\na\u003eb | a \u003e\u003d b | a \u003d\u003db | a\u003c\u003db | a\u003cb | a !\u003d b"},{"id":3,"title":"String operations","description":"Operations specific to strings:\n- copy one string into another\n- concatenate one string with another\n- compare one string with another\n- getting the length of a string","example":"copy a,b;\nunite a,b;\ncompare a,b;\nlength a;"},{"id":4,"title":"If statement","description":"If statement is used for conditional programming. ","example":"if \u003ccondition\u003e then \u003cstatement\u003e\n\nif \u003ccondition\u003e then \u003cstatement\u003e else \u003cstatement\u003e"}]
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+Jun 14, 2020 6:00:26 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> nextButton Action Listener
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> Guide 4 - If statement >> GuideView() 
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents()
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing current tutorial
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> tutorialEvents
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [{"id":1,"title":"Introduction","description":"Welcome to SueC tutorials!\n\nThese tutorials are useful for learning the basics of SueC programming language, an educational programming language aimed to be close to the pseudocode. It uses elements ans structures similar to other programming languages like C and Python. \nEach statement ends with a semicolon and no curly brackets are needed. ","task":"For first, please write this in the code area:\n\nwrite \"Hello\";","answer":"Hello"},{"id":2,"title":"Variables - Integers","description":"Variables are the key elements of a programming language. These are used for storing different information in memory. The main structure of the statement is:\n\u003ctype\u003e \u003cvar_name\u003e ;\n\u003ctype\u003e - int for integer or string for string;\n\u003cvar_name\u003e - one letter of the English alphabet. The camel-case counts.","task":"Define an integer variable a with value 4 and display it using \"write\" command.","answer":"4"},{"id":3,"title":"Variables - Strings","description":"Same as before, variables can also store strings. The good part is that the strings have their memory already allocated, once the variable is created and assigned.\nThe assignment of a string is different - using the \"copy\" command:\n\ncopy \u003cdest\u003e \u003csource\u003e;","task":"Create a string variable and assign the string \"Hello\". After that, display on the screen.","answer":"Hello"},{"id":4,"title":"Integers","description":"Integers are used for mathematical operations in computer programming, as they are the most simple operations implemented in computer science. These operations are:\n- addition: a+b\n- subtraction: a-b\n- multiplication: a*b\n- division: a/b","task":"Display the addition of 3 and 4.","answer":"7"},{"id":5,"title":"Strings","description":"Strings are used frequently in programming languages mostly for storing data and creating objects for databases or displaying them in different applications. Operations that are specified in SueC are:\n- copy \u003cdest\u003e \u003csource\u003e - copies the source string into the destination string\n- unite \u003cdest\u003e \u003csource\u003e - united the source string with the destination string\n- compare \u003cstr_1\u003e \u003cstr_2\u003e - compares the strings. \n- length \u003cstr\u003e - it returns the length of the string","task":"Unite \"Hello\" and \"World\" and display it on the screen.","answer":"HelloWorld"}]
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [{"id":1,"title":"Variables","description":"Variables are the key elements of storing data in memory. These variables map a specific value that is stored in the memory. The main structure is:\n\u003ctype\u003e \u003cvariable\u003e;","example":"int a; - for integers\n\nstring a; - for strings\n"},{"id":2,"title":"Integer operations","description":"The main operations for integers are:\n- addition\n- subtraction\n- multiplication\n- division\n\nThere are also operations for assignment and comparison.","example":"a+b | a-b | a*b | a/b | a\u003db\na\u003eb | a \u003e\u003d b | a \u003d\u003db | a\u003c\u003db | a\u003cb | a !\u003d b"},{"id":3,"title":"String operations","description":"Operations specific to strings:\n- copy one string into another\n- concatenate one string with another\n- compare one string with another\n- getting the length of a string","example":"copy a,b;\nunite a,b;\ncompare a,b;\nlength a;"},{"id":4,"title":"If statement","description":"If statement is used for conditional programming. ","example":"if \u003ccondition\u003e then \u003cstatement\u003e\n\nif \u003ccondition\u003e then \u003cstatement\u003e else \u003cstatement\u003e"}]
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> fileEvents
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing events >> compilerEvents
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> titlePanel
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> descriptionPanel
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JPanels >> codePanel
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> backButton
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> nextButton
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> finishButton
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JButtons >> compileButton
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> titleLbl
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JLabel >> descriptionLbl
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Initializing JTextArea >> codeArea
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> initComponents() >> Set Action Events
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents()
+Jun 14, 2020 6:00:27 PM commons.logger.LoggerConfig infoLog
+INFO: Dynamic Guide View >> setActionEvents() >> finishButton Action Listener
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> GuideView()
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents()
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing events >> tutorialEvents
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> TutorialEvents() >> initializing utility classes
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> TutorialUtility()
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials()
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() from ./resources/storage/tutorials.json
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() - tutorials.json result: [{"id":1,"title":"Introduction","description":"Welcome to SueC tutorials!\n\nThese tutorials are useful for learning the basics of SueC programming language, an educational programming language aimed to be close to the pseudocode. It uses elements ans structures similar to other programming languages like C and Python. \nEach statement ends with a semicolon and no curly brackets are needed. ","task":"For first, please write this in the code area:\n\nwrite \"Hello\";","answer":"Hello"},{"id":2,"title":"Variables - Integers","description":"Variables are the key elements of a programming language. These are used for storing different information in memory. The main structure of the statement is:\n\u003ctype\u003e \u003cvar_name\u003e ;\n\u003ctype\u003e - int for integer or string for string;\n\u003cvar_name\u003e - one letter of the English alphabet. The camel-case counts.","task":"Define an integer variable a with value 4 and display it using \"write\" command.","answer":"4"},{"id":3,"title":"Variables - Strings","description":"Same as before, variables can also store strings. The good part is that the strings have their memory already allocated, once the variable is created and assigned.\nThe assignment of a string is different - using the \"copy\" command:\n\ncopy \u003cdest\u003e \u003csource\u003e;","task":"Create a string variable and assign the string \"Hello\". After that, display on the screen.","answer":"Hello"},{"id":4,"title":"Integers","description":"Integers are used for mathematical operations in computer programming, as they are the most simple operations implemented in computer science. These operations are:\n- addition: a+b\n- subtraction: a-b\n- multiplication: a*b\n- division: a/b","task":"Display the addition of 3 and 4.","answer":"7"},{"id":5,"title":"Strings","description":"Strings are used frequently in programming languages mostly for storing data and creating objects for databases or displaying them in different applications. Operations that are specified in SueC are:\n- copy \u003cdest\u003e \u003csource\u003e - copies the source string into the destination string\n- unite \u003cdest\u003e \u003csource\u003e - united the source string with the destination string\n- compare \u003cstr_1\u003e \u003cstr_2\u003e - compares the strings. \n- length \u003cstr\u003e - it returns the length of the string","task":"Unite \"Hello\" and \"World\" and display it on the screen.","answer":"HelloWorld"}]
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadTutorials() >> Updated tutorials list
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides()
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() from ./resources/storage/guides.json
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() - guides.json result: [{"id":1,"title":"Variables","description":"Variables are the key elements of storing data in memory. These variables map a specific value that is stored in the memory. The main structure is:\n\u003ctype\u003e \u003cvariable\u003e;","example":"int a; - for integers\n\nstring a; - for strings\n"},{"id":2,"title":"Integer operations","description":"The main operations for integers are:\n- addition\n- subtraction\n- multiplication\n- division\n\nThere are also operations for assignment and comparison.","example":"a+b | a-b | a*b | a/b | a\u003db\na\u003eb | a \u003e\u003d b | a \u003d\u003db | a\u003c\u003db | a\u003cb | a !\u003d b"},{"id":3,"title":"String operations","description":"Operations specific to strings:\n- copy one string into another\n- concatenate one string with another\n- compare one string with another\n- getting the length of a string","example":"copy a,b;\nunite a,b;\ncompare a,b;\nlength a;"},{"id":4,"title":"If statement","description":"If statement is used for conditional programming. ","example":"if \u003ccondition\u003e then \u003cstatement\u003e\n\nif \u003ccondition\u003e then \u003cstatement\u003e else \u003cstatement\u003e"}]
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Utility >> loadGuides() >> Updated guides list
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing events >> fileEvents
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing tutorials list >> tutorials
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Tutorial Events >> loadTutorialsEvent() >> returning the guides
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> topPanel
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> bottomPanel
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> bottomLeftPanel
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JLabels >> titleLbl
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JPanels >> subtitleLbl
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JList >> tutorialList
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Initializing JButtons >> startTutorialButton
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> initComponents() >> Set Action Events
+Jun 14, 2020 6:00:29 PM commons.logger.LoggerConfig infoLog
+INFO: Guide View >> setActionEvents()

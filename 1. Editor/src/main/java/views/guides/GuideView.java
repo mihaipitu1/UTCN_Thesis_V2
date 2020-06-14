@@ -57,15 +57,15 @@ public class GuideView extends BaseView {
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> bottomLeftPanel");
         bottomLeftPanel = new JPanel();
 
-        topPanel.setLayout(new GridLayout(1,2));
+        topPanel.setLayout(new GridLayout(2,1));
         bottomPanel.setLayout(new GridLayout(1,2));
         bottomLeftPanel.setLayout(new GridLayout(2,1));
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabels >> titleLbl");
-        titleLbl = new JLabel("Title Label");
+        titleLbl = new JLabel("SueC - Guide Book", SwingConstants.CENTER);
         titleLbl.setFont(this.getCommonElements().getTitleFont());
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> subtitleLbl");
-        subtitleLbl = new JLabel("SubTitle Label");
+        subtitleLbl = new JLabel("Main Menu", SwingConstants.CENTER);
         subtitleLbl.setFont(this.getCommonElements().getSubtitleFont());
 
         topPanel.add(titleLbl);
@@ -78,7 +78,6 @@ public class GuideView extends BaseView {
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JButtons >> startTutorialButton");
         startGuideButton = new JButton("Start Tutorials");
 
-        bottomLeftPanel.add(titleLbl);
         bottomLeftPanel.add(startGuideButton);
 
         bottomPanel.add(bottomLeftPanel);

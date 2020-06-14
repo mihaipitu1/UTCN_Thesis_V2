@@ -567,10 +567,131 @@ The other views are created and grouped based on their functionality. These view
 \begin{enumerate}
  \item \textbf{Main View - MainView} class
  
+ This view is the first view that can be seen when running the application. It is used as a welcome screen at the start of the application. The main panel contains only two labels that display a welcome message to the app.
+ 
+ \item \textbf{File View - FileView} class
+ 
+ This view represents the editor where an user can edit and compile SueC source code. It can be accessed when creating or opening a SueC source code file. The main panel contains two text areas:
+ \begin {itemize}
+  \item \textbf{Code text area}
+  
+  This area is used by the user to write the source code. At the start of the view lifecycle, this text area is loaded with the contents of the source file. After that, the user can edit the contents of the source code using that text area and save it or compile the code.
+  
+ \item \textbf{Output text area}
+ 
+ This area is used by the user to see the output after compiling the code written in the code area. This area is read-only and it can only be modified by the output of the compiler. 
+ \end {itemize}
+
+ The design of the view is quite simple as it holds a straightforward approach towards using the application. The user can write the code in the code text area, run the compiler by accessing the compile menu and pressing "Compile file...". Then, the output is shown in the output text area. 
+ 
+ \item \textbf{Tutorial View - TutorialView}
+ 
+ This view is the main menu view for the tutorials. It holds the structure of \textbf{BaseView}, but the main panel layout being a three-rows grid. The first two rows hold a welcome message for getting into the menu. The last row is split in two columns.
+ \begin{itemize}
+  \item The left column contains a button with label \textit{Start Tutorials}. When pressing the button, the user is redirected to the first tutorial of the tutorial list.
+  \item The right column is a JList that contains the tutorials that are loaded at the start of the application life cycle. When pressing on one tutorial from the list, the user is redirected to that specified tutorial and starts the tutorials from that selected item. 
+ \end{itemize}
+ 
+ After running all the tutorials, the user is redirected back to this view.
+ 
+ \item \textbf{Dynamic Tutorial View - DynamicTutorialView}
+ 
+ This view represents the actual tutorial structure and has the tutorial elements implemented. Structurally, the main panel is 
+ also split into three rows:
+ \begin{itemize}
+ \item \textbf{Top Panel}
+ 
+ This panel serves as a command panel. It is split into three columns and contains:
+ \begin{itemize}
+    \item \textit{Back} button 
+        
+        It redirects the user to the previous tutorial. This button is not shown in the first tutorial.
+    \item Title label 
+        
+        A label that contains the title of the tutorial.
+    \item \textit{Next/Finish} button
+    
+        Excepting the last tutorial, the button displayed is a \textit{Next} button that, when clicked, the user is redirected to the next tutorial. 
+        
+        At the last tutorial, when finished, the \textit{Finish} button is shown. When the user presses this button, it receives a pop-up message containing the message "Congratulations! You finished all the tutorials!" and, after closing the message, the user is redirected to the \textbf{TutorialView}.
+        
+        The \textit{Next/Finish} button is not displayed at the start of the view life cycle, but it appears when the user finishes the task given successfully.  
+ \end{itemize}
+ 
+ \item \textbf{Description Panel}
+ 
+ This panel is split into two columns. It contains the main information of a tutorial. The left column is represented by the description of a tutorial that holds its main purpose of a computer programming notion that can be represented in SueC programming language. The right column contains the task of the tutorial - the requirements to implement the notion in the description.
+ 
+ \item \textbf{Code Panel}
+ 
+ The code panel contains the components that the user interacts with for completing the tutorial. It is also split in two columns, having a simpler, smaller version of the \textbf{FileView} structure.
+ 
+ The left column contains the code text area where the user performs the task given for the tutorial. The right column contains the output text area - a read-only text area that shows the result of running the tutorial. Besides this, the column also contains a button with the label \textit{Compile tutorial} that, when pressed, it compiles the code written in the code area. 
+ \end{itemize}
+ 
+ \item \textbf{Guide View - GuideView}
+ 
+ This view is the main menu for the guides. The structure is similar to the structure of the \textbf{TutorialView} - a three-row grid:
+ \begin{itemize}
+  \item The first two grids contain a welcome message for getting into the guide menu.
+  \item The third row is split in two columns. The left column contains a button with the label \textit{Start guides} that opens the guide list starting from the first element. The right column contains a JList with all the guides that are preloaded at the start of the application life cycle. When clicking one of the elements, the user is redirected to the selected guide view and starts the guide list from the selected item.
+ \end{itemize}
  
  
+ \item \textbf{Dynamic Guide View - DynamicGuideView}
  
+ This view represents the actual guide structure, where all the guide elements are displayed. It has the same structure as \textbf{DynamicTutorialView}, being split into three rows:
+ \begin{itemize}
+  \item \textbf{Top Panel}
+ 
+ This panel serves as a command panel. It is split into three columns and contains:
+ \begin{itemize}
+    \item \textit{Back} button 
+        
+        It redirects the user to the previous guide. This button is not shown in the first guide.
+    \item Title label 
+        
+        A label that contains the title of the guide.
+    \item \textit{Next/Finish} button
+    
+        Excepting the last guide, the button displayed is a \textit{Next} button that, when clicked, the user is redirected to the next guide. 
+        
+        At the last guide, when finished, the \textit{Finish} button is shown. When the user presses this button, it receives a pop-up message containing the message "Congratulations! You finished reading all the guides!" and, after closing the message, the user is redirected to the \textbf{GuideView}.
+        
+ \end{itemize}
+ 
+ \item \textbf{Description Panel}
+ 
+ This panel is split into two columns. It contains the main information of a tutorial. The left column is represented by the description of a guide that describes a computer programming notion that can be represented in SueC programming language. The right column contains an implementation example of the guide.
+ 
+ \item \textbf{Code Panel}
+ 
+ The code panel is an empty panel.  
+ \end{itemize}
+
+
 \end{enumerate}
+
+
+
+\item \textbf{\textit{commons} package}
+
+This package contains all the user-defined GUI elements that are displayed in the views. Besides the GUI objects, it also has the events triggered in the views. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{img/CommonsPackage.png}
+    \caption{Commons Package}
+    \label{fig:conf}
+\end{figure}
+
+The classes are defined in two packages: 
+\begin{itemize}
+ \item \textbf{logger} package 
+ 
+ This package contains only one class - \textbf{LoggerConfig}. This class defines the logging system used throughout the application. It is defined as a wrapper over the \textbf{Logger} class from Java Util, redirecting all the logs into a file called and found in . The main operations wrapped are for logging information (\textit{infoLog}) and errors (\textit{errorLog}).
+ 
+\end{itemize}
 
 
 \end{enumerate}

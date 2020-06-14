@@ -63,10 +63,10 @@ public class TutorialView extends BaseView {
         bottomLeftPanel.setLayout(new GridLayout(2,1));
 
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JLabels >> titleLbl");
-        titleLbl = new JLabel("Title Label",SwingConstants.CENTER);
+        titleLbl = new JLabel("SueC - Tutorial List",SwingConstants.CENTER);
         titleLbl.setFont(this.getCommonElements().getTitleFont());
         LoggerConfig.infoLog(TAG,"initComponents() >> Initializing JPanels >> subtitleLbl");
-        subtitleLbl = new JLabel("SubTitle Label",SwingConstants.CENTER);
+        subtitleLbl = new JLabel("Main Menu",SwingConstants.CENTER);
         subtitleLbl.setFont(this.getCommonElements().getSubtitleFont());
 
         topPanel.add(titleLbl);
