@@ -689,29 +689,598 @@ The classes are defined in two packages:
 \begin{itemize}
  \item \textbf{logger} package 
  
- This package contains only one class - \textbf{LoggerConfig}. This class defines the logging system used throughout the application. It is defined as a wrapper over the \textbf{Logger} class from Java Util, redirecting all the logs into a file called and found in . The main operations wrapped are for logging information (\textit{infoLog}) and errors (\textit{errorLog}).
+ This package contains only one class - \textbf{LoggerConfig}. This class defines the logging system used throughout the application. It is defined as a wrapper over the \textbf{Logger} class from Java Util, redirecting all the logs into a file called "app.log" and found in "<root\_folder>/output/logs" folder. The main operations wrapped are for logging information (\textit{infoLog}) and errors (\textit{errorLog}).
  
+ 
+\item \textbf{ui} package
+
+This package contains the user-defined graphical elements that are displayed in the views and the events that are triggered by Java swing elements. It is split in two subpackages:  
+\begin{itemize}
+	\item \textbf{menu} package
+	
+	This package contains the menu tabs that are displayed in the menu bar of the application. Each menu class contains a \textbf{JMenu} object and several \textbf{JMenuItem} objects, depending on the purpose of the menu. 
+	\begin{enumerate}
+	\item  \textbf{File Menu - FileMenu} 
+	
+	This menu is used for an user to access the file view. It holds a \textbf{New} tab for creating a new file, \textbf{Open} tab for opening an existing source code file, \textbf{Save} tab for saving the file that is displayed in the file view and \textbf{Exit} tab for exiting the application. 
+	
+	\item \textbf{Compile Menu - CompileMenu}
+	
+	This menu contains the tab \textbf{Compile File...} that, when pressed, it compiles the SueC source code when it is opened in the file view. 
+	
+	\item \textbf{Tutorial Menu - TutorialMenu}
+	
+	This menu contains the tabs that accesses the tutorial and guide views: \textbf{Tutorial List...} for tutorial view and \textbf{Help List...} for guide view, respectively.
+	
+	\item \textbf{Help Menu - HelpMenu}
+	
+	This menu contains only a tab called \textbf{About}. After pressing the tab, it opens a message dialog that displays information about the application.
+	\end{enumerate}
+	
+	\item \textbf{events} package
+	
+	This package is represented by objects which contain the events that are triggered throughout the application. All the event classes act as a middleware between the view classes and the utility classes. Each event class represents a group of events specific to a menu or view.
+	
+	\begin{itemize}
+		\item \textbf{File Events - FileEvents}
+		
+		This class encapsulates all the events triggered by the tabs in the \textbf{FileMenu}: creating a new file - \textit{newFileEvent}, opening an existing file - \textit{openFileEvent}, saving the file shown in the view - \textit{saveFileEvent}. Each event uses the operations from the \textbf{FileUtility} class. 
+		
+		\item \textbf{Compiler Events - CompilerEvents}
+		
+		This class contains the \textit{compileFileEvent} triggered when accessing the \textbf{Compile Menu} from the menu bar. The compile operation is called from the \textbf{CompilerUtility} class. 
+		
+		\item \textbf{Tutorial Events - TutorialEvents}
+		
+		This class contains the tutorial events that are triggered for the tutorial and guide views, respectively: loading the tutorials or guides from \textbf{TutorialUtility} object, and compiling a tutorial. When compiling a tutorial, operations from all the utility classes are used. A temporary file "temp.suc" is created in "<root\_folder>/resources/tempData" and the content of the code text area in the tutorial is saved in that file. After that, the file is compiled, then deleted. The output of the file is then sent back to the view to be checked if it is correct or not.
+	\end{itemize}
+
+
+Besides those, there are two graphical elements that are defined outside the packages:
+\begin{itemize}
+\item \textbf{Main Menu Bar - MainMenuBar}
+	
+	This class creates an instance of \textbf{JMenuBar}, the Java Swing object representation of a menu bar. It is used in the \textbf{BaseView} to define the menu bar where all the menu options are added and displayed on all views. 
+	
+\item \textbf{Text Area Element - TextAreaElement}
+
+	This class extends the \textbf{JTextArea} Swing object, having specific requirements. It represents a text area that is read-only and supports word and line wrapping. I have used this object for creating the dynamic tutorial and guide views, respectively, for displaying more information in a readable matter - the title, description and task of a tutorial, and the title and description of a guide.
+	
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+Besides the \textbf{logger} and \textbf{ui} packages, I have defined a class called \textbf{CommonElements}. It holds the common elements used on all views, having an instance of the menu bar and its menu items and specific fonts used for displaying the title, subtitle and info labels, respectively. Each font is bold and sans\_serif, but the difference between those is made via the size of it: title font - 36 pt, subtitle font - 20 pt, info font - 14 pt. 
+
+
+\item \textbf{utilities} package
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{img/UtilityPackage.png}
+    \caption{Utility Package}
+    \label{fig:conf}
+\end{figure}
+
+This package contains objects that define the utility operations. It wraps the actual low-level operations that are used in the application. Each class encapsulates a specific number of operations:
+\begin{itemize}
+\item \textbf{File Utility - FileUtility}
+	
+	The operations defined in this class are file handling operations. It is mainly triggered by the \textbf{FileEvents} class - creating, loading, saving and deleting a source code file given its path as the sole parameter (and the content of the file for saving the file), but also for running a tutorial - creating and deleting a temporary source code file.
+\item \textbf{Tutorial Utility - TutorialUtility}
+
+	This class is used for deserializing the JSON files "tutorials.json" and "guides.json" and loading the objects read into the tutorial and guide views, respectively.
+
+\item \textbf{Compile Utility - CompileUtility}
+	
+	This class contains the actual operation of compiling the source code file. The steps for this method are: 
+	\begin{enumerate}
+	\item Running the compiler executable \textit{suec.out} stored in "<root\_folder>//resources//compiler" directory with the source code file's absolute path as the parameter of the executable.
+	\item Reading the output of the compiler execution from "<root\_folder>//output//result//suec.output" file.
+	\item Sending the output read to the view to be displayed.
+	\end{enumerate}
+\end{itemize}
+\end{enumerate}
+
+\section{Interpreter}
+
+The other key component of this project is the interpreter. It is a simplified version of a compiler, having just a lexical and syntactic analysis without generating any machine code. This interpreter is an executable C program that interprets SueC source code files and returns the output accordingly.
+
+This interpreter is comprised of four files:
+\begin{enumerate}
+\item Lexical analyzer - suec.l
+\item Syntactic analyzer - suec.y
+\item Tree parser - suec\_interpreter.c 
+\item Commons header - suec\_header.h
+\end{enumerate}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/InterpreterPipeline.png}
+    \caption{Interpreter execution pipeline}
+    \label{fig:conf}
+\end{figure}
+
+When interpreting a SueC Source code file, it follows an execution pipeline (see Figure 5.7). The source code is passed into the lexical analyzer in which each statement is split into tokens. These tokens are then passed to the syntactic analyzer, which associates them into a sentence based on their token. These sentences are interpreted using the tree parser, each sentence having a branch - one node is represented by a token. After the interpretation, the created tree is parsed in a bottom-up manner and the result of the parsing is then returned into an output file. 
+
+\subsection{Lexical Analyzer - suec.l}
+
+The lexical analyzer is the first part of the SueC interpreter. It is comprised of a single file called \textit{suec.l}, a lex file that is compiled using the UNIX GNU compiler with "lex -l suec.l" command in Terminal. This file is split into three zones, the border being marked with "\%\%":
+\begin{enumerate}
+	\item \textbf{Declarative zone}
+	
+	This zone is used for declaring global variables and including headers that are used in the file. These statements are encapsulated between these structures "\%\{" and "\%\}". In this case, the standard "stdlib.h", "stdio.h", "string.h" are included alongside "y.tab.h", generated after compiling the syntactic analyzer, and an external instance of \textit{yyin} that is used for instantiating the input file.
+	
+	\item \textbf{Tokenization zone}
+	
+	This zone contains all the regular expressions and rules that transform each part of a statement into a token. A statement is split into elements based on the patterns that are found in this zone and return a token associated to the pattern.
+	These patterns are called regular expressions(abbreviated as regex) and are represented as:
+	\begin{itemize}
+		\item A specific string - used for declaring keywords of the programming language. They can be represented as a single word or a sentence with multiple words. In SueC's case, there are tokens declared for: \textit{int, string, if, else, for, while, read, write, length, copy, unite, compare} as keywords, and \textit{">=","<=","==","!="} as operations for comparing numbers (greater than equal, less than equal, equal and not equal, respectively).
+		\item A rule - used for encapsulating raw data. These rules encapsulate characters that form an element of a variable length and are not mapped as a keyword or specific operation. This type is used for declaring variables, integers, strings and simple operations. 
+		
+		One rule is formed by placing a list of characters in a set defined by "["and "]". For an interval of ASCII characters, an "-" is used between two characters. This interval notation is added inside the square brackets. If just those delimiters are used, then any single occurence of a variable of that set has a token associated to it, as in the case of variable declaration or passing single operations. I have instantiated two tokens for defining variables represented by a single letter, each having the rule defined accordingly:
+		
+	\begin{itemize}
+		\item "[A-Z]" for \textit{HCVAR} - variables defined by an uppercase letter
+		\item "[a-z]" for \textit{LCVAR} - variables defined by a lowercase letter
+		\item `[-()+*=/<>;"\}\{]` for returning simple operations - a token is not needed as the character is passed directly via \textit{yytext} which is a buffer that contains the string read for a pattern to be applied.
+	\end{itemize}	
+	
+	An extension of the set rule is by adding a "+" after the set definition. This sign is used for reading strings of variable size with the characters in that set, accepting if the characters are repeated in the pattern. In this way, I have defined patterns for reading raw data:
+	\begin{itemize}
+		\item Integers - "[0-9]+".
+		\item Strings - '"[a-zA-Z .,!?-]+"'
+		\item Removing whitespaces - "[ \textbackslash t\textbackslash n]+"
+	\end{itemize}
+	\end{itemize}
+	\item \textbf{Function zone}
+	
+	This zone is for declaring functions that are called during the tokenization when one pattern is found. In my case, I have used just to declare the \textit{yywrap()} function that is called internally when the interpreter starts working. 
+\end{enumerate}
+
+After the compilation of the said file, a lex C file called "lex.yy.c" is generated containing the patterns of the lex file as C functions that are called by the interpreter. 
+\subsection{Syntactic Analyzer - suec.y}
+
+The syntactic analyzer is the second part of the SueC interpreter. It is represented by a single file - \textit{suec.y}, a yacc file compiled using the UNIX GNU compiler with the following command: "yacc -y suec.y". Similar to the lexical anaylzer, the file is split into three zones with "\%\%" used as delimiters:
+
+\begin{enumerate}
+	\item \textbf{Declarative zone}
+	
+	This zone is used for declaring global variables and including headers that are used in the file. These statements are encapsulated between these structures "\%\{" and "\%\}". In this case, the standard "stdlib.h", "stdio.h", "string.h","stdarg.h" are included alongside "y.tab.h", generated after compiling the syntactic analyzer. Another header that is included is "suec\_header.h" that contains the definitions of the node structure of the tree parser - needed for creating the nodes inside the syntax zone. Beside the headers, in the delimiters are included the headers of the functions that are created in the function zone of the syntactic analyzer and the file variables for the output and log files, respectively. 
+	
+	Outside the delimiters, this zone also holds the declaration of the tokens that come from the lexical analyzer (which are terminals) and internal tokens (which are non-terminals). These tokens are, then, used in the syntax zone to define all the operations of the programming language. The tokens used for defining mathematical operations have also a property attached \textit{"\%left"} - for ensuring the left association that is used also in normal mathematics. 
+	
+	For receiving raw data alongside the tokens, the internal yylval is used as a buffer memory. This parameter is defined in the declarative zone of "suec.y" as a union of internal variables for storing different types of data. In my case, I have defined an union consisting of:
+	\begin{itemize}
+		\item An integer - \textit{iValue} - used for storing integers under \textit{NUM} token.
+		\item A character - \textit{variable} - used for storing the variable code under \textit{HCVAR} and \textit{LCVAR} tokens, respectively.
+		\item A character pointer - \textit{word} - used for storing string under \textit{WORD} token.
+		\item A node operand - \textit{np} - used for storing the non-terminal operands.
+	\end{itemize}
+	
+	\item \textbf{Syntax zone}
+	
+	This zone contains all the definitions of the operations that the programming language can perform. These operations are defined as patterns based on the tokens declared before, creating different "sentences" that have an operation associated. Each non-terminal defined can have multiple cases of return, as each pattern of the non-terminal is separated by an "|" representing an "or" between those patterns. In the case for "suec.y", I have grouped the statements into a tree pattern based on their functionality type:
+	\begin{itemize}
+	\item \textit{Conditional Statement}
+	
+	Conditional statements are statements that check a condition performed in a statement and performs accordingly to the outcome of the said test. In general, it is represented by "if" statements. In SueC, I have created two rules that represent the if statement as in C programming language: \textit{IF '(' expression ')' statement} and \textit{IF '(' expression ')' statement ELSE statement} (for if-then-else). These statements are encapsulated under the non-terminal \textit{condStatement}
+	
+	\item \textit{Loop Statement}
+	
+	Loop statements are statements that perform operations under a timed interval defined by the condition(s) defined in the statement. It can be a fixed interval ("for" loop) or an variable interval ("while" loop). I have implemented both "for" and "while" loops, keeping the structure from C:
+	\begin{itemize}
+	\item \textit{FOR '(' simplestatement ';' expression ';' expression ')' statement} - "for" statement as \textit{forStatement}
+	\item \textit{WHILE '(' expression ')' statement} - "while" statement as  \textit{whileStatement}
+	\end{itemize}
+	Both non-terminals are encapsulated under the \textit{loopStatement} non-terminal.
+	\item \textit{Simple Statement}
+	
+	A simple statement is a represented by a simple operation that does not require any conditions or creating loops. These type of statements are used for creating the other types (conditional or loop). One major difference between this and the other types is that it has an end character - a semicolon for showing that statement is ended. I have grouped these statements under the \textit{simplestatement} non-terminal also based on their functionality: 
+	\begin{itemize}
+		\item \textit{variableStatement} non-terminal
+		
+		This non-terminal encapsulates the declaration statements that can be performed in SueC. These patterns hold the same structure: <Data\_Type> <Variable\_Type> and are defined directly using any permutation of the values, shown in the Table 5.1.
+		\begin{table}[H]
+\centering
+
+
+\begin{tabular}{cclll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textless{}Data\_Type\textgreater{}} & \multicolumn{1}{c|}{\textless{}Variable\_Type\textgreater{}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{INTEGER}                             & \multicolumn{1}{c|}{HCVAR}                                   &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{STRING}                              & \multicolumn{1}{c|}{LCVAR}                                   &  &  &  \\ \cline{1-2}
+\multicolumn{1}{l}{}                                      & \multicolumn{1}{l}{}                                         &  &  & 
+\end{tabular}
+
+\caption{Variable Statement Table}
+\end{table}
+
+	\item Input/output expressions
+	
+	These expressions are defined directly, without any other encapsulated non-terminals. In this case, the input/output statements are defined accordingly:
+	\begin{itemize}
+	\item Input statement - \textit{"READ variable"}
+	\item Output statement - \textit{"WRITE expression"}
+	\end{itemize} 
+	
+	\item Assignment expression - operation exclusively for integer variables: \textit{"variable '=' expression}
+	
+	\item \textit{expression} non-terminal
+	
+	This non-terminal is the base element that is used throughout all the statements, as it holds the simple operations. Most of the patterns are with the structure \textit{expression <op> expression}, where <op> can be one of the values from Table 5.2 .
+	
+\begin{table}[H]
+\centering
+
+\label{tab:my-table}
+\begin{tabular}{|c|l|l|ll}
+\cline{1-3}
+Mathematical           & \multicolumn{1}{c|}{String} & Conditional                   &  &  \\ \cline{1-3}
++                      & \multicolumn{1}{c|}{COPY}   & \textless{}                   &  &  \\ \cline{1-3}
+-                      & \multicolumn{1}{c|}{UNITE}  & \textgreater{}                &  &  \\ \cline{1-3}
+*                      & COMPARE                     & \textit{\textless{}= - LE}    &  &  \\ \cline{1-3}
+/                      &                             & \textit{\textgreater{}= - GE} &  &  \\ \cline{1-3}
+\multicolumn{1}{|l|}{} &                             & \textit{!= - NE}              &  &  \\ \cline{1-3}
+\multicolumn{1}{|l|}{} &                             & \textit{== - EQ}              &  &  \\ \cline{1-3}
+\end{tabular}
+
+\caption{Available values for \textless{}op\textgreater{}}
+\end{table}
+
+The \textit{LENGTH expression} is defined without the left \textit{expression} variable as it only used for one string. Besides the operation patterns, the data terminals are used directly here as standalone cases for returning raw data: \textit{NUM} for integers, \textit{WORD} for strings, \textit{variable} for variable characters (\textit{HCVAR} and \textit{LCVAR}).
+	\end{itemize}
+	\end{itemize}
+	
+	All these sentences are then preceded by curly brackets that contain what operations need to be done in case of one sentence. In SueC's case, at the start of sentences, the \textit{execute\_node} from the interpreter is called for executing the statement (at \textit{program: program statement} - the start pattern of the application) and the rest of the statements where also terminals are present contain call functions for creating the specific node types that can be parsed and interpreted. These functions are defined in the function zone.
+	
+	\item \textbf{Function zone}
+	
+	This zone is used for creating functions that have their headers defined in the declaration zone. Besides the \textit{main(int argc, char **argv)} function which contains the call to parse the tokens and opens the log and output files to be written accordingly, I have defined functions for creating tree nodes according to their type:
+	\begin{itemize}
+		\item \textit{constType} 
+		
+		This is associated to nodes that hold raw constant data and their associated functions are: \textit{leafInt()} and \textit{leafString()}.
+		
+		\item \textit{idType}
+		
+		This is associated to nodes that hold the variable information - in order to access the stored data. The associated function is: \textit{iden()}
+	
+		\item \textit{operType}
+		
+		This is associated to nodes that hold actual operation values and parameters. The function is: \textit{operand()}
+	\end{itemize}
+\end{enumerate}
+ 
+\subsection{Tree Parser}
+
+The tree parser is the last part of the SueC interpreter. The aim of this component is to parse the trees that are generated by each statement that has passed the syntactic analysis. I have implemented the tree parsing inside another file called "suec\_interpreter.c". Beside this, I have used a header file "suec\_header.h" that is included also in the syntactic analyzer.
+
+The header file contains the tree node structure definitions, which are encapsulated inside another node definition. The node structure type is called \textit{nodeType} and contains:
+\begin{itemize}
+	\item A \textit{nodeEnum} type variable. This enum value is defined in this header file and contains: \textit{constType} for constants, \textit{idType} for identifiers (variables) and \textit{operType} for operands. It is used to differentiate what node is read/written when parsing/creating. 
+	\item A union that contains the actual data of the nodes, each node being specific to the type defined in the \textit{nodeEnum}: \textit{constNodeType constant} for constant node, \textit{idNodeType id} for identifier node and \textit{operNodeType oper} for operation node.  
+\end{itemize}
+
+Each node type from the enum has its own structure defined in separate struct values:
+\begin{itemize}
+	\item \textbf{constNodeType}
+	
+	This node type defines nodes specific for constant values, both integers and strings. This structure contains: an integer called \textit{type} for holding the token that is either an integer or string, an integer \textit{iValue} as the buffer for integers and a string(char*) \textit{sValue} as the buffer for strings.
+	
+	\item \textbf{idNodeType}
+	
+	This node type defines nodes specific for identifiers (variables). Structurally, it contains three integers: \textit{valueType} which holds the data type of the variable (\textit{INTEGER} or \textit{STRING}), \textit{charType} which holds the type of the variable character - either uppercase letter \textit{HCVAR} or lowercase letter \textit{LCVAR} - and \textit{value} which holds the character value between 0 and 25 - used when accessing the buffer data. The \textit{value} is represented accordingly to the \textit{charType}: the actual variable stored has the ASCII code equal to the addtion of \textit{value} and the ASCII code of 'a'(for \textit{LCVAR}) or 'A'(for \textit{HCVAR}).
+	
+	\item \textbf{operNodeType}
+	
+	This node type defines nodes specific for operations that are performed: from simple mathematical operations to conditional or loop statements. It contains a value \textit{oper} for storing what operation is done - the token of of the operation, \textit{nops} for storing the number of operands and \textit{op} - a dynamic list of \textbf{nodeType} nodes that contain the actual operands of the operation.
+\end{itemize}
+
+Other than the tree node structure, there is a declaration of the buffer memory which holds the actual data of the varaibles. There are two arrays, one for uppercase variables called \textit{hcSymbols} and the other for lowercase variables called \textit{lcSymbols} which have as key the \textit{value} from the \textbf{idNodeType} node. The value of these buffers are also a structure defined as \textbf{symVar} which holds: an integer \textit{valueType} that holds the value of what type of data is used - instantiated with the value of the same name in \textbf{idNodeType} and an union that consists of an integer buffer \textit{iValue} and a string buffer \textit{sValue}.
+
+The tree parser is a C file that contains the definitions of the functions that executes the parsing of the nodes. Each function defined has only one paramater in the function header - a pointer to the \textit{nodeType}. The syntactic analyzer calls only one function - \textit{execute\_node()} - which in return gives the of the node. This function calls a different function based on the \textit{type} value of the node given as parameter:
+
+\begin{itemize}
+	\item \textit{execute\_const()} for \textit{constType}
+	
+	This function parses the \textit{constNodeType} nodes, returning the value based on the type: the integer \textit{iValue} for integers or the string \textit{sValue} for strings. 
+	
+	\item \textit{execute\_id()} for \textit{idType}
+	
+	This function parses the \textit{idNodeType} nodes, returning the value from the buffer memory \textit{hcSymbols} or \textit{lcSymbols}. For choosing what value to return, a switch is used to redirect to other functions based on the data type returned: \textit{execute\_id\_int()} for integers and \textit{execute\_id\_str()} for strings. Each of these functions return the value based on the \textit{charType} (\textit{HCVAR} or \textit{LCVAR}), returning the value from the buffer using the \textit{value} of the \textit{idNodeType} as the key of the buffer memory. 
+	
+	\item \textit{execute\_oper()} for \textit{operType}
+	
+	This functions parses the \textit{operNodeType} nodes, returning the value after performing the operations. Basically, this function calls recursively the \textit{execute\_node()} function in order to obtain the result. The end of the recursions are the other functions: \textit{execute\_const()} and \textit{execute\_id()}. Each operation is parsed accordingly, choosing the operation according to the value of \textit{oper} parameter in the node. After seeing the operation, the \textit{op} list is traversed and each node is parsed in the pattern of the operation that is performed, the pattern being kept as from the syntactic analyzer.  
 \end{itemize}
 
 
+\section{SueC Programming Language}
+
+SueC programming language is the key programming language of this project, being implemented with the help of the interpreter. It is an imperative programming language, having simple structures similar to C and Python programming languages. The aim of this SueC is to be closer to the pseudocode and to be easily understood and learnt by people with little to no experience in programming.
+
+\subsection{Syntax}
+
+\subsubsection{Keywords}
+	The main keywords used in SueC are listed in the Table 5.3.
+	
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|p{8cm}|}
+\hline
+\textit{\textbf{Keyword}} & \textit{\textbf{Example}}                                                                                                                                                 & \multicolumn{1}{c|}{\textit{\textbf{Observation}}}                                                                                                                                                                                                                                                                                     \\ \hline
+\textbf{int}              & int \textless{}var\textgreater{};                                                                                                                                         & Used for defining an integer variable.                                                                                                                                                                                                                                                                                                 \\ \hline
+\textbf{string}           & string \textless{}str\_var\textgreater{};                                                                                                                                 & Used for defining a string variable.                                                                                                                                                                                                                                                                                                   \\ \hline
+\textbf{if}               & \begin{tabular}[c]{@{}c@{}}if (\textless{}cond\textgreater{}) \\ \textless{}stmt\textgreater{}\end{tabular}                                                               & Used for defining a conditional statement. Can be defined without the use of "else" keyword.                                                                                                                                                                                                                                           \\ \hline
+\textbf{else}             & \begin{tabular}[c]{@{}c@{}}if (\textless{}cond\textgreater{}) \\     \textless{}stmt\textgreater{};\\ else             \\     \textless{}stmt\textgreater{};\end{tabular} & Used for defining a conditional statement alongside "if" keyword when the condition defined is not fulfilled and other statements need to be done.                                                                                                                                                                                     \\ \hline
+\textbf{for}              & \begin{tabular}[c]{@{}c@{}}for (\textless{}stmt\textgreater{};\textless{}cond\textgreater{};\textless{}stmt\textgreater{})\\ \textless{}stmt\textgreater{};\end{tabular}  & Used for defining a loop statement having a fixed interval defined by three statements.                                                                                                                                                                                                                                                \\ \hline
+\textbf{while}            & \begin{tabular}[c]{@{}c@{}}while(\textless{}cond\textgreater{})\\ \textless{}stmt\textgreater{};\end{tabular}                                                             & Used for defining a loop statement having a variable interval - with only one conditional expression.                                                                                                                                                                                                                                  \\ \hline
+\textbf{read}             & read \textless{}var\textgreater{};                                                                                                                                        & Used for input operation. It reads data from the user and stores it in a variable.                                                                                                                                                                                                                                                     \\ \hline
+\textbf{write}            & write \textless{}stmt\textgreater{};                                                                                                                                      & Used for output operation. It displays the data to the user: integer or strings directly as constants or as the result of simple operations.                                                                                                                                                                                           \\ \hline
+\textbf{length}           & length \textless{}str\_var\textgreater{};                                                                                                                                 & Used for returning the length of a string - given as a constant or a string variable.                                                                                                                                                                                                                                                  \\ \hline
+\textbf{copy}             & \textless{}dest\_str\textgreater copy \textless{}src\_str\textgreater{};                                                                                                  & Used for copying the source string into the destination string. The source can be a constant string or a string variable. The destination string is a string variable. The result is stored in the destination string.                                                                                                                 \\ \hline
+\textbf{unite}            & \textless{}dest\_str\textgreater unite \textless{}src\_str\textgreater{};                                                                                                 & Used for unifying the source string with the destination string. The source can be a constant string or a string variable. The destination string is a string variable. The result is stored in the destination string.                                                                                                                \\ \hline
+\textbf{compare}          & \textless{}str\_1\textgreater compare \textless{}str\_2\textgreater{};                                                                                                      & Used for comparing the source string with the destination string. Both strings can be either constants or string variables. The result returned is an integer variable that displays which string has a greater value: a negative number for the second string, a positive number for the first string and 0 if the strings are equal. \\ \hline
+\end{tabular}
+\caption{Syntax table}
+\label{tab:my-table}
+\end{table}
+
+\subsubsection{Identifiers}
+
+Identifiers are the name of the variables that are used in SueC source code. The identifiers are defined as simple letters from the English alphabet, both uppercase and lowercase, thus having 52 different variables. These are used when storing data in memory and accessing it for different operations that are supported in this programming language.
+
+\subsubsection{Data Types}
+
+In SueC programming language, there are two main data types that are defined and used:
+
+\begin{enumerate}
+ 	\item \textbf{Integers}
+ 	
+ 	Integers are numbers that are displayed in decimal base and are used in simple mathematical operations and comparisons. These can be used directly as constants written normally or stored in variables that have been defined as "int <var>".
+ 	 
+ 	\item \textbf{Strings}
+ 	
+ 	Strings are words that contain letters from the alphabet, numbers, spaces and punctuation symbols. It holds the same syntax as specified in C and Python - the strings are defined between two quotation marks (""). After defining a string variable, it automatically holds a null value '\textbackslash 0' in memory, that is not displayed on screen, to ensure the end of the string. 
 \end{enumerate}
 
+\subsubsection{Operations}
+
+	In this programming language, there are operations defined specifically just for the data types implemented. These operations are all binary operations that return an output directly or store it in one of the parameters. These are:
+	\begin{itemize}
+		\item \textit{Integer operations}
+		
+		These operations are simple mathematical operations that are applied using constants and integer variables. These operations are grouped as mathematical and comparison operations. The syntax of these operations are displayed in the tables below (see tables 5.4 and 5.5).
+
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|p{8cm}|}
+\hline
+\textit{\textbf{Operation}}  & \textit{\textbf{Syntax}}                                      & \multicolumn{1}{c|}{\textit{\textbf{Explanation}}}                                                                                                                                 \\ \hline
+\textbf{'+'(additon)}        & \textless{}el\_1\textgreater + \textless{}el\_2\textgreater{} & Returns the additon of \textless{}el\_1\textgreater and \textless{}el\_2\textgreater{}.                                                                                            \\ \hline
+\textbf{'-'(subtraction)}    & \textless{}el\_1\textgreater - \textless{}el\_2\textgreater{} & Returns the subtraction of \textless{}el\_2\textgreater from \textless{}el\_1\textgreater{}.                                                                                       \\ \hline
+\textbf{'*'(multiplication)} & \textless{}el\_1\textgreater * \textless{}el\_2\textgreater{} & Returns the multiplication of \textless{}el\_1\textgreater and \textless{}el\_2\textgreater{}.                                                                                     \\ \hline
+\textbf{'/'(division)}       & \textless{}el\_1\textgreater / \textless{}el\_2\textgreater{} & Returns the division of \textless{}el\_1\textgreater by \textless{}el\_2\textgreater{}.                                                                                            \\ \hline
+\textbf{'='(assignment)}     & \textless{}var\textgreater = \textless{}elem\textgreater{}    & It assigns the value of \textless{}elem\textgreater to the variable \textless{}var\textgreater{}; \textless{}elem\textgreater can also be one of those above mentioned operations. \\ \hline
+\end{tabular}%
+}
+\caption{Mathematical operations}
+\label{tab:my-table}
+\end{table}
+
+For comparison operations, the output returned is 1 if the statement is true and 0 otherwise. These operations are used in conditional statements, mainly.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|p{8cm}|}
+\hline
+\textit{\textbf{Operation}}  & \textit{\textbf{Syntax}}                                      & \multicolumn{1}{c|}{\textit{\textbf{Explanation}}}                                                                                                                                 \\ \hline
+\textbf{'+'(additon)}        & \textless{}el\_1\textgreater + \textless{}el\_2\textgreater{} & Returns the additon of \textless{}el\_1\textgreater and \textless{}el\_2\textgreater{}.                                                                                            \\ \hline
+\textbf{'-'(subtraction)}    & \textless{}el\_1\textgreater - \textless{}el\_2\textgreater{} & Returns the subtraction of \textless{}el\_2\textgreater from \textless{}el\_1\textgreater{}.                                                                                       \\ \hline
+\textbf{'*'(multiplication)} & \textless{}el\_1\textgreater * \textless{}el\_2\textgreater{} & Returns the multiplication of \textless{}el\_1\textgreater and \textless{}el\_2\textgreater{}.                                                                                     \\ \hline
+\textbf{'/'(division)}       & \textless{}el\_1\textgreater / \textless{}el\_2\textgreater{} & Returns the division of \textless{}el\_1\textgreater by \textless{}el\_2\textgreater{}.                                                                                            \\ \hline
+\textbf{'='(assignment)}     & \textless{}var\textgreater = \textless{}elem\textgreater{}    & It assigns the value of \textless{}elem\textgreater to the variable \textless{}var\textgreater{}; \textless{}elem\textgreater can also be one of those above mentioned operations. \\ \hline
+\end{tabular}%
+}
+\caption{Comparison operations}
+\label{tab:my-table}
+\end{table} 
+
+\item \textit{String operations}
+
+These operations use strings or string variables as input elements. These operations return strings or integers.
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|p{8cm}|}
+\hline
+\textit{\textbf{Operation}} & \textit{\textbf{Syntax}} & \multicolumn{1}{c|}{\textit{\textbf{Explanation}}} \\ \hline
+\textbf{length}           & length \textless{}str\_var\textgreater{};                                                                                                                                 & Used for returning the length of a string - given as a constant or a string variable. The value returned is an integer.                                                                                                                                                                                                                                                  \\ \hline
+\textbf{copy}             & \textless{}dest\_str\textgreater copy \textless{}src\_str\textgreater{};                                                                                                  & Used for copying the source string into the destination string. The source can be a constant string or a string variable. The destination string is a string variable. The result is stored in the destination string.                                                                                                                 \\ \hline
+\textbf{unite}            & \textless{}dest\_str\textgreater unite \textless{}src\_str\textgreater{};                                                                                                 & Used for unifying the source string with the destination string. The source can be a constant string or a string variable. The destination string is a string variable. The result is stored in the destination string.                                                                                                                \\ \hline
+\textbf{compare}          & \textless{}str\_1\textgreater compare \textless{}str\_2\textgreater{};                                                                                                      & Used for comparing the source string with the destination string. Both strings can be either constants or string variables. The result returned is an integer variable that displays which string has a greater value: a negative number for the second string, a positive number for the first string and 0 if the strings are equal. \\ \hline
+\end{tabular}%
+}
+\caption{String operations}
+\label{tab:my-table}
+\end{table}
+	\end{itemize}
+\section{Use Cases}
+ For this project, there are few use cases that are available (see Figure 5.8). An user can:
+ \begin{itemize}
+ \item Create a SueC source code file.
+ \item Open a SueC source code file.
+ \item Edit a SueC source code file.
+ \item Compile a SueC source code file.
+ \item Perform a tutorial of the application.
+ \item Read a guide that is attached to the application.
+ \end{itemize}
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/UseCaseDiag.png}
+    \caption{Use Case Diagram}
+    \label{fig:conf}
+\end{figure}
+
+There is only one type of user: a regular person that can be anyone who has little to no experience in programming and wants to learn about computer programming basics. 
+
+\subsection{Use Case Specification - Performing a tutorial}
+
+\subsubsection{Brief Description}
+
+The purpose of this specification is to capture the flow of events that an actor must follow in order to perform a tutorial. The primary actor is a regular user that can be any person with little to no experience in computer programming. 
+
+\subsubsection{Preconditions}
+
+The actor has the application open at tutorials list tab. 
+
+\subsubsection{Postconditions}
+
+The tutorial is finished and the actor proceeds to another tutorial or returns to the tutorial list menu when finishing the last tutorial.
+
+\subsubsection{Flow of Events}
+
+The flow of events are displayed in Figure 5.9. There is a basic flow that ensures a simple functionality of the feature, but there are also some alternative flows that can be triggered in some cases.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/UCTutorial.png}
+    \caption{Flow of events for performing a tutorial}
+    \label{fig:conf}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Basic Flow}
+	This use case starts when the actor wants to perform a tutorial selected from the tutorial list menu.
+	
+	Flow steps:
+	\begin{enumerate}
+		\item The actor reads the brief information about the concept and the steps to be performed.
+		\item The actor performs the steps explained before.
+		\item The actor checks the code written after step 2.
+		\item The system tests the code written by the actor.
+		\item The system returns and displays the results from the test.
+		\item The system decides that the results returned are correct and display the "Next/Finish" button.
+		\item The actor presses the button displayed after step 6 and finishes the tutorial.
+	\end{enumerate}
+	
+	This use case ends after step 7 and a the following tutorial from the tutorial list is displayed or returns to the main tutorial list menu of the application.
+	\item \textbf{Alternative Flows}
+	
+	These alternative flows are occured in these cases:
+	
+	\begin{itemize}
+		\item The actor did not check the code and wants to read the description area. In this case, the user will return to step 1.
+		\item The actor did not check the code and does not want to read the information text. In this case, the user will read the steps written in the task area.
+		\item The system returns wrong results. In this case, the system will display the results alongside with a message "Wrong! Do it again!" and returns to step 2 in order to let the actor perform changes on the code.
+		\item At any time, the tutorial can be aborted by opening or creating a new SueC source code file, redirecting to the \textit{File View} or accessing the tutorial list menu. In both cases, the tutorial is reset.
+	\end{itemize}
+\end{itemize}
+
+
+\section{Example of Execution - Compiling a file}
+One of the main operations that the application supports is to compile a SueC source code file. This is done from the editor application, shown in Figure 5.10.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.52\linewidth]{img/SeqDiag.png}
+    \caption{Sequential Diagram}
+    \label{fig:conf}
+\end{figure}
+
+For a source file to be compiled, the following sequence of operations are done:
+
+\begin{enumerate}
+\item After the user finishes editing the source code file while in the file view, he presses the "Compile file..." tab from the "Compile" menu, triggering the tab event.
+
+\item The file is automatically saved and the \textit{compileFileEvent} from the Compiler Events class is triggered, having the file path as parameter.
+
+\item The \textit{compileFileEvent} method calls the \textit{compileFile} method from the Compiler Utility class, passing the file path as parameter.
+
+\item The \textit{compileFile} method starts the process of running the compiler having the parameter the file path of the source code file.
+
+\item The compiler receives the file path and starts parsing the file by tokenizing the statements from the file, action done using the Lex file. The tokens are sent to the Yacc file. 
+
+\item The tokens are read by the Yacc file and tree are formed. Each statement from the source code have an associated tree, having the number of nodes equal to the number of tokens.
+
+\item After the tree nodes are formed, they are parsed by the tree parser and the result obtained is written in the output file. 
+
+\item The compiler has finished running and read the output from the compiler output file.
+
+\item The content of the output file is returned by \textit{compileFile} to the \textit{compilerFileEvent} method.
+
+\item The result returned to \textit{compileFileEvent} is returned to the File View and displayed in the result text area for the user to check.
+\end{enumerate}
 
 
 \chapter{Testing and Validation}
 
-About 5\% of the paper
-\section{Title}
-\section{Other title}
+\section{Testing}
 
+I have tested the application manually, using principles similar to the manual testing that is currently used in companies nowadays. Mainly, I have tested the functionalities in a simple manner for checking if there are some defects and bugs found during the development of the project. After these fixes, I have tested the response time of the application in two situations:
+
+\begin{itemize}
+
+\item \textit{Compiling a file}
+
+ For compiling a file, I have tested the response time from the point the user presses the "Compile File..." tab to the system returning the result from the compiler. Despite running the code for several times, the response time remained constant at 0.5 seconds.
+
+\item \textit{Running a tutorial}
+
+ For running a tutorial, I have tested the response time from the point the user presses the "Compile Tutorial" button in the tutorial page until the system returns the output. As the tutorial list was already loaded in the cache memory of the application, the load of the tutorial in the view was instant. The response time remained constant as for compiling the file, in 0.5 seconds, in either case: getting a wrong result and a successful result. After getting the result, in the same time the button for getting to the next tutorial/finishing all the tutorials is activated instantly.
+\end{itemize}
+\section{Validation}
+
+For validation, I have implemented a logging system for monitoring the activity of the components and their objects. This system is implemented in a simple manner to be supported in the editor applicator and the SueC interpreter. Each component of the application has its own log file: \textit{app.log} for the editor application and \textit{suec.log} for the interpreter. Both files are found under the same folder: "<root\_project>/output/logs/" and can be accesed by a regular user easily, as they can be read from any text editor files. 
+
+\subsection{Interpreter Logging System}
+
+On the interpreter side, the logging system is pretty simple, being a reusage of \textit{fprintf} function that is integrated in C programming language. At the start of the compiler life cycle, a \textit{FILE} variable pointer that accesses the log file "<root\_project>/output/logs/suec.log" with writing rights. This pointer is used to show where to log the activities of the syntactic analyzer and tree parser. Each log in the interpreter contains two elements:
+\begin{itemize}
+	\item A tag put between "[" and "]" - it can be either "[Yacc]" for the syntactic analyzer or "[Interpreter]" for the tree parser.
+	\item The actual message, being "Got in <token>", where <token> is represented by any of the tokens of the lexical analyzer. 
+\end{itemize} 
+
+In the case of the tokens that represent the raw data(NUM, VALUE or WORD), their value is also logged in order to ensure the correctness of data that is parsed.
+
+
+\subsection{Editor Logging System}
+
+The editor logging system is a bit more complex than the one used in the interpreter, as it is specific to the Java applications. This system is designed as a wrapper over the existing \textit{java.util.logging.Logger} class - called \textit{LoggerConfig} and defined under the \textit{commons} package. This class is initialized at the start of the application life cycle, opening the log file  "<root\_project>/output/logs/app.log". The other objects call the static methods \textit{infoLog} and \textit{errorLog} accordingly to their needs. Each log written by this system contains:
+\begin{itemize}
+\item A log level that is defined internally in the wrapped methods: \textit{LogLevel.Info} for \textit{infoLog} and \textit{LogLevel.Severe} for \textit{errorLog}, respectively .
+\item A message  that is displayed on the screen. This message is defined by a tag and a description. The tag is a string defined in each object the logger to show the source of the log call. The description contains information about the method that is called inside that object. 
+\item Optionally, parameters. The parameters are sent as an \textit{java.lang.Object} array to the logging system and are displayed based on their position in the list and their identifier position in the description string. An identifier in the string is defined as "\{id\}", where id can be an index number from 0 to the size of the object array. 
+\end{itemize}
 \chapter{User's manual}
 
-In the installation description section your should detail the hardware and software resources needed for installing and running the application, and a step by step description of how your application can be deployed/installed. An administrator should be able to perform the installation/deployment based on your instructions.
+\section{Prerequesities}
 
-In the user manual section you describe how to use the application from the point of view of a user with no inside technical information; this should be done with screen shots and a stepwize explanation of the interaction. Based on user's manual, a person should be able to use your product.
+\subsection{Hardware resources}
 
-\section{Title}
-\section{Other title}
+As hardware resources, the minimal system requirements are similar to running Ubuntu version 18.04:
+\begin{itemize}
+\item A dual-core processor with a clock speed of 2 GHz
+\item 4 GB RAM
+\end{itemize}
+
+\subsection{Software resources}
+
+The software resources needed for running the project are:
+\begin{itemize}
+	\item A Linux operating system - recommended: Ubuntu starting with the 18.04 version
+	\item Java JDK - OpenJDK version 11. 
+	\item flex and bison for the interpreter
+\end{itemize}
+\section{Step-by-step Guide}
 
 \chapter{Conclusions}
 

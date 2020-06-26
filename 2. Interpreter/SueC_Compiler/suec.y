@@ -61,7 +61,7 @@ statement : simplestatement ';'
 		| '{' statementlist '}' { $$ = $2; }
         ;
 
-variableStatement :  INTEGER variable { fprintf(logFile,"[Yacc] Got in variable definition >> INTEGER HCVAR\n"); $$ = iden(INTEGER,HCVAR,$2); } 
+variableStatement :  INTEGER HCVAR { fprintf(logFile,"[Yacc] Got in variable definition >> INTEGER HCVAR\n"); $$ = iden(INTEGER,HCVAR,$2); } 
 				| INTEGER LCVAR { fprintf(logFile,"[Yacc] Got in variable definition >> INTEGER LCVAR\n"); $$ = iden(INTEGER,LCVAR,$2); }
 				| STRING HCVAR { fprintf(logFile,"[Yacc] Got in variable definition >> STRING HCVAR\n"); $$ = iden(STRING,HCVAR,$2); }
 				| STRING LCVAR { fprintf(logFile,"[Yacc] Got in variable definition >> STRING LCVAR\n"); $$ = iden(STRING,LCVAR,$2); }
