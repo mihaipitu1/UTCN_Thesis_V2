@@ -24,6 +24,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{ae,aecompl}
 \usepackage{algorithm}
+\usepackage{dirtree}
 %\usepackage{algorithmic}
 \usepackage{color}
 \usepackage{color}
@@ -364,7 +365,7 @@ Accepts input from the view and converts the data obtained into commands that ar
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.2]{img/MVCDiag.png}
+	\includegraphics[scale=0.2]{img/diags/MVCDiag.png}
 	\caption{Model-View-Controller Diagram}
 \end{figure}
 
@@ -474,7 +475,7 @@ b                                & +                             & ;            
 \section{Project Component Diagram}
 \begin{figure}[h]
  \centering
- \includegraphics[scale=0.6]{img/CompDiag.png}
+ \includegraphics[scale=0.6]{img/diags/CompDiag.png}
  \caption{Component Diagram}
 \end{figure}
 
@@ -504,7 +505,7 @@ The main structure of the application (see Figure 5.2) is based on the Model-Vie
 
 \begin{figure}[h]
  \centering
- \includegraphics[scale=0.5]{img/packagediag.png}
+ \includegraphics[scale=0.5]{img/diags/packagediag.png}
  \caption{Package Diagram}
 \end{figure}
 
@@ -515,7 +516,7 @@ Besides the MVC-like packages, there are also packages used for other functional
  
  \begin{figure}[h]
  \centering
- \includegraphics[scale=0.4]{img/ModelsPackage.png}
+ \includegraphics[scale=0.4]{img/diags/ModelsPackage.png}
  \caption{Class diagram of \textit{models} package}
 \end{figure}
 
@@ -548,7 +549,7 @@ These resource files are JSON files - \textit{tutorials.json} and \textit{guides
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{img/ViewsPackage.png}
+    \includegraphics[width=0.8\linewidth]{img/diags/ViewsPackage.png}
     \caption{Views Package}
     \label{fig:conf}
 \end{figure}
@@ -680,7 +681,7 @@ This package contains all the user-defined GUI elements that are displayed in th
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{img/CommonsPackage.png}
+    \includegraphics[width=0.8\linewidth]{img/diags/CommonsPackage.png}
     \caption{Commons Package}
     \label{fig:conf}
 \end{figure}
@@ -757,7 +758,7 @@ Besides the \textbf{logger} and \textbf{ui} packages, I have defined a class cal
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{img/UtilityPackage.png}
+    \includegraphics[width=0.8\linewidth]{img/diags/UtilityPackage.png}
     \caption{Utility Package}
     \label{fig:conf}
 \end{figure}
@@ -797,7 +798,7 @@ This interpreter is comprised of four files:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{img/InterpreterPipeline.png}
+    \includegraphics[width=0.6\linewidth]{img/diags/InterpreterPipeline.png}
     \caption{Interpreter execution pipeline}
     \label{fig:conf}
 \end{figure}
@@ -1126,7 +1127,7 @@ These operations use strings or string variables as input elements. These operat
  
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{img/UseCaseDiag.png}
+    \includegraphics[width=0.6\linewidth]{img/diags/UseCaseDiag.png}
     \caption{Use Case Diagram}
     \label{fig:conf}
 \end{figure}
@@ -1153,7 +1154,7 @@ The flow of events are displayed in Figure 5.9. There is a basic flow that ensur
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{img/UCTutorial.png}
+    \includegraphics[width=0.7\linewidth]{img/diags/UCTutorial.png}
     \caption{Flow of events for performing a tutorial}
     \label{fig:conf}
 \end{figure}
@@ -1191,7 +1192,7 @@ The flow of events are displayed in Figure 5.9. There is a basic flow that ensur
 One of the main operations that the application supports is to compile a SueC source code file. This is done from the editor application, shown in Figure 5.10.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.52\linewidth]{img/SeqDiag.png}
+    \includegraphics[width=0.8\linewidth]{img/diags/SeqDiag.png}
     \caption{Sequential Diagram}
     \label{fig:conf}
 \end{figure}
@@ -1278,22 +1279,186 @@ The software resources needed for running the project are:
 \begin{itemize}
 	\item A Linux operating system - recommended: Ubuntu starting with the 18.04 version
 	\item Java JDK - OpenJDK version 11. 
-	\item flex and bison for the interpreter
+	\item flex and bison for the interpreter.
 \end{itemize}
-\section{Step-by-step Guide}
 
+As the project was developed on Ubuntu OS, the functionalities of the project are mainly structured for it. Also, it offers the user to learn the basics of using Ubuntu (or any other Debian-based Linux operating systems). I recommend Ubuntu for novice users as it holds a user-friendly experience, being a mix of Windows and Mac OS in terms of user experience.
+
+The application is stored in a .zip file, containing all the neccesarry files and components for running it. For installing it, use the built-in \textit{Archive Manager} application to unzip the file in any desired location of your choice. After that, go to the desired folder where the project is unzipped.
+
+Once installed, the application folder and file structure should look like: 
+
+\dirtree{%
+.1 root\_folder.
+.2 output.
+.3 logs.
+.4 app.log.
+.4 suec.log.
+.3 result.
+.4 suec.output.
+.2 resources.
+.3 compiler.
+.4 suec.out.
+.3 storage.
+.4 guides.json.
+.4 tutorials.json.
+.3 tempData.
+.2 SueC Editor.jar.
+}
+\section{Step-by-step Guide}
+	For running the application, the following steps need to be performed:
+	\begin{enumerate}
+	\item Open the root folder of the application.
+	\item Right click the content of the folder and select "Open in Terminal".
+	\item Once the terminal screen is opened, write the following command: 
+	
+	\fbox{\textbf{java -jar SuecEditor.jar}}
+	\item After the command is written, press Enter and the app is opened. The terminal can be minimized.
+	\end{enumerate}
+	
+	Once opened, the application should look like as shown in Figure 7.1.
+	
+	\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/userGuide/WelcomeScreen.png}
+    \caption{SueC Welcome Screen}
+    \label{fig:conf}
+\end{figure}
+
+From here, you can access the main views of the application via the top menu bar under the title bar.
+
+\subsection{File Operations}
+For accessing the file view, there are two ways of performing this:
+\begin{itemize}
+	\item \textbf{Create a new file}
+	\begin{enumerate}
+	\item Click to expand the \textit{File} menu.
+	\item Click the \textit{New} tab and a pop-up dialog should open (see Figure 7.2)
+	
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\linewidth]{img/userGuide/NewFileDialog.png}
+    \caption{New/Open File Dialog}
+    \label{fig:conf}
+\end{figure}
+
+	\item Select the desired location where you want the save the file.
+	\item In the \textit{File Name} text box write the name of the file as defined: "<name>.suc".
+	\item Press "Save" and the file opens.
+	\end{enumerate}
+	\item \textbf{Open an existing file}
+	\begin{enumerate}
+	\item Click to expand the \textit{File} menu.
+	\item Click the \textit{Open} tab and a pop-up dialog should open (similar to Figure 7.2)
+	\item Select the location where the file is located.
+	\item Once you opened the folder, select the desired file by clicking on it.
+	\item Press "Open" and the file opens.
+	\end{enumerate}
+\end{itemize}
+
+On both cases, the user is redirected to the file view where the file is loaded, as shown in Figure 7.4.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/userGuide/FileView.png}
+    \caption{File View}
+    \label{fig:conf}
+\end{figure}
+
+The user writes the code in the top text area. After the user finishes writing the code, press the \textit{Compile} menu to expand it and press the \textit{Compile File...} tab. After that, the result after intepreting the code is displayed in the bottom text box.
+
+\subsection{Tutorial Operations}
+
+In order to perform a tutorial, here are the following steps:
+\begin{enumerate}
+\item In the menu bar, press "Tutorial" menu to expand it.
+\item From there, press the "Tutorial List..." tab and the system redirects to the tutorial list view (see Figure 7.6).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\linewidth]{img/userGuide/TutorialListMenu.png}
+    \caption{Tutorial List View}
+    \label{fig:conf}
+\end{figure}
+
+\item For accessing a tutorial, press "Start Tutorials" to start from the first tutorial or double-click on one of the tutorials to start from that.
+
+\item The system redirects to the tutorial view as in Figure 7.5. If the button "Back" is present and press it, it redirects to the previous tutorial. The important data of the tutorial are displayed on the middle row - left column has the description and the right column has the task to be performed. For performing the task, write the desired code in the code area on the bottom-left corner.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/userGuide/TutorialDialog.png}
+    \caption{Tutorial View}
+    \label{fig:conf}
+\end{figure}
+
+\item After the code is written, press "Compile Button" to test your code.
+
+\item If the code returns a result alongside the message "Wrong! Do it again!", return to step 4. 
+
+\item If the result displayed is correct, then the "Next/Finish" button appears. Press the newly shown button to continue to your next tutorial.
+\end{enumerate}
+\subsection{Guide Operations}
+
+In order to read a guide that is stored internally in the application, you as an user should perform this steps:
+
+\begin{enumerate}
+\item Expand the "Tutorial" menu from the menu bar.
+\item Press "Help List..." tab and the system should redirect you to the guide list view menu - see Figure 7.6.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\linewidth]{img/userGuide/GuideListMenu.png}
+    \caption{Guide List Menu}
+    \label{fig:conf}
+\end{figure}
+
+\item From here, press the "Start Guides" button to read from the first guide or select one guide from the guide list menu by clicking on it.
+
+\item Once step 3 is done, the system opens the guide, having the view as shown in Figure 7.10. The buttons "Back" and "Next" are used for navigating through the guide list and the middle row contains the description of the notion alongside with an example of code.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/userGuide/GuideDialog.png}
+    \caption{Guide View}
+    \label{fig:conf}
+\end{figure}
+
+\item Press "Back" to redirect you to the previous guide or "Next" to see the next guide. On the last guide, press "Finish" to redirect you to the guide list view, as shown in Figure 7.7.
+\end{enumerate}
 \chapter{Conclusions}
 
-About. 5\% of the whole
+\section{Contributions}
 
-Here your write:
+After following the steps of: choosing the subject of the thesis, documenting on the subject regarding the application usage and target audience, defining the programming language, graphical interface and interpreter, implementing, testing and fixing all the defects and bugs found during test sessions, I have developer a functional application that meets the initial requirements specified before. The main challenges that I have overcome during the development of the application are: 
 \begin{itemize}
-\item a summary of your contributions/achievements,
-\item a critical analysis of the achieved results,
-\item a description of the possibilities of improving/further development.
+ \item Implementing the programming language to be close to the pseudocode language
+ \item Implementing a simple tutorial system that does not require any external databases and does not overload the system.
+ \item Having a secure and stable connection between the editor application and the interpreter.
 \end{itemize}
-\section{Title}
-\section{Other title}
+
+My idea for implementing the editor application is to have a simple interface that is straightforward for any inexperienced user to work on it. In this way, I ensure that the time to cope with working with SueC is smaller than with other editors. Also, I strongly wanted to implement a tutorial and guide system, respectively, with simple problems as, at any time, the user can go through those systems to familiarize with the programming language and with other computer programming notions.
+
+\section{Conclusions}
+
+The development of this application from choosing the subject, documenting, defining an architecture, implementing and correcting it proved to be quite a strong challenge that determined me to learn new programming techniques, but also architectural techniques which I had little to no knowledge during the work or university. For me, it determined to have a deep dive into architectural design and learn more about design patterns.
+
+Besides this, I have learnt more educatioanl techniques and the role of the computer in assisting a person that is not familiar with computer programming. Nowadays, having a computer (desktop, notebook, tablet PC) is quite fundamental to every human, adding also the fact that more educational applications and programs are found easily on the Internet and can provide assistance to many students. These kind of applications hold and exemplify the fundemantal requirements of education: informing the user with details regarding one or more ideas of a subject and also developing the user's thoughts with small challenges that can be quizzes, games or tutorials, making it a fun and dynamic experience for the user, regardless of being a student or a teacher.
+
+In conclusion, I can affirm that designing, implementing and correcting this application proved to be a challenge that has a significant contribution in my knowledge and skills regarding software development.
+\section{Further Improvements}
+As further improvement, I can recall some of them:
+\begin{itemize}
+	\item Supporting input operations - reading directly from the keyboard input given by the user.
+	\item Supporting array definitions and operations on arrays.
+	\item Supporting header files and external libraries specific to the language.
+	\item Having more detailed tutorials and guides.
+	\item Having an "autocomplete" system for having an easier write experience for the user.
+	\item Having a cross-platform application that also works on Windows and Mac. 
+	\item Having a cross-platform application than can also work on portable devices with Android or iOS.
+	\item Having an achievement system for testing the skills of the user regarding his learning process. 
+	\item Multi-language support - having the application display information in Romanian, Hungarian or any other languages. 
+\end{itemize}
 
 
 %\addcontentsline {toc}{chapter}{Bibliography} 

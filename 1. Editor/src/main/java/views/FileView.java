@@ -4,6 +4,8 @@ package views;
 import commons.logger.LoggerConfig;
 import commons.ui.events.CompilerEvents;
 import commons.ui.events.FileEvents;
+import views.guides.GuideView;
+import views.tutorials.TutorialView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -112,6 +114,26 @@ public class FileView extends BaseView {
                 fileEvents.saveFileEvent(filePath,codeArea.getText());
                 String compileResult = compilerEvents.compilerFileEvent(filePath);
                 outputArea.setText(compileResult);
+            }
+        });
+
+        this.getCommonElements().getTutorialMenu().getTutorialListMenuItem().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                fileEvents.saveFileEvent(filePath,codeArea.getText());
+                TutorialView tutorialView = new TutorialView();
+                FileView.this.setVisible(false);
+                tutorialView.setVisible(true);
+            }
+        });
+
+        this.getCommonElements().getTutorialMenu().getHelpListMenuItem().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                fileEvents.saveFileEvent(filePath,codeArea.getText());
+                GuideView guideView = new GuideView();
+                FileView.this.setVisible(false);
+                guideView.setVisible(true);
             }
         });
     }

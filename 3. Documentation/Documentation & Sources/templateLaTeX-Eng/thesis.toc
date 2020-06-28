@@ -38,20 +38,24 @@
 \contentsline {subsubsection}{Postconditions}{46}%
 \contentsline {subsubsection}{Flow of Events}{46}%
 \contentsline {section}{\numberline {5.6}Example of Execution - Compiling a file}{48}%
-\contentsline {chapter}{Chapter{} \numberline {6}Testing and Validation}{50}%
-\contentsline {section}{\numberline {6.1}Testing}{50}%
-\contentsline {section}{\numberline {6.2}Validation}{50}%
-\contentsline {subsection}{\numberline {6.2.1}Interpreter Logging System}{51}%
-\contentsline {subsection}{\numberline {6.2.2}Editor Logging System}{51}%
-\contentsline {chapter}{Chapter{} \numberline {7}User's manual}{52}%
-\contentsline {section}{\numberline {7.1}Prerequesities}{52}%
-\contentsline {subsection}{\numberline {7.1.1}Hardware resources}{52}%
-\contentsline {subsection}{\numberline {7.1.2}Software resources}{52}%
-\contentsline {section}{\numberline {7.2}Step-by-step Guide}{52}%
-\contentsline {chapter}{Chapter{} \numberline {8}Conclusions}{53}%
-\contentsline {section}{\numberline {8.1}Title}{53}%
-\contentsline {section}{\numberline {8.2}Other title}{53}%
-\contentsline {chapter}{Bibliography}{54}%
-\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{55}%
-\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{56}%
-\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{57}%
+\contentsline {chapter}{Chapter{} \numberline {6}Testing and Validation}{51}%
+\contentsline {section}{\numberline {6.1}Testing}{51}%
+\contentsline {section}{\numberline {6.2}Validation}{51}%
+\contentsline {subsection}{\numberline {6.2.1}Interpreter Logging System}{52}%
+\contentsline {subsection}{\numberline {6.2.2}Editor Logging System}{52}%
+\contentsline {chapter}{Chapter{} \numberline {7}User's manual}{53}%
+\contentsline {section}{\numberline {7.1}Prerequesities}{53}%
+\contentsline {subsection}{\numberline {7.1.1}Hardware resources}{53}%
+\contentsline {subsection}{\numberline {7.1.2}Software resources}{53}%
+\contentsline {section}{\numberline {7.2}Step-by-step Guide}{54}%
+\contentsline {subsection}{\numberline {7.2.1}File Operations}{55}%
+\contentsline {subsection}{\numberline {7.2.2}Tutorial Operations}{56}%
+\contentsline {subsection}{\numberline {7.2.3}Guide Operations}{58}%
+\contentsline {chapter}{Chapter{} \numberline {8}Conclusions}{61}%
+\contentsline {section}{\numberline {8.1}Contributions}{61}%
+\contentsline {section}{\numberline {8.2}Conclusions}{61}%
+\contentsline {section}{\numberline {8.3}Further Improvements}{62}%
+\contentsline {chapter}{Bibliography}{63}%
+\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{64}%
+\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{65}%
+\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{66}%

@@ -1,0 +1,48 @@
+Jun 24, 2020 6:50:12 PM commons.logger.LoggerConfig infoLog
+INFO: Main >> Started Application
+Jun 24, 2020 6:50:13 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> MainView()
+Jun 24, 2020 6:50:13 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> initComponents()
+Jun 24, 2020 6:50:13 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> initComponents() >> Initiate events >> fileEvents
+Jun 24, 2020 6:50:13 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 24, 2020 6:50:13 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> initComponents() >> Set action events
+Jun 24, 2020 6:50:13 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> setActionEvents()
+Jun 24, 2020 6:50:15 PM commons.logger.LoggerConfig infoLog
+INFO: Main View >> setActionEvents() >> fileMenu.getOpenMenuItem() Action Listener
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> FileView() >> fileName : /home/mihaipitu/Documents/test.suc
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> initComponents()
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> initComponents() >> fileName : /home/mihaipitu/Documents/test.suc
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> initComponents() >> filePath : /home/mihaipitu/Documents/test.suc
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> initComponents() >> Initialize events >> fileEvents
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> FileEvents() - initializing necessary utilities
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> initComponents() >> Initialize events >> compilerEvents
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Events >> CompilerEvents() - initializing with the required utilities
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: Compiler Utility >> CompilerUtility()
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> initComponents() >> Initialize text areas >> codeArea
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> initComponents() >> Initialize text areas >> outputArea
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File Events >> openFileEvent() - fileName: /home/mihaipitu/Documents/test.suc
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File Utility >> loadFile() - fileName: /home/mihaipitu/Documents/test.suc
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File Utility >> loadFile() - content to be loaded: write "Hello World";
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> initComponents() >> Set action events
+Jun 24, 2020 6:50:17 PM commons.logger.LoggerConfig infoLog
+INFO: File View >> setActionEvents()

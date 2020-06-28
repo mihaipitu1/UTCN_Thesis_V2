@@ -130,6 +130,17 @@ public class TutorialView extends BaseView {
             }
         });
 
+
+        this.getCommonElements().getTutorialMenu().getTutorialListMenuItem().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                LoggerConfig.infoLog(TAG, "setActionEvents() >> tutorialMenu.getHelpListMenuItem() Action Listener");
+                TutorialView tutorialView = new TutorialView();
+                TutorialView.this.setVisible(false);
+                tutorialView.setVisible(true);
+            }
+        });
+
         this.getCommonElements().getTutorialMenu().getHelpListMenuItem().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {

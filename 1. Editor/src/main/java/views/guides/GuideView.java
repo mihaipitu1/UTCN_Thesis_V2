@@ -6,6 +6,7 @@ import commons.ui.events.TutorialEvents;
 import models.Guide;
 import views.BaseView;
 import views.FileView;
+import views.tutorials.TutorialView;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -132,6 +133,26 @@ public class GuideView extends BaseView {
             public void actionPerformed (ActionEvent actionEvent){
                 LoggerConfig.infoLog(TAG,"setActionEvents() >> fileMenu.getExitMenuItem() Action Listener");
                 GuideView.super.dispose();
+            }
+        });
+
+        this.getCommonElements().getTutorialMenu().getTutorialListMenuItem().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                LoggerConfig.infoLog(TAG, "setActionEvents() >> tutorialMenu.getHelpListMenuItem() Action Listener");
+                TutorialView tutorialView = new TutorialView();
+                GuideView.this.setVisible(false);
+                tutorialView.setVisible(true);
+            }
+        });
+
+        this.getCommonElements().getTutorialMenu().getHelpListMenuItem().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                LoggerConfig.infoLog(TAG, "setActionEvents() >> tutorialMenu.getHelpListMenuItem() Action Listener");
+                GuideView guideView = new GuideView();
+                GuideView.this.setVisible(false);
+                guideView.setVisible(true);
             }
         });
 
