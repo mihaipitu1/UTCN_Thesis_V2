@@ -22,44 +22,56 @@
 \BIBdecl
 
 \bibitem{MVC}
-Model-view-controller, [Online]. Available: https://en.wikipedia.org/wiki/Model-view-controller
+Model-view-controller, [Online]. Available: \\ 
+https://en.wikipedia.org/wiki/Model-view-controller
 
 \bibitem{MVC Tutorial}
-MVC Tutorial for Beginners: What is, Architecture \& Example, [Online]. Available: https://www.guru99.com/mvc-tutorial.html
+MVC Tutorial for Beginners: What is, Architecture \& Example, [Online]. Available: \\
+ https://www.guru99.com/mvc-tutorial.html
 
 \bibitem{C}
-C, [Online]. Available: https://en.wikipedia.org/wiki/C\_(programming\_language)
+C, [Online]. Available: \\ https://en.wikipedia.org/wiki/C\_(programming\_language)
 
 \bibitem{Python}
-Python (programming language), [Online]. Available: https://en.wikipedia.org/wiki/Python\_(programming\_language)
+Python (programming language), [Online]. Available: \\ https://en.wikipedia.org/wiki/Python\_(programming\_language)
 
 \bibitem{Java}
-Java (programming language), [Online]. Available: https://en.wikipedia.org/wiki/Java\_(programming\_language)
+Java (programming language), [Online]. Available: \\
+https://en.wikipedia.org/wiki/Java\_(programming\_language)
 
 \bibitem{Java Swing}
-Creating a GUI With JFC/Swing [Online]. Available: https://docs.oracle.com/javase/tutorial/uiswing/
+Creating a GUI With JFC/Swing [Online]. Available: \\ 
+https://docs.oracle.com/javase/tutorial/uiswing/
 
 \bibitem{LexAndYacc}
 John R.~Levine, Tony Mason, Doug Brown, "Lex \& Yacc", October 1992
 
 \bibitem{Lex}
-M.~E.~Lesk, E.~Schmidt, "Lex - A Lexical Analyzer Generator" [Online]. Available: https://wolfram.schneider.org/bsd/7thEdManVol2/lex/lex.pdf
+M.~E.~Lesk, E.~Schmidt, "Lex - A Lexical Analyzer Generator" [Online]. Available: \\ 
+https://wolfram.schneider.org/bsd/7thEdManVol2/lex/lex.pdf
 
 \bibitem{LFT}
 I.A. Letia and E.St. Chifu, "Limbaje formale si translatoare", Casa cartii
 de stiinta, Cluj-Napoca, Romania, 1998.
 
+\bibitem{Interpreter}
+Interpreter (computing), [Online]. Available: \\ https://en.wikipedia.org/wiki/Interpreter\_(computing)
 \bibitem{LFTv2}
 I.A. Letia, D. Marcu, and B. Ungureanu,"Procesoare de limbaje.
 Indrumator de laborator", lito. Universitatea Tehnica din Cluj-Napoca,
 1995.
 
+\bibitem{Parser}
+Parsing [Online]. Available: \\ https://en.wikipedia.org/wiki/Parsing
 \bibitem{Compilers}
 W.M. Waite and G. Goos,"Compiler Construction", Springer-Verlag, 1984.
 
 \bibitem{LexAndYacc Page}
-The Lex \& Yacc Page, [Online]. Available: http://dinosaur.compilertools.net/
+The Lex \& Yacc Page, [Online]. Available: \\ http://dinosaur.compilertools.net/
 
 \bibitem{LexYaccTutorial}
-Tom Niemann,"Lex\&Yacc Tutorial", [Online]. Available: https://cse.iitkgp.ac.in/~bivasm/notes/LexAndYaccTutorial.pdf
+Tom Niemann,"Lex\&Yacc Tutorial", [Online]. Available: \\ https://cse.iitkgp.ac.in/~bivasm/notes/LexAndYaccTutorial.pdf
+
+\bibitem{Abstract Syntax Tree}
+Abstract Syntax Tree, [Online]. Available: \\ https://en.wikipedia.org/wiki/Abstract\_syntax\_tree
 \end{thebibliography}

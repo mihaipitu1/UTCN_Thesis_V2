@@ -25,6 +25,7 @@
 \usepackage{ae,aecompl}
 \usepackage{algorithm}
 \usepackage{dirtree}
+\usepackage{listings}
 %\usepackage{algorithmic}
 \usepackage{color}
 \usepackage{color}
@@ -39,8 +40,8 @@
 % \doublespace
 
 \renewcommand{\thesisauthor}{Mihai PÎȚU}    %% Your name.
-\renewcommand{\thesismonth}{September}     %% Your month of graduation.
-\renewcommand{\thesisyear}{2019}      %% Your year of graduation.
+\renewcommand{\thesismonth}{July}     %% Your month of graduation.
+\renewcommand{\thesisyear}{2020}      %% Your year of graduation.
 \renewcommand{\thesistitle}{SueC - An Editor and Interpreter for Pseudocode} 
 \renewcommand{\thesissupervisor}{dr. eng. Emil Ștefan CHIFU}
 \newcommand{\department}{\bf FACULTY OF AUTOMATION AND COMPUTER SCIENCE\\
@@ -62,10 +63,6 @@ COMPUTER SCIENCE DEPARTMENT}
 
 %\thesistitle                    %% Generate the title page.
 %\authordeclarationpage                %% Generate the declaration page.
-
-\pagenumbering{arabic}
-\setcounter{page}{4}
-
 
 
 \begin{center}
@@ -122,12 +119,12 @@ Graduate: {\bf \thesisauthor}
 \vspace{1cm}
 
 \begin{enumerate}
- \item {\bf Project proposal:} {\it Short description of the license thesis and initial data}
-\item {\bf Project contents:} {\it (enumerate the main component parts) Presentation page, advisor's evaluation, title of chapter 1, title of chapter 2, ..., title of chapter n, bibliography, appendices.}
-\item {\bf Place of documentation:} {\it Example}: Technical University of Cluj-Napoca, Computer Science Department
+ \item {\bf Project proposal:} {\it SueC - An Editor and Interpreter for Pseudocode}
+\item {\bf Project contents:} {\it Introduction - Project Context, Project Objectives and Specifications, Bibliographic Research, Analysis and Theoretical Foundation, Detailed Design and Implementation, Testing and Validation, User's Manual, Conclusions, Bibliography}
+\item {\bf Place of documentation:} {\it Technical University of Cluj-Napoca, Computer Science Department}
 \item {\bf Consultants:}
-\item {\bf Date of issue of the proposal:} November 1, 2017
-\item {\bf Date of  delivery:} February 18, 2019 {\it (the date when the document is submitted)}
+\item {\bf Date of issue of the proposal:} November 1, 2019
+\item {\bf Date of  delivery:} July 8, 2020 {\it (the date when the document is submitted)}
   \end{enumerate}
 \vspace{1.2cm}
 
@@ -169,12 +166,10 @@ autenticitatea lucr\u{a}rii de licen\c{t}\u{a}}
 
 
 Subsemnatul(a) \\
-\uline{14.8cm}, 
-legitimat(\u{a}) cu \uline{4cm} seria \uline{3cm} nr. \uline{4cm}\\
-CNP \uline{9cm}, autorul lucr\u{a}rii \uline{2.8cm}\\
-\uline{16cm}\\
-\uline{16cm}\\
-elaborat\u{a} \^{\i}n vederea sus\c{t}inerii examenului de finalizare a studiilor de licen\c{t}\u{a} la Facultatea de Automatic\u{a} \c{s}i Calculatoare, Specializarea \uline{7cm} din cadrul Universit\u{a}\c{t}ii Tehnice din Cluj-Napoca, sesiunea \uline{4cm} a anului universitar \uline{3cm}, declar pe proprie r\u{a}spundere, c\u{a} aceast\u{a} lucrare este rezultatul propriei activit\u{a}\c{t}i intelectuale, pe baza cercet\u{a}rilor mele \c{s}i pe baza informa\c{t}iilor ob\c{t}inute din surse care au fost citate, \^{\i}n textul lucr\u{a}rii \c{s}i \^{\i}n bibliografie.
+{\bf MIHAI PÎŢU}, 
+legitimat(\u{a}) cu \textbf{CI} seria \textbf{XV} nr. {\bf 312773} \\
+CNP {\bf 1961106330208}, autorul lucr\u{a}rii {\bf SUEC - AN EDITOR AND INTERPRETER FOR PSEUDOCODE }
+elaborat\u{a} \^{\i}n vederea sus\c{t}inerii examenului de finalizare a studiilor de licen\c{t}\u{a} la Facultatea de Automatic\u{a} \c{s}i Calculatoare, Specializarea Calculatoare (în limba engleză) din cadrul Universit\u{a}\c{t}ii Tehnice din Cluj-Napoca, sesiunea IULIE a anului universitar 2019-2020, declar pe proprie r\u{a}spundere, c\u{a} aceast\u{a} lucrare este rezultatul propriei activit\u{a}\c{t}i intelectuale, pe baza cercet\u{a}rilor mele \c{s}i pe baza informa\c{t}iilor ob\c{t}inute din surse care au fost citate, \^{\i}n textul lucr\u{a}rii \c{s}i \^{\i}n bibliografie.
 
 Declar, c\u{a} aceast\u{a} lucrare nu con\c{t}ine por\c{t}iuni plagiate, iar sursele bibliografice au fost folosite cu 
 respectarea legisla\c{t}iei rom\^{a}ne \c{s}i a conven\c{t}iilor interna\c{t}ionale privind drepturile de autor.
@@ -189,7 +184,7 @@ Data \hspace{8cm} Nume, Prenume
 
 \vspace{0.5cm}
 
-\uline{3cm} \hspace{5cm} \uline{5cm}
+\textbf{08.07.2020} \hspace{7cm} \textbf{MIHAI PÎŢU}
 
 \vspace{0.5cm}
 \hspace{9.4cm}Semn\u{a}tura
@@ -206,13 +201,19 @@ Data \hspace{8cm} Nume, Prenume
 %\newpage
 
 %\begin{comment}
-\include{guideline} 
+%\include{guideline} 
 %\end{comment}
 
-\newpage
+\pagenumbering{roman}
+\setcounter{page}{1}
 
+\newpage
 \tableofcontents
 \newpage
+
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 \chapter{Introduction - Project Context}
 \pagestyle{headings}
@@ -269,7 +270,7 @@ For this project, my research done was focused on the main components and techno
 \end{enumerate}
  
 \section{C Programming Language}
- C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, while a static type system prevents unintended operations. This programming language was created between 1972 and 1973 as a way of making utilities work in Unix operating system, later being used for reimplementing the kernel of this OS. Since 1980s, C has gained enough popularity becoming one of the most widely used programming languages in the world. During this time, there were several C compilers created by several vendors for being available for the majority of existing computer architectures and operating systems. Since 1989, C has been standardized by ANSI (American National Standards Institute) and by the International Organization for Standardization (ISO). 
+ C{\it[3]} is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, while a static type system prevents unintended operations. This programming language was created between 1972 and 1973 as a way of making utilities work in Unix operating system, later being used for reimplementing the kernel of this OS. Since 1980s, C has gained enough popularity becoming one of the most widely used programming languages in the world. During this time, there were several C compilers created by several vendors for being available for the majority of existing computer architectures and operating systems. Since 1989, C has been standardized by ANSI (American National Standards Institute) and by the International Organization for Standardization (ISO). 
   
  Being an imperative procedural language, C was designed to be compiled using a relatively straightforward compiler to provide low-level access to memory and language constructs that map efficiently to machine code instructios all with minimal runtime support. This language supports cross-platform programming, making it available in numerous platforms, from embedded microcontrollers and supercomputers. It also stood as a big influence in the creation of other programming languages, such as:
  \begin{itemize}
@@ -293,13 +294,13 @@ For this project, my research done was focused on the main components and techno
  		
  	\item Iterative execution (Looping)
  	
- 		This is defined by \textit{while} , \textit{do-while} and \textit{for} statements which can loop through a certain set. The \textit{for} statement contains separate expressions for initialization, testing and reinitialization, any of which can be omitted. 
+ 		This is defined by \textit{while}, \textit{do-while} and \textit{for} statements which can loop through a certain set. The \textit{for} statement contains separate expressions for initialization, testing and reinitialization, any of which can be omitted. 
  \end{itemize}
 
 
 \section{Python Programming Language}
 
-Python is an interpreted, high-level, general-purpose programming language with the aim to help programmers with clear, logical code for small and large-scale projects. It was conceived in the late 1980s as a successor to ABC language, but it was released in 1991. Python is dynamically typed and garbage-collected, supporting multiple programming paradigms, such as: procedural, object-oriented and functional. Due to this and its comprehensive standard library, Python is often described as a "batteries included" language. 
+Python{\it[4]}  is an interpreted, high-level, general-purpose programming language with the aim to help programmers with clear, logical code for small and large-scale projects. It was conceived in the late 1980s as a successor to ABC language, but it was released in 1991. Python is dynamically typed and garbage-collected, supporting multiple programming paradigms, such as: procedural, object-oriented and functional. Due to this and its comprehensive standard library, Python is often described as a "batteries included" language. 
 
 Due to supporting multiple programming paradigms, Python is used in a lot of domains. Object-oriented programming and structured programming are fully supported, but it also includes features from functional programming and aspect-oriented programming. Other paradigms can be supported by Python via extensions, including even logic programming and design by contract. 
 
@@ -307,18 +308,43 @@ Python is meant to be an easily readable language due to its syntax and semantic
 
 \section{Technologies used}
 
-\subsection{Lex}
+\subsection{Lex - Lexical Analyzer}
 
-Lex is a computer program designed for generating lexical analyzers. It is the standard lexical analyzer generator on many Unix systems, having an equivalent tool as part of the POSIX standard. It is commonly used with \textit{yacc} parser generator.
+Lex[8] is a computer program designed for generating lexical analyzers. It is the standard lexical analyzer generator on many Unix systems, having an equivalent tool as part of the POSIX standard. It is commonly used with \textit{yacc} parser generator. 
 
-Lex reads an input stream specifying the lexical analyzer and outputs source code implementing a lexer in C. This input stream is given to Lex directly as standard input from the user or a file that contains the 
+A Lex source file contains a series of user-defined regular expressions that check different patterns that exist in a text file: numbers, keywords, strings, specific sentences etc. Lex compiles the source file with the regular expressions and generates a program called \textit{yylex}, which checks the input text file given as a data stream and performs the specified actions for each expression when it is triggered. 
 
-\subsection{Yacc}
+In the case of interpreters and/or compilers, the lexical analyzer contains those before-mentioned regular expressions that, when detected in the input data stream, sends the data in a cache memory used by the syntactic analyzer alongside with a token value generated. These tokens are then used in the syntactic analyzer to detect what operations are done with the tokens found.
+\subsection{Yacc - Syntactic Analyzer}
 
-Yacc\textit{(Yet Another Compiler-Compiler)} is a computer program for the Unix operating system. It is a LALR\textit{(Look Ahead Left-to-Right)} parser generator, which generates a parser, the part of a compiler that tries to make syntactic sense of the source code. 
+Yacc\textit{(Yet Another Compiler-Compiler)[8]} is a computer program for the Unix operating system. It is a LALR\textit{(Look Ahead Left-to-Right)} parser generator, which generates a parser, the part of a compiler that tries to make syntactic sense of the source code.
+
+Generally speaking, syntax analysis is defined as a process of checking a string of symbols to understand the meaning behind the message. It is used mostly in language grammars as a mean of understanding the exact purpose of a sentence and/or its words defining it, grouping the words based on their main functionality in a sentence or phrase: a subject, predicate, attributes and complements. 
+
+In computer science, the idea of syntactic analysis is similar to the linguistic notion, as it used a special data structure for defining the actual "sentences" of a programming language. Usually, the data structure defined is an abstract syntax tree(abbreviated as AST) - a tree structure that contains the definitions of the sentences used in a programming language, where the "leaves" are defined by raw data(strings, integers, floats) and the other nodes are operations. A syntax analyzer is preceded by a lexical analyzer because the tokens generated from Lex are used in an AST as the key value of the nodes. 
+
+The Yacc source files have a similar structure as the Lex files, the difference being that, instead of having regular expressions, the statements are defined as sentence patterns using tokens defined internally in Yacc, called non-terminals, and the tokens from Lex, which are called terminals. The non-terminals serve the purpose of defining the being operation nodes (nodes having children other non-terminals or terminals), whereas the terminals are the representation of the leaves of the AST. 
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{img/diags/AST.png}
+	\caption{Abstract Syntax Tree [10]}
+\end{figure}
+
+Figure 3.1 represents a graphical example of an AST for the Euclidean algorithm - a simple algorithm of finding the greatest common divisor between two integers. This tree is representation of the following statement sequence.
+
+\begin{lstlisting}
+	while(b!=0) 
+	 if(a>b)
+	 	a=a-b
+	 else
+	 	b=b-a
+	return a
+\end{lstlisting}
 
 \subsection{Java Programming Language}
-Java is a general-purpose programming language that is object-oriented and class-based. It is designed to have as few implementation dependencies as possible, with the intention to letting application developers apply the WORA rule (Write Once, Run Anywhere) - all compiled Java code can run on all platforms that support Java without the need for recompilation. 
+Java{\it[5]}  is a general-purpose programming language that is object-oriented and class-based. It is designed to have as few implementation dependencies as possible, with the intention to letting application developers apply the WORA rule (Write Once, Run Anywhere) - all compiled Java code can run on all platforms that support Java without the need for recompilation. 
 Java applications are typically compiled to bytecode that can be run on any Java Virtual Machine (JVM), regardless of the underlying computer and/or software architecture. 
 
 This programming language has been designed in May 1995 by James Gosling from Sun Microsystems (now being acquired by Oracle) being licensed under the same companu. Since May 2007, Java has been relicensed under GNU General Public License with the original Java compilers, virtual machines and class libraries. Nowadays, this programming language is one of the most popular programming languages in use, mainly for client-server applications. 
@@ -366,7 +392,7 @@ Accepts input from the view and converts the data obtained into commands that ar
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.2]{img/diags/MVCDiag.png}
-	\caption{Model-View-Controller Diagram}
+	\caption{Model-View-Controller Diagram [1]}
 \end{figure}
 
 Besides the division of the application into these components, this pattern defines the interactions between the components:
@@ -403,7 +429,7 @@ Model-View-Controller pattern offers different advantages in regards to developi
 	
 \section{Interpreter}
 
-An interpreter is a computer program that directly executes instructions written in a programming or scripting language, without requiring them to have been compiled into a machine code language program. For program execution, an interpreter uses one of these strategies:
+An interpreter[10] is a computer program that directly executes instructions written in a programming or scripting language, without requiring them to have been compiled into a machine code language program. For program execution, an interpreter uses one of these strategies:
 
 \begin{itemize}
 	\item Parsing the source code and performing its behavior directly;
@@ -681,7 +707,7 @@ This package contains all the user-defined GUI elements that are displayed in th
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{img/diags/CommonsPackage.png}
+    \includegraphics[width=1\linewidth]{img/diags/CommonsPackage.png}
     \caption{Commons Package}
     \label{fig:conf}
 \end{figure}
@@ -751,14 +777,26 @@ Besides those, there are two graphical elements that are defined outside the pac
 \end{itemize}
 \end{itemize}
 
-Besides the \textbf{logger} and \textbf{ui} packages, I have defined a class called \textbf{CommonElements}. It holds the common elements used on all views, having an instance of the menu bar and its menu items and specific fonts used for displaying the title, subtitle and info labels, respectively. Each font is bold and sans\_serif, but the difference between those is made via the size of it: title font - 36 pt, subtitle font - 20 pt, info font - 14 pt. 
+Besides the \textbf{logger} and \textbf{ui} packages, I have defined a class called \textbf{CommonElements}. It holds the common elements used on all views, having an instance of the menu bar and its menu items and specific fonts used for displaying the title, subtitle and info labels, respectively. Each font is bold and sans\_serif, but the difference between those is made via the size of it:
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textit{\textbf{Font Type}} & \textit{\textbf{Size}} \\ \hline
+Title font                  & 36                     \\ \hline
+Subtitle font               & 20                     \\ \hline
+Info font                   & 14                     \\ \hline
+\end{tabular}
+\caption{Font Types}
+\label{tab:my-table}
+\end{table}
 
 \item \textbf{utilities} package
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{img/diags/UtilityPackage.png}
+    \includegraphics[width=0.6\linewidth]{img/diags/UtilityPackage.png}
     \caption{Utility Package}
     \label{fig:conf}
 \end{figure}
@@ -776,8 +814,8 @@ This package contains objects that define the utility operations. It wraps the a
 	
 	This class contains the actual operation of compiling the source code file. The steps for this method are: 
 	\begin{enumerate}
-	\item Running the compiler executable \textit{suec.out} stored in "<root\_folder>//resources//compiler" directory with the source code file's absolute path as the parameter of the executable.
-	\item Reading the output of the compiler execution from "<root\_folder>//output//result//suec.output" file.
+	\item Running the compiler executable \textit{suec.out}. This file is stored in "./resources/compiler" directory with the source code file's absolute path as the parameter of the executable.
+	\item Reading the output of the compiler execution from "./output/result/suec.output" file.
 	\item Sending the output read to the view to be displayed.
 	\end{enumerate}
 \end{itemize}
@@ -789,21 +827,28 @@ The other key component of this project is the interpreter. It is a simplified v
 
 This interpreter is comprised of four files:
 \begin{enumerate}
+\setlength{\parskip}{-1pt}
+\setlength{\topsep}{-1pt}
 \item Lexical analyzer - suec.l
 \item Syntactic analyzer - suec.y
 \item Tree parser - suec\_interpreter.c 
 \item Commons header - suec\_header.h
 \end{enumerate}
 
+For obtaining the interpreter executable file, the lexical and syntactic files are compiled using Lex and Yacc, respectively. After compiling the source code analyzer files, two files are generated called \textit{lex.yy.c} and \textit{y.tab.h} which hold the C translations of the \textit{yylex} (and the regular expressions) and \textit{yyparse} functions. Then, the actual executable is obtained by compiling the tree parser and header file alongside the C files obtained before, returning a file called \textit{suec.out}. The file is called by the editor application alongside with the relative path of the source code file and the process of interpreting the source code begins. 
+
+When interpreting a SueC Source code file, it follows an execution pipeline (see Figure 5.7). The source code is passed into the lexical analyzer in which each statement is split into tokens. These tokens are then passed to the syntactic analyzer, which associates them into a sentence based on their token. These sentences are interpreted using the tree parser, each sentence having a branch - one node is represented by a token. After the interpretation, the created tree is parsed in a bottom-up manner and the result of the parsing is then returned into an output file. 
+
+The output file given to the editor is a text file containing the direct result of the operations, followed by a new line. Each \textit{write} statement from the SueC source code file is treated as a "print line" function similar to Python.  
+
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{img/diags/InterpreterPipeline.png}
+    \includegraphics[width=0.45\linewidth]{img/diags/InterpreterPipeline.png}
     \caption{Interpreter execution pipeline}
     \label{fig:conf}
 \end{figure}
 
-When interpreting a SueC Source code file, it follows an execution pipeline (see Figure 5.7). The source code is passed into the lexical analyzer in which each statement is split into tokens. These tokens are then passed to the syntactic analyzer, which associates them into a sentence based on their token. These sentences are interpreted using the tree parser, each sentence having a branch - one node is represented by a token. After the interpretation, the created tree is parsed in a bottom-up manner and the result of the parsing is then returned into an output file. 
 
 \subsection{Lexical Analyzer - suec.l}
 
@@ -1002,6 +1047,8 @@ The tree parser is a C file that contains the definitions of the functions that 
 \section{SueC Programming Language}
 
 SueC programming language is the key programming language of this project, being implemented with the help of the interpreter. It is an imperative programming language, having simple structures similar to C and Python programming languages. The aim of this SueC is to be closer to the pseudocode and to be easily understood and learnt by people with little to no experience in programming.
+
+Being an imperative programming language, each statement is parsed once, based on the order of those given in the source code file. The main feature that is similar to Python is the lack of defining functions, as the code is written directly in a script, without the definition of a 'main' function (as found in C or Java). 
 
 \subsection{Syntax}
 
@@ -1316,15 +1363,6 @@ Once installed, the application folder and file structure should look like:
 	\item After the command is written, press Enter and the app is opened. The terminal can be minimized.
 	\end{enumerate}
 	
-	Once opened, the application should look like as shown in Figure 7.1.
-	
-	\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.4]{img/userGuide/WelcomeScreen.png}
-    \caption{SueC Welcome Screen}
-    \label{fig:conf}
-\end{figure}
-
 From here, you can access the main views of the application via the top menu bar under the title bar.
 
 \subsection{File Operations}
@@ -1337,7 +1375,7 @@ For accessing the file view, there are two ways of performing this:
 	
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.45\linewidth]{img/userGuide/NewFileDialog.png}
+    \includegraphics[width=0.6\linewidth]{img/userGuide/NewFileDialog.png}
     \caption{New/Open File Dialog}
     \label{fig:conf}
 \end{figure}
@@ -1356,14 +1394,7 @@ For accessing the file view, there are two ways of performing this:
 	\end{enumerate}
 \end{itemize}
 
-On both cases, the user is redirected to the file view where the file is loaded, as shown in Figure 7.4.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{img/userGuide/FileView.png}
-    \caption{File View}
-    \label{fig:conf}
-\end{figure}
+On both cases, the user is redirected to the file view where the file is loaded.
 
 The user writes the code in the top text area. After the user finishes writing the code, press the \textit{Compile} menu to expand it and press the \textit{Compile File...} tab. After that, the result after intepreting the code is displayed in the bottom text box.
 
@@ -1376,7 +1407,7 @@ In order to perform a tutorial, here are the following steps:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\linewidth]{img/userGuide/TutorialListMenu.png}
+    \includegraphics[width=0.75\linewidth]{img/userGuide/TutorialListMenu.png}
     \caption{Tutorial List View}
     \label{fig:conf}
 \end{figure}
@@ -1387,7 +1418,7 @@ In order to perform a tutorial, here are the following steps:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{img/userGuide/TutorialDialog.png}
+    \includegraphics[width=0.75\linewidth]{img/userGuide/TutorialDialog.png}
     \caption{Tutorial View}
     \label{fig:conf}
 \end{figure}
@@ -1408,7 +1439,7 @@ In order to read a guide that is stored internally in the application, you as an
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\linewidth]{img/userGuide/GuideListMenu.png}
+    \includegraphics[width=0.65\linewidth]{img/userGuide/GuideListMenu.png}
     \caption{Guide List Menu}
     \label{fig:conf}
 \end{figure}
@@ -1419,7 +1450,7 @@ In order to read a guide that is stored internally in the application, you as an
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{img/userGuide/GuideDialog.png}
+    \includegraphics[width=0.7\linewidth]{img/userGuide/GuideDialog.png}
     \caption{Guide View}
     \label{fig:conf}
 \end{figure}
