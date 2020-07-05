@@ -1,61 +1,58 @@
-\contentsline {chapter}{Chapter{} \numberline {1}Introduction - Project Context}{1}%
-\contentsline {section}{\numberline {1.1}Project Context}{1}%
-\contentsline {section}{\numberline {1.2}Motivation}{1}%
-\contentsline {chapter}{Chapter{} \numberline {2}Project Objectives and Specifications}{3}%
-\contentsline {chapter}{Chapter{} \numberline {3}Bibliographic research}{4}%
-\contentsline {section}{\numberline {3.1}C Programming Language}{4}%
-\contentsline {section}{\numberline {3.2}Python Programming Language}{5}%
-\contentsline {section}{\numberline {3.3}Technologies used}{6}%
-\contentsline {subsection}{\numberline {3.3.1}Lex - Lexical Analyzer}{6}%
-\contentsline {subsection}{\numberline {3.3.2}Yacc - Syntactic Analyzer}{6}%
-\contentsline {subsection}{\numberline {3.3.3}Java Programming Language}{8}%
-\contentsline {subsection}{\numberline {3.3.4}Java Swing UI}{8}%
-\contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation}{10}%
-\contentsline {section}{\numberline {4.1}Editor Application}{10}%
-\contentsline {subsection}{\numberline {4.1.1}Model-View-Controller(MVC) Architecture}{10}%
-\contentsline {section}{\numberline {4.2}Interpreter}{12}%
-\contentsline {subsection}{\numberline {4.2.1}Lexical Analyzer}{13}%
-\contentsline {subsection}{\numberline {4.2.2}Syntactic Analyzer}{14}%
-\contentsline {subsection}{\numberline {4.2.3}Parse Tree}{14}%
-\contentsline {chapter}{Chapter{} \numberline {5}Detailed Design and Implementation}{15}%
-\contentsline {section}{\numberline {5.1}Project Component Diagram}{15}%
-\contentsline {section}{\numberline {5.2}Editor Application}{16}%
-\contentsline {subsection}{\numberline {5.2.1}Packages}{16}%
-\contentsline {section}{\numberline {5.3}Interpreter}{26}%
-\contentsline {subsection}{\numberline {5.3.1}Lexical Analyzer - suec.l}{27}%
-\contentsline {subsection}{\numberline {5.3.2}Syntactic Analyzer - suec.y}{29}%
-\contentsline {subsection}{\numberline {5.3.3}Tree Parser}{32}%
-\contentsline {section}{\numberline {5.4}SueC Programming Language}{34}%
-\contentsline {subsection}{\numberline {5.4.1}Syntax}{34}%
-\contentsline {subsubsection}{Keywords}{34}%
-\contentsline {subsubsection}{Identifiers}{36}%
-\contentsline {subsubsection}{Data Types}{36}%
-\contentsline {subsubsection}{Operations}{36}%
-\contentsline {section}{\numberline {5.5}Use Cases}{38}%
-\contentsline {subsection}{\numberline {5.5.1}Use Case Specification - Performing a tutorial}{39}%
-\contentsline {subsubsection}{Brief Description}{39}%
-\contentsline {subsubsection}{Preconditions}{39}%
-\contentsline {subsubsection}{Postconditions}{39}%
-\contentsline {subsubsection}{Flow of Events}{39}%
-\contentsline {section}{\numberline {5.6}Example of Execution - Compiling a file}{41}%
-\contentsline {chapter}{Chapter{} \numberline {6}Testing and Validation}{44}%
-\contentsline {section}{\numberline {6.1}Testing}{44}%
-\contentsline {section}{\numberline {6.2}Validation}{44}%
-\contentsline {subsection}{\numberline {6.2.1}Interpreter Logging System}{45}%
-\contentsline {subsection}{\numberline {6.2.2}Editor Logging System}{45}%
-\contentsline {chapter}{Chapter{} \numberline {7}User's manual}{46}%
-\contentsline {section}{\numberline {7.1}Prerequesities}{46}%
-\contentsline {subsection}{\numberline {7.1.1}Hardware resources}{46}%
-\contentsline {subsection}{\numberline {7.1.2}Software resources}{46}%
-\contentsline {section}{\numberline {7.2}Step-by-step Guide}{47}%
-\contentsline {subsection}{\numberline {7.2.1}File Operations}{47}%
-\contentsline {subsection}{\numberline {7.2.2}Tutorial Operations}{48}%
-\contentsline {subsection}{\numberline {7.2.3}Guide Operations}{50}%
-\contentsline {chapter}{Chapter{} \numberline {8}Conclusions}{53}%
-\contentsline {section}{\numberline {8.1}Contributions}{53}%
-\contentsline {section}{\numberline {8.2}Conclusions}{53}%
-\contentsline {section}{\numberline {8.3}Further Improvements}{54}%
-\contentsline {chapter}{Bibliography}{55}%
-\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{57}%
-\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{58}%
-\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{59}%
+\contentsline {chapter}{Chapter{} \numberline {1}Introduction - Project Context}{1}
+\contentsline {section}{\numberline {1.1}Project Context}{1}
+\contentsline {section}{\numberline {1.2}Motivation}{1}
+\contentsline {chapter}{Chapter{} \numberline {2}Project Objectives and Specifications}{3}
+\contentsline {chapter}{Chapter{} \numberline {3}Bibliographic research}{4}
+\contentsline {section}{\numberline {3.1}C Programming Language}{4}
+\contentsline {section}{\numberline {3.2}Python Programming Language}{5}
+\contentsline {section}{\numberline {3.3}Technologies used}{6}
+\contentsline {subsection}{\numberline {3.3.1}Lex - Lexical Analyzer}{6}
+\contentsline {subsection}{\numberline {3.3.2}Yacc - Syntactic Analyzer}{6}
+\contentsline {subsection}{\numberline {3.3.3}Java Programming Language}{8}
+\contentsline {subsection}{\numberline {3.3.4}Java Swing UI}{8}
+\contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation}{10}
+\contentsline {section}{\numberline {4.1}Editor Application}{10}
+\contentsline {subsection}{\numberline {4.1.1}Model-View-Controller(MVC) Architecture}{10}
+\contentsline {section}{\numberline {4.2}Interpreter}{12}
+\contentsline {subsection}{\numberline {4.2.1}Lexical Analyzer}{13}
+\contentsline {subsection}{\numberline {4.2.2}Syntactic Analyzer}{14}
+\contentsline {subsection}{\numberline {4.2.3}Parse Tree}{14}
+\contentsline {chapter}{Chapter{} \numberline {5}Detailed Design and Implementation}{15}
+\contentsline {section}{\numberline {5.1}Project Component Diagram}{15}
+\contentsline {section}{\numberline {5.2}Editor Application}{16}
+\contentsline {subsection}{\numberline {5.2.1}Packages}{16}
+\contentsline {section}{\numberline {5.3}Interpreter}{25}
+\contentsline {subsection}{\numberline {5.3.1}Lexical Analyzer - suec.l}{27}
+\contentsline {subsection}{\numberline {5.3.2}Syntactic Analyzer - suec.y}{29}
+\contentsline {subsection}{\numberline {5.3.3}Tree Parser}{32}
+\contentsline {section}{\numberline {5.4}SueC Programming Language}{34}
+\contentsline {subsection}{\numberline {5.4.1}Syntax}{34}
+\contentsline {subsubsection}{Keywords}{34}
+\contentsline {subsubsection}{Identifiers}{36}
+\contentsline {subsubsection}{Data Types}{36}
+\contentsline {subsubsection}{Operations}{36}
+\contentsline {section}{\numberline {5.5}Use Cases}{38}
+\contentsline {subsection}{\numberline {5.5.1}Use Case Specification - Performing a tutorial}{39}
+\contentsline {subsubsection}{Brief Description}{39}
+\contentsline {subsubsection}{Preconditions}{39}
+\contentsline {subsubsection}{Postconditions}{39}
+\contentsline {subsubsection}{Flow of Events}{39}
+\contentsline {section}{\numberline {5.6}Example of Execution - Compiling a file}{41}
+\contentsline {chapter}{Chapter{} \numberline {6}Testing and Validation}{44}
+\contentsline {section}{\numberline {6.1}Testing}{44}
+\contentsline {section}{\numberline {6.2}Validation}{44}
+\contentsline {subsection}{\numberline {6.2.1}Interpreter Logging System}{45}
+\contentsline {subsection}{\numberline {6.2.2}Editor Logging System}{45}
+\contentsline {chapter}{Chapter{} \numberline {7}User's manual}{46}
+\contentsline {section}{\numberline {7.1}Prerequesities}{46}
+\contentsline {subsection}{\numberline {7.1.1}Hardware resources}{46}
+\contentsline {subsection}{\numberline {7.1.2}Software resources}{46}
+\contentsline {section}{\numberline {7.2}Step-by-step Guide}{47}
+\contentsline {subsection}{\numberline {7.2.1}File Operations}{47}
+\contentsline {subsection}{\numberline {7.2.2}Tutorial Operations}{48}
+\contentsline {subsection}{\numberline {7.2.3}Guide Operations}{50}
+\contentsline {chapter}{Chapter{} \numberline {8}Conclusions}{53}
+\contentsline {section}{\numberline {8.1}Contributions}{53}
+\contentsline {section}{\numberline {8.2}Conclusions}{53}
+\contentsline {section}{\numberline {8.3}Further Improvements}{54}
+\contentsline {chapter}{Bibliography}{55}
